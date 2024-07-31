@@ -1,3 +1,23 @@
+src
+|-- main
+|   |-- java
+|       |-- pages
+|       |   |-- HomePage.java
+|       |   |-- ProductPage.java
+|       |   |-- CartPage.java
+|       |-- utils
+|           |-- WebDriverManager.java
+|-- test
+|-- java
+|-- tests
+|-- HomePageTest.java
+|-- ProductPageTest.java
+|-- CartPageTest.java
+|-- testdata
+|-- TestData.java
+
+
+
 home: https://automationexercise.com/
 
 

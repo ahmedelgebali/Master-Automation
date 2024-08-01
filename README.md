@@ -1,27 +1,25 @@
-src
-|-- main
-|   |-- java
-|       |-- pages
-|       |   |-- HomePage.java
-|       |   |-- ProductPage.java
-|       |   |-- CartPage.java
-|       |-- utils
-|           |-- WebDriverManager.java
-|-- test
-|-- java
-|-- tests
-|-- HomePageTest.java
-|-- ProductPageTest.java
-|-- CartPageTest.java
-|-- testdata
-|-- TestData.java
+## Project Structure
+
+```
+src/
+└── test/
+    ├── java/
+    │   └── org/
+    │       └── example/
+    │           ├── pages/
+    │           │   ├── SignupPage.java
+    │           │   └── [other page objects]
+    │           ├── tests/
+    │           │   ├── LoginAndSignupTest.java
+    │           │   └── [other test classes]
+    │           └── BaseTest.java
+    └── resources/
+```
+
+URL https://automationexercise.com/
 
 
-
-home: https://automationexercise.com/
-
-
-TEST CASES
+##TEST CASES
 Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:
 Test Case 1: Register User
 1. Launch browser
@@ -42,7 +40,7 @@ Test Case 1: Register User
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-    
+
 19. Test Case 2: Login User with correct email and password
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'

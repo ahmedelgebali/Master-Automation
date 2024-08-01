@@ -16,10 +16,10 @@ src/
     └── resources/
 ```
 
-URL https://automationexercise.com/
+Credits to: URL https://automationexercise.com/
 
 
-##TEST CASES
+## TEST CASES
 Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:
 Test Case 1: Register User
 1. Launch browser
@@ -320,6 +320,8 @@ Test Case 1: Register User
 6. Click on arrow at bottom right side to move upward
 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
    Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
+
+
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully

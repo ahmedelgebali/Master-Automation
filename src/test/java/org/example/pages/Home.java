@@ -1,8 +1,10 @@
 package org.example.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+
+import javax.swing.*;
+import java.beans.IntrospectionException;
 
 public class Home {
     private final WebDriver driver;
@@ -54,6 +56,45 @@ public class Home {
     private By item33 = By.xpath("//div[34]//div[1]//div[1]//div[2]");
     private By item34 = By.xpath("//div[35]//div[1]//div[1]//div[2]");
 
+    // array to hover over them in the loop
+    private By[] itemsPathsArray = {
+            By.xpath("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[3]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[4]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[5]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[6]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[7]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[8]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[9]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[10]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[11]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[12]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[13]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[14]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[15]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[16]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[17]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[18]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[19]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[20]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[21]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[22]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[23]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[24]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[25]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[26]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[27]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[28]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[29]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[30]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[31]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[32]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[33]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[34]//div[1]//div[1]//div[2]"),
+            By.xpath("//div[35]//div[1]//div[1]//div[2]")
+    };
+
+
     //footer slider locators
     private By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
     private By sliderRightFooter = By.xpath("//a[@class='right recommended-item-control']//i[@class='fa fa-angle-right']");
@@ -61,6 +102,35 @@ public class Home {
     private By firstItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
     private By scondItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[2]//div[1]//div[1]//div[1]//a[1]");
     private By thirdItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[3]//div[1]//div[1]//div[1]//a[1]");
+
+
+
+    public void hoverOverallItems() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Actions actions = new Actions(driver);
+        int counter = 0;
+
+        for (By item : itemsPathsArray) {
+            WebElement itemToHover = driver.findElement(item);
+
+            // Scroll the element into view before hovering
+            js.executeScript("arguments[0].scrollIntoView(true);", itemToHover);
+
+            actions.moveToElement(itemToHover).perform();
+            counter++;
+
+            // Scroll down by xx pixels after every 3 items
+            if (counter % 3 == 0) {
+                js.executeScript("window.scrollBy(0, 250)");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
 
 
 

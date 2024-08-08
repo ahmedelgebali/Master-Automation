@@ -7,7 +7,11 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Signup {
 
-    private WebDriver driver;
+    private final WebDriver driver;
+    public Signup(WebDriver driver){
+        this.driver = driver;
+    }
+
 
     // sign up Locators
     private By loginPagePath = By.xpath( "//a[normalize-space()='Signup / Login']");
@@ -37,9 +41,12 @@ public class Signup {
     private By createAccountBtn = By.xpath("//button[normalize-space()='Create Account']");
     private By confirmMessage = By.xpath("//b[normalize-space()='Account Created!']");
     private By continueBtn = By.xpath("//a[@class='btn btn-primary']");
-    public Signup(WebDriver driver){
-        this.driver = driver;
-    }
+
+
+
+
+
+
 
     //open login and signup page
     public void openLoginAndSignupPage(){

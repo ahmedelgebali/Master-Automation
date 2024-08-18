@@ -62,6 +62,7 @@ Test Case 1: Register User
 7. Click 'login' button
 8. Verify error 'Your email or password is incorrect!' is visible
    `` ---------- ``
+
    Test Case 4: Logout User
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'

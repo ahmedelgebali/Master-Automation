@@ -2,9 +2,12 @@ package org.example.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
 import java.beans.IntrospectionException;
+import java.time.Duration;
 
 public class Home {
     private final WebDriver driver;
@@ -105,6 +108,11 @@ public class Home {
 
 
 
+
+
+
+
+
     public void hoverOverallItems() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions actions = new Actions(driver);
@@ -112,25 +120,36 @@ public class Home {
 
         for (By item : itemsPathsArray) {
             WebElement itemToHover = driver.findElement(item);
-
             // Scroll the element into view before hovering
             js.executeScript("arguments[0].scrollIntoView(true);", itemToHover);
+            // Additional scroll adjustment to ensure the element is fully in view
+//            js.executeScript("window.scrollBy(0, -100);");
 
+            // Ensure element is visible
+            waitUntilVisible(itemToHover);
+            pause(600);
             actions.moveToElement(itemToHover).perform();
+            pause(1000);
             counter++;
 
             // Scroll down by xx pixels after every 3 items
             if (counter % 3 == 0) {
-                js.executeScript("window.scrollBy(0, 250)");
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                js.executeScript("window.scrollBy(0, 100)");
+                pause(1000);
             }
         }
     }
-
+    private void pause(int milliSeconds){
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void waitUntilVisible(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
 
 

@@ -15,6 +15,7 @@ public class BaseTest {
     public void setUp() {
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     public void tearDown(){

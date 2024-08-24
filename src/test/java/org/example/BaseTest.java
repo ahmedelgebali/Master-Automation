@@ -16,9 +16,10 @@ public class BaseTest {
 
 
     //set up the browser
-    public void setUp() {
+    public void setUp(String url) throws InterruptedException {
         driver = new FirefoxDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver.get(url);
         driver.manage().window().maximize();
     }
 

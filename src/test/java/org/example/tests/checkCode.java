@@ -11,12 +11,11 @@ public class checkCode extends BaseTest {
     private JavascriptExecutor js;
 
     @BeforeEach
-    public void setup() {
-        setUp();
+    public void setup() throws InterruptedException {
+        setUp("https://automationexercise.com/");
     }
     @Test
     public void test() throws InterruptedException {
-        driver.get("https://automationexercise.com/");
         Thread.sleep(2000);
         js.executeScript("window.scrollBy(0, 800);");
 

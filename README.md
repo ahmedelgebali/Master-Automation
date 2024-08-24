@@ -8,7 +8,7 @@ src/
     │       └── example/
     │           ├── pages/
     │           │   ├── SignupPage.java
-    │           │   └── [other page objects]
+    │           │   └── [other page ob0jects]
     │           ├── tests/
     │           │   ├── LoginAndSignupTest.java
     │           │   └── [other test classes]

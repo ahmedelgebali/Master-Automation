@@ -8,15 +8,15 @@ src/
     │       └── example/
     │           ├── pages/
     │           │   ├── SignupPage.java
-    │           │   └── [other page ob0jects]
+    │           │   ├── Login.java
+    |           |   └── Home.java
     │           ├── tests/
     │           │   ├── LoginAndSignupTest.java
     │           │   └── [other test classes]
     │           └── BaseTest.java
     └── resources/
 ```
-
-Credits to: URL https://automationexercise.com/
+Test Cases Credits to URL https://automationexercise.com/
 
 
 ## TEST CASES
@@ -61,6 +61,8 @@ Test Case 1: Register User
 6. Enter incorrect email address and password
 7. Click 'login' button
 8. Verify error 'Your email or password is incorrect!' is visible
+   `` ---------- ``
+
    Test Case 4: Logout User
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'

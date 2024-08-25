@@ -15,8 +15,8 @@ public class ProductsTest extends BaseTest {
     @Test
     public void addItemsToCartTest() throws InterruptedException {
         Products product = new Products(driver);
-        driver.findElement(By.xpath("//a[@href='/products']")).click();
 
-        product.addItemsToCart();
+        product.addItemsToCartAndFilter();
+
     }
 }

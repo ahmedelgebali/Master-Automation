@@ -3,6 +3,10 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Products {
     private WebDriver driver;
@@ -59,56 +63,71 @@ public class Products {
 
 
 
+    // Add products to cart and filter
+    public void addItemsToCartAndFilter() throws InterruptedException {
+        navigateToProductsPage();
+        this.addItemsToCart(new By[] {firstItemPath, secondItemPath, thirdItemPath});
+        applyFilter();
+        applyBrandFilter();
+    }
 
-    // Add products to cart
-    public void addItemsToCart() throws InterruptedException {
+
+    // navigate to products page
+    public void navigateToProductsPage(){
+        driver.findElement(By.xpath("//a[@href='/products']")).click(); //navigate to Products page
         js.executeScript("window.scrollBy(0, 100);");
+    }
 
-        // add 3 items to the cart
-        driver.findElement(firstItemPath).click();
-        Thread.sleep(5);
-        driver.findElement(continueBtn).click();
-        driver.findElement(secondItemPath).click();
-        Thread.sleep(5);
-        driver.findElement(continueBtn).click();
-        driver.findElement(thirdItemPath).click();
-        Thread.sleep(5);
-        driver.findElement(continueBtn).click();
+    // Add multiple items to the cart
+    public void addItemsToCart(By[] itemPaths){
+        for (By itemPath : itemPaths){
+            driver.findElement(itemPath).click();
+            waitFor(continueBtn);
+            driver.findElement(continueBtn).click();
+        }
+    }
 
-        //women filter
-        driver.findElement(womenFilter).click();
-        driver.findElement(dressFilter).click();
+    // wait for the btn 2b clickable and then click on it
+    public void waitFor(By locator){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
-        driver.findElement(womenFilter).click();
-        driver.findElement(topsFilter).click();
+    // apply filter
+    public void applyFilter(){
+        //women's filters
+        clickFilter(womenFilter, dressFilter);
+        clickFilter(womenFilter, topsFilter);
+        clickFilter(womenFilter, sareeFilter);
 
-        driver.findElement(womenFilter).click();
-        driver.findElement(sareeFilter).click();
+        //men's filters
+        clickFilter(menFilter, tshirtsFilter);
+        clickFilter(menFilter, jeansFilter);
 
-        //men filter
-        driver.findElement(menFilter).click();
-        driver.findElement(tshirtsFilter).click();
+        //kids' filters
+        clickFilter(kidsFilter, kidsDressFilter);
+        clickFilter(kidsFilter, kidsTopsAndShirts);
+    }
+    //click filter method
+    public void clickFilter(By filter, By option){
+        driver.findElement(filter).click();
+        driver.findElement(option).click();
+    }
 
-        driver.findElement(menFilter).click();
-        driver.findElement(jeansFilter).click();
+    // apply brand filter
+    public void applyBrandFilter(){
+        clickBrandFilter(firstBrandFilter);
+        clickBrandFilter(secondBrandFilter);
+        clickBrandFilter(thirdBrandFilter);
+        clickBrandFilter(fourthBrandFilter);
+        clickBrandFilter(fifthBrandFilter);
+        clickBrandFilter(sixthBrandFilter);
+        clickBrandFilter(seventhBrandFilter);
+        clickBrandFilter(eighthBrandFilter);
+    }
 
-        //kids
-        driver.findElement(kidsFilter).click();
-        driver.findElement(kidsDressFilter).click();
-
-        driver.findElement(kidsFilter).click();
-        driver.findElement(kidsTopsAndShirts).click();
-
-        //brands checking from their availability
-        driver.findElement(firstBrandFilter).click();
-        driver.findElement(secondBrandFilter).click();
-        driver.findElement(thirdBrandFilter).click();
-        driver.findElement(fourthBrandFilter).click();
-        driver.findElement(fifthBrandFilter).click();
-        driver.findElement(sixthBrandFilter).click();
-        driver.findElement(seventhBrandFilter).click();
-        driver.findElement(eighthBrandFilter).click();
-
-
+    // brand filter
+    public void clickBrandFilter(By brandFilter){
+        driver.findElement(brandFilter).click();
     }
 }

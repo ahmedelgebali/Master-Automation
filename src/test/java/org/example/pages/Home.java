@@ -1,24 +1,31 @@
 package org.example.pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
-import java.beans.IntrospectionException;
 import java.time.Duration;
 
 public class Home {
     private final WebDriver driver;
+    private final Actions actions;
+    private final JavascriptExecutor js;
 
     public Home(WebDriver driver) {
         this.driver = driver;
+        this.actions = new Actions(driver);
+        this.js = (JavascriptExecutor) driver;
     }
+
+
 
     //header slider locators
     private By leftSliderHeader = By.xpath("://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']");
-    private By rightSliderHeaser = By.xpath("//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']");
+    private By rightSliderHeader = By.xpath("//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']");
     private By sliderThreeDots1 = By.xpath("//section[@id='slider']//li[1]");
     private By sliderThreeDots2 = By.xpath("//section[@id='slider']//li[2]");
     private By sliderThreeDots3 = By.xpath("//section[@id='slider']//li[3]");
@@ -112,56 +119,103 @@ public class Home {
 
 
 
+        // Hover over all items in the array
+        public void hoverOverallItems() {
+            int counter = 0;
 
-    public void hoverOverallItems() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions actions = new Actions(driver);
-        int counter = 0;
+            for (By itemLocator : itemsPathsArray) {
+                WebElement itemToHover = safeFindElement(itemLocator);
+                if (itemToHover == null) continue;  // Skip if the element is not found
 
-        for (By item : itemsPathsArray) {
-            WebElement itemToHover = driver.findElement(item);
-            // Scroll the element into view before hovering
-            js.executeScript("arguments[0].scrollIntoView(true);", itemToHover);
-            // Additional scroll adjustment to ensure the element is fully in view
-//            js.executeScript("window.scrollBy(0, -100);");
+                // Perform hover operation
+                if (hoverOverElementWithRetries(itemToHover)) {
+                    // Wait for any potential animation to complete
+                    waitForAnimationToComplete(itemToHover);
+                }
 
-            // Ensure element is visible
-            waitUntilVisible(itemToHover);
-            pause(600);
-            actions.moveToElement(itemToHover).perform();
-            pause(1000);
-            counter++;
+                pause(1000); // Adjust this if needed
+                counter++;
 
-            // Scroll down by xx pixels after every 3 items
-            if (counter % 3 == 0) {
-                js.executeScript("window.scrollBy(0, 100)");
-                pause(1000);
+                // Scroll down after every 3 items
+                if (counter % 3 == 0) {
+                    scrollPageBy(0, 100);
+                    pause(1000);
+                }
+            }
+
+            // Click to scroll back up
+            safeClick(By.xpath("//body/section[1]"));
+        }
+
+        // Hover with retry logic
+        private boolean hoverOverElementWithRetries(WebElement element) {
+            int retries = 3;
+            for (int i = 0; i < retries; i++) {
+                try {
+                    scrollIntoView(element);
+                    actions.moveToElement(element).perform();
+                    return true;
+                } catch (Exception e) {
+                    // Retry if an exception occurs
+                    if (i == retries - 1) {
+                        System.out.println("Failed to hover over element after retries: " + e.getMessage());
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Scrolls the element into view
+        private void scrollIntoView(WebElement element) {
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+        }
+
+        // Scrolls the page by a certain amount
+        private void scrollPageBy(int x, int y) {
+            js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x, y);
+        }
+
+        // Waits until the element is clickable
+        private void waitForAnimationToComplete(WebElement element) {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+                wait.until(ExpectedConditions.elementToBeClickable(element));
+            } catch (Exception e) {
+                System.out.println("Animation did not complete in time: " + e.getMessage());
+            }
+        }
+
+        // Safe element finder
+        private WebElement safeFindElement(By locator) {
+            try {
+                return driver.findElement(locator);
+            } catch (Exception e) {
+                System.out.println("Element not found: " + e.getMessage());
+                return null;
+            }
+        }
+
+        // Safe click method
+        private void safeClick(By locator) {
+            try {
+                WebElement element = safeFindElement(locator);
+                if (element != null) {
+                    element.click();
+                }
+            } catch (Exception e) {
+                System.out.println("Failed to click element: " + e.getMessage());
+            }
+        }
+
+        // Pauses execution for the specified time
+        private void pause(int milliSeconds) {
+            try {
+                Thread.sleep(milliSeconds);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Pause interrupted: " + e.getMessage());
             }
         }
     }
-    private void pause(int milliSeconds){
-        try {
-            Thread.sleep(milliSeconds);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    private void waitUntilVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

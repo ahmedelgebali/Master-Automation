@@ -8,15 +8,15 @@ src/
     │       └── example/
     │           ├── pages/
     │           │   ├── SignupPage.java
-    │           │   └── [other page objects]
+    │           │   ├── Login.java
+    |           |   └── Home.java
     │           ├── tests/
     │           │   ├── LoginAndSignupTest.java
     │           │   └── [other test classes]
     │           └── BaseTest.java
     └── resources/
 ```
-
-Credits to: URL https://automationexercise.com/
+Test Cases Credits to URL https://automationexercise.com/
 
 
 ## TEST CASES

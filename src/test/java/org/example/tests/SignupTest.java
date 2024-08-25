@@ -10,14 +10,12 @@ public class SignupTest extends BaseTest {
 
 
     @BeforeEach
-    public void setUpTest(){
-        setUp();
+    public void setUpTest() throws InterruptedException {
+        setUp("https://automationexercise.com/");
     }
 
     @Test
     public void testSignup(){
-        //open the website
-        driver.get("https://automationexercise.com/");
 
         // filing the initial fields for the signup processes by entering mail and name
         Signup signup = new Signup(driver);

@@ -19,42 +19,42 @@ public class Products {
     }
 
     // Items' add to cart button's XPaths
-    private By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");
-    private By secondItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
-    private By thirdItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
+    public By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");
+    public By secondItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
+    public By thirdItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
 
 
     // continue shopping btn's xpath
-    private By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
+    public By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
     //view cart btn
-    private By viewCartBtn = By.xpath("//u[normalize-space()='View Cart']");
+    public By viewCartBtn = By.xpath("//u[normalize-space()='View Cart']");
 
     //filter XPaths --> category
             //WOMEN
-            private By womenFilter = By.xpath("//a[normalize-space()='Women']//i[@class='fa fa-plus']");
-                private By dressFilter = By.xpath("//div[@id='Women']//a[contains(text(),'Dress')]");
-                private By topsFilter = By.xpath("//a[normalize-space()='Tops']");
-                private By sareeFilter = By.xpath("//a[normalize-space()='Saree']");
+            public By womenFilter = By.xpath("//a[normalize-space()='Women']//i[@class='fa fa-plus']");
+                public By dressFilter = By.xpath("//div[@id='Women']//a[contains(text(),'Dress')]");
+                public By topsFilter = By.xpath("//a[normalize-space()='Tops']");
+                public By sareeFilter = By.xpath("//a[normalize-space()='Saree']");
 
             //MEN
-            private By menFilter = By.xpath("//a[normalize-space()='Men']//i[@class='fa fa-plus']");
-                private By tshirtsFilter = By.xpath("//a[normalize-space()='Tshirts']");
-                private By jeansFilter = By.xpath("//a[normalize-space()='Jeans']");
+            public By menFilter = By.xpath("//a[normalize-space()='Men']//i[@class='fa fa-plus']");
+                public By tshirtsFilter = By.xpath("//a[normalize-space()='Tshirts']");
+                public By jeansFilter = By.xpath("//a[normalize-space()='Jeans']");
 
             //KIDS
-            private By kidsFilter = By.xpath("//a[normalize-space()='Kids']//i[@class='fa fa-plus']");
-                private By kidsDressFilter = By.xpath("//div[@id='Kids']//a[contains(text(),'Dress')]");
-                private By kidsTopsAndShirts = By.xpath("//a[normalize-space()='Tops & Shirts']");
+            public By kidsFilter = By.xpath("//a[normalize-space()='Kids']//i[@class='fa fa-plus']");
+                public By kidsDressFilter = By.xpath("//div[@id='Kids']//a[contains(text(),'Dress')]");
+                public By kidsTopsAndShirts = By.xpath("//a[normalize-space()='Tops & Shirts']");
 
     //filter XPaths --> Brands
-            private By firstBrandFilter = By.xpath("//a[@href='/brand_products/Polo']");
-            private By secondBrandFilter = By.xpath("//a[@href='/brand_products/H&M']");
-            private By thirdBrandFilter = By.xpath("//a[@href='/brand_products/Madame']");
-            private By fourthBrandFilter = By.xpath("//a[@href='/brand_products/Mast & Harbour']");
-            private By fifthBrandFilter = By.xpath("//a[@href='/brand_products/Babyhug']");
-            private By sixthBrandFilter = By.xpath("//a[@href='/brand_products/Allen Solly Junior']");
-            private By seventhBrandFilter = By.xpath("//a[@href='/brand_products/Kookie Kids']");
-            private By eighthBrandFilter = By.xpath("//a[@href='/brand_products/Biba']");
+            public By firstBrandFilter = By.xpath("//a[@href='/brand_products/Polo']");
+            public By secondBrandFilter = By.xpath("//a[@href='/brand_products/H&M']");
+            public By thirdBrandFilter = By.xpath("//a[@href='/brand_products/Madame']");
+            public By fourthBrandFilter = By.xpath("//a[@href='/brand_products/Mast & Harbour']");
+            public By fifthBrandFilter = By.xpath("//a[@href='/brand_products/Babyhug']");
+            public By sixthBrandFilter = By.xpath("//a[@href='/brand_products/Allen Solly Junior']");
+            public By seventhBrandFilter = By.xpath("//a[@href='/brand_products/Kookie Kids']");
+            public By eighthBrandFilter = By.xpath("//a[@href='/brand_products/Biba']");
 
 
 
@@ -64,13 +64,6 @@ public class Products {
 
 
     // Add products to cart and filter
-    public void addItemsToCartAndFilter() throws InterruptedException {
-        navigateToProductsPage();
-        this.addItemsToCart(new By[] {firstItemPath, secondItemPath, thirdItemPath});
-        applyFilter();
-        applyBrandFilter();
-    }
-
 
     // navigate to products page
     public void navigateToProductsPage(){

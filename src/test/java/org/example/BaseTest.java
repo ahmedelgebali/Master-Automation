@@ -11,7 +11,6 @@ public class BaseTest {
 
     protected static WebDriver driver;
     protected static WebDriverWait wait;
-
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
 

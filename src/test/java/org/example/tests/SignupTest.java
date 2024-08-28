@@ -2,30 +2,31 @@ package org.example.tests;
 
 import org.example.BaseTest;
 import org.example.pages.Signup;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SignupTest extends BaseTest {
 
+    String mail = "ramses100@egy.com0";
+    Signup signup = new Signup(driver);
 
-
-    @BeforeEach
-    public void setUpTest() throws InterruptedException {
+    @BeforeAll
+    public static void setUpTest() throws InterruptedException {
         setUp("https://automationexercise.com/");
     }
 
+
     @Test
-    public void testSignup(){
-
+    public void SignupInitialPage() {
         // filing the initial fields for the signup processes by entering mail and name
-        Signup signup = new Signup(driver);
-        String mail = "ramses100@egy.com0";
-
         signup.openLoginAndSignupPage();
         signup.enterName("Ramses");
         signup.enterMail(mail);
         signup.clickSignupBtn();
-
+    }
+    @Test
+    public void signupInfoPage(){
         //fil the information in the user info page
         signup.selectTitle();
         signup.enterPass("Ramses1520EGC");

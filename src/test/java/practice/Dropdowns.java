@@ -21,12 +21,34 @@ public class Dropdowns {
 
         driver.get("https://www.google.co.uk/");
         driver.findElement(By.xpath("//textarea[@id='APjFqb']")).sendKeys("Selenium w");
-        List<WebElement> searchResults = driver.findElements(By.xpath("//div[@id='Alh6id']//span"));
+        List<WebElement> searchResults = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+        try {
+            for (int i = 0; i < searchResults.size(); i++) {
+                if (searchResults.get(i).getText().equals("selenium with java")) {
+                    searchResults.get(i).click();
+                    System.out.println("Clicked on item index: " +i);
+                    break;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        /*
         for (WebElement result : searchResults){
             System.out.println(result.getText());
         }
+
+         */
+
+
+
+//        driver.quit();
+
+
 
 
         /*
@@ -41,6 +63,7 @@ public class Dropdowns {
         System.out.println(drpOptions.size());
 
          */
+
 
     }
 }

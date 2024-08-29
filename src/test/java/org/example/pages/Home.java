@@ -24,198 +24,196 @@ public class Home {
 
 
     //header slider locators
-    private By leftSliderHeader = By.xpath("://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']");
-    private By rightSliderHeader = By.xpath("//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']");
-    private By sliderThreeDots1 = By.xpath("//section[@id='slider']//li[1]");
-    private By sliderThreeDots2 = By.xpath("//section[@id='slider']//li[2]");
-    private By sliderThreeDots3 = By.xpath("//section[@id='slider']//li[3]");
+    private final String leftSliderHeader = "://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
+    private final String rightSliderHeader = "//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']";
+    private final String sliderThreeDots1 = "//section[@id='slider']//li[1]";
+    private final String sliderThreeDots2 = "//section[@id='slider']//li[2]";
+    private final String sliderThreeDots3 = "//section[@id='slider']//li[3]";
+
+    private final By[]  sliderHeaderArray = {
+            By.xpath(leftSliderHeader), By.xpath(rightSliderHeader),    By.xpath(sliderThreeDots1),
+            By.xpath(sliderThreeDots2), By.xpath(sliderThreeDots3)
+    };
+    
 
     //items locators
-    private By item1 = By.xpath("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
-    private By item2 = By.xpath("//div[3]//div[1]//div[1]//div[2]");
-    private By item3 = By.xpath("//div[4]//div[1]//div[1]//div[2]");
-    private By item4 = By.xpath("//div[5]//div[1]//div[1]//div[2]");
-    private By item5 = By.xpath("//div[6]//div[1]//div[1]//div[2]");
-    private By item6 = By.xpath("//div[7]//div[1]//div[1]//div[2]");
-    private By item7 = By.xpath("//div[8]//div[1]//div[1]//div[2]");
-    private By item8 = By.xpath("//div[9]//div[1]//div[1]//div[2]");
-    private By item9  = By.xpath("//div[10]//div[1]//div[1]//div[2]");
-    private By item10 = By.xpath("//div[11]//div[1]//div[1]//div[2]");
-    private By item11 = By.xpath("//div[12]//div[1]//div[1]//div[2]");
-    private By item12 = By.xpath("//div[13]//div[1]//div[1]//div[2]");
-    private By item13 = By.xpath("//div[14]//div[1]//div[1]//div[2]");
-    private By item14 = By.xpath("//div[15]//div[1]//div[1]//div[2]");
-    private By item15 = By.xpath("//div[16]//div[1]//div[1]//div[2]");
-    private By item16 = By.xpath("//div[17]//div[1]//div[1]//div[2]");
-    private By item17 = By.xpath("//div[18]//div[1]//div[1]//div[2]");
-    private By item18 = By.xpath("//div[19]//div[1]//div[1]//div[2]");
-    private By item19 = By.xpath("//div[20]//div[1]//div[1]//div[2]");
-    private By item20 = By.xpath("//div[21]//div[1]//div[1]//div[2]");
-    private By item21 = By.xpath("//div[22]//div[1]//div[1]//div[2]");
-    private By item22 = By.xpath("//div[23]//div[1]//div[1]//div[2]");
-    private By item23 = By.xpath("//div[24]//div[1]//div[1]//div[2]");
-    private By item24 = By.xpath("//div[25]//div[1]//div[1]//div[2]");
-    private By item25 = By.xpath("//div[26]//div[1]//div[1]//div[2]");
-    private By item26 = By.xpath("//div[27]//div[1]//div[1]//div[2]");
-    private By item27 = By.xpath("//div[28]//div[1]//div[1]//div[2]");
-    private By item28 = By.xpath("//div[29]//div[1]//div[1]//div[2]");
-    private By item29 = By.xpath("//div[30]//div[1]//div[1]//div[2]");
-    private By item30 = By.xpath("//div[31]//div[1]//div[1]//div[2]");
-    private By item31 = By.xpath("//div[32]//div[1]//div[1]//div[2]");
-    private By item32 = By.xpath("//div[33]//div[1]//div[1]//div[2]");
-    private By item33 = By.xpath("//div[34]//div[1]//div[1]//div[2]");
-    private By item34 = By.xpath("//div[35]//div[1]//div[1]//div[2]");
+    private final String item1 = ("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
+    private final String item2 = ("//div[3]//div[1]//div[1]//div[2]");
+    private final String item3 = ("//div[4]//div[1]//div[1]//div[2]");
+    private final String item4 = ("//div[5]//div[1]//div[1]//div[2]");
+    private final String item5 = ("//div[6]//div[1]//div[1]//div[2]");
+    private final String item6 = ("//div[7]//div[1]//div[1]//div[2]");
+    private final String item7 = ("//div[8]//div[1]//div[1]//div[2]");
+    private final String item8 = ("//div[9]//div[1]//div[1]//div[2]");
+    private final String item9 = ("//div[10]//div[1]//div[1]//div[2]");
+    private final String item10 = ("//div[11]//div[1]//div[1]//div[2]");
+    private final String item11 = ("//div[12]//div[1]//div[1]//div[2]");
+    private final String item12 = ("//div[13]//div[1]//div[1]//div[2]");
+    private final String item13 = ("//div[14]//div[1]//div[1]//div[2]");
+    private final String item14 = ("//div[15]//div[1]//div[1]//div[2]");
+    private final String item15 = ("//div[16]//div[1]//div[1]//div[2]");
+    private final String item16 = ("//div[17]//div[1]//div[1]//div[2]");
+    private final String item17 = ("//div[18]//div[1]//div[1]//div[2]");
+    private final String item18 = ("//div[19]//div[1]//div[1]//div[2]");
+    private final String item19 = ("//div[20]//div[1]//div[1]//div[2]");
+    private final String item20 = ("//div[21]//div[1]//div[1]//div[2]");
+    private final String item21 = ("//div[22]//div[1]//div[1]//div[2]");
+    private final String item22 = ("//div[23]//div[1]//div[1]//div[2]");
+    private final String item24 = ("//div[25]//div[1]//div[1]//div[2]");
+    private final String item25 = ("//div[26]//div[1]//div[1]//div[2]");
+    private final String item26 = ("//div[27]//div[1]//div[1]//div[2]");
+    private final String item27 = ("//div[28]//div[1]//div[1]//div[2]");
+    private final String item28 = ("//div[29]//div[1]//div[1]//div[2]");
+    private final String item29 = ("//div[30]//div[1]//div[1]//div[2]");
+    private final String item30 = ("//div[31]//div[1]//div[1]//div[2]");
+    private final String item31 = ("//div[32]//div[1]//div[1]//div[2]");
+    private final String item32 = ("//div[33]//div[1]//div[1]//div[2]");
+    private final String item33 = ("//div[34]//div[1]//div[1]//div[2]");
+    private final String item34 = ("//div[35]//div[1]//div[1]//div[2]");
 
     // array to hover over them in the loop
-    private By[] itemsPathsArray = {
-            By.xpath("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[3]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[4]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[5]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[6]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[7]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[8]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[9]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[10]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[11]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[12]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[13]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[14]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[15]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[16]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[17]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[18]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[19]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[20]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[21]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[22]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[23]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[24]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[25]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[26]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[27]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[28]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[29]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[30]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[31]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[32]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[33]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[34]//div[1]//div[1]//div[2]"),
-            By.xpath("//div[35]//div[1]//div[1]//div[2]")
+    private final By[] itemsPathsArray = {
+            By.xpath(item1),    By.xpath(item2),    By.xpath(item3),  By.xpath(item4),
+            By.xpath(item5),    By.xpath(item6),    By.xpath(item7),  By.xpath(item8),
+            By.xpath(item9),    By.xpath(item10),   By.xpath(item11), By.xpath(item12),
+            By.xpath(item13),   By.xpath(item14),   By.xpath(item15), By.xpath(item16),
+            By.xpath(item17),   By.xpath(item18),   By.xpath(item19), By.xpath(item20),
+            By.xpath(item21),   By.xpath(item22),   By.xpath(item24), By.xpath(item25),
+            By.xpath(item26),   By.xpath(item27),   By.xpath(item28), By.xpath(item29),
+            By.xpath(item30),   By.xpath(item31),   By.xpath(item32), By.xpath(item33),
+            By.xpath(item34)
     };
 
 
     //footer slider locators
-    private By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
-    private By sliderRightFooter = By.xpath("//a[@class='right recommended-item-control']//i[@class='fa fa-angle-right']");
+    private final By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
+    private final By sliderRightFooter = By.xpath("//a[@class='right recommended-item-control']//i[@class='fa fa-angle-right']");
 
-    private By firstItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
-    private By scondItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[2]//div[1]//div[1]//div[1]//a[1]");
-    private By thirdItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[3]//div[1]//div[1]//div[1]//a[1]");
-
-
+    private final By firstItemAddToCartBtnInFooterSlider = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    private final By secondItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
+    private final By thirdItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[3]//div[1]//div[1]//div[1]//a[1]");
 
 
 
 
 
-        // Hover over all items in the array
-        public void hoverOverallItems() {
-            int counter = 0;
 
-            for (By itemLocator : itemsPathsArray) {
-                WebElement itemToHover = safeFindElement(itemLocator);
-                if (itemToHover == null) continue;  // Skip if the element is not found
 
-                // Perform hover operation
-                if (hoverOverElementWithRetries(itemToHover)) {
-                    // Wait for any potential animation to complete
-                    waitForAnimationToComplete(itemToHover);
-                }
+    // Hover over all items in the array
+    public void hoverOverallItems() {
+        headerAction(); //perform header test
 
-                pause(1000); // Adjust this if needed
-                counter++;
-
-                // Scroll down after every 3 items
-                if (counter % 3 == 0) {
-                    scrollPageBy(0, 100);
-                    pause(1000);
-                }
+        int counter = 0;
+        for (By itemLocator : itemsPathsArray) {
+            WebElement itemToHover = safeFindElement(itemLocator);
+            if (itemToHover == null) continue;  // Skip if the element is not found
+            // Perform hover operation
+            if (hoverOverElementWithRetries(itemToHover)) {
+                // Wait for any potential animation to complete
+                waitForAnimationToComplete(itemToHover);
             }
+            pause(1000);
+            counter++;
 
-            // Click to scroll back up
-            safeClick(By.xpath("//body/section[1]"));
-        }
-
-        // Hover with retry logic
-        private boolean hoverOverElementWithRetries(WebElement element) {
-            int retries = 3;
-            for (int i = 0; i < retries; i++) {
-                try {
-                    scrollIntoView(element);
-                    actions.moveToElement(element).perform();
-                    return true;
-                } catch (Exception e) {
-                    // Retry if an exception occurs
-                    if (i == retries - 1) {
-                        System.out.println("Failed to hover over element after retries: " + e.getMessage());
-                        return false;
-                    }
-                }
+            // Scroll down after every 3 items
+            if (counter % 4 == 0) {
+                scrollPageBy();
+                pause(1000);
             }
-            return false;
         }
 
-        // Scrolls the element into view
-        private void scrollIntoView(WebElement element) {
-            js.executeScript("arguments[0].scrollIntoView(true);", element);
-        }
+        footerAction(); //perform footer test
+        // Click to scroll back up
+        safeClick(By.xpath("//body/section[1]"));
+    }
 
-        // Scrolls the page by a certain amount
-        private void scrollPageBy(int x, int y) {
-            js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x, y);
-        }
-
-        // Waits until the element is clickable
-        private void waitForAnimationToComplete(WebElement element) {
+    // Hover with retry logic
+    private boolean hoverOverElementWithRetries(WebElement element) {
+        int retries = 3;
+        for (int i = 0; i < retries; i++) {
             try {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-                wait.until(ExpectedConditions.elementToBeClickable(element));
+                scrollIntoView(element);
+                actions.moveToElement(element).perform();
+                return true;
             } catch (Exception e) {
-                System.out.println("Animation did not complete in time: " + e.getMessage());
-            }
-        }
-
-        // Safe element finder
-        private WebElement safeFindElement(By locator) {
-            try {
-                return driver.findElement(locator);
-            } catch (Exception e) {
-                System.out.println("Element not found: " + e.getMessage());
-                return null;
-            }
-        }
-
-        // Safe click method
-        private void safeClick(By locator) {
-            try {
-                WebElement element = safeFindElement(locator);
-                if (element != null) {
-                    element.click();
+                // Retry if an exception occurs
+                if (i == retries - 1) {
+                    System.out.println("Failed to hover over element after retries: " + e.getMessage());
+                    return false;
                 }
-            } catch (Exception e) {
-                System.out.println("Failed to click element: " + e.getMessage());
             }
         }
+        return false;
+    }
+    public void headerAction(){
+        for (By slider : sliderHeaderArray){
+            safeClick(slider);
+            pause(500);
+        }
+    }
 
-        // Pauses execution for the specified time
-        private void pause(int milliSeconds) {
-            try {
-                Thread.sleep(milliSeconds);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.out.println("Pause interrupted: " + e.getMessage());
-            }
+    public void footerAction(){
+        safeClick(sliderLeftFooter);
+        safeClick(sliderLeftFooter);
+        safeClick(sliderRightFooter);
+        safeClick(firstItemAddToCartBtnInFooterSlider);
+        safeClick(secondItemAddToCartBtnInFooterSlider);
+        safeClick(thirdItemAddToCartBtnInFooterSlider);
+    }
+
+
+    // Scrolls the element into view
+    private void scrollIntoView(WebElement element) {
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    // Scrolls the page by a certain amount
+    private void scrollPageBy() {
+        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
+    }
+
+    // Waits until the element is clickable
+    private void waitForAnimationToComplete(WebElement element) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+            System.out.println("Animation did not complete in time: " + e.getMessage());
         }
+    }
+
+    // Safe element finder
+    private WebElement safeFindElement(By locator) {
+        try {
+            return driver.findElement(locator);
+        } catch (Exception e) {
+            System.out.println("Element not found: " + e.getMessage());
+            return null;
+        }
+    }
+
+    // Safe click method
+    private void safeClick(By locator) {
+        try {
+            WebElement element = safeFindElement(locator);
+            if (element != null) {
+                element.click();
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to click element: " + e.getMessage());
+        }
+    }
+
+    // Pauses execution for the specified time
+    private void pause(int milliSeconds) {
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("Pause interrupted: " + e.getMessage());
+        }
+    }
+        
+
     }
 

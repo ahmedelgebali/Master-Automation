@@ -18,10 +18,12 @@ public class Tables {
         js.executeScript("window.scrollBy(0,1000)");
 
         int countRaw = 1;
-        for (int c=2; c<=7; c++) {
-            for (int i = 1; i<=4; i++){
-                String tableText = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+c+"]//td["+i+"]")).getText();
-                System.out.println("Raw number:"+countRaw+", Cell number:"+i+ ", Content --> : {" +tableText+"}");
+        for (int r=2; r<=7; r++) {
+            for (int c = 1; c<=4; c++){
+                String tableText = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]//td["+c+"]")).getText();
+                if (tableText.contains("Mukesh")){
+                    System.out.println("Raw number:"+countRaw+", Cell number:"+c+ ", Content --> : {" +tableText+"}");
+                }
             }
             countRaw++;
         }

@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class Tables {
 
-                public static void main(String[] args) {
+    public static void main(String[] args) {
         WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -17,7 +17,19 @@ public class Tables {
         driver.get("https://testautomationpractice.blogspot.com/");
         js.executeScript("window.scrollBy(0,1000)");
 
+        int countRaw = 1;
+        for (int c=2; c<=7; c++) {
+            for (int i = 1; i<=4; i++){
+                String tableText = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+c+"]//td["+i+"]")).getText();
+                System.out.println("Raw number:"+countRaw+", Cell number:"+i+ ", Content --> : {" +tableText+"}");
+            }
+            countRaw++;
+        }
 
+
+
+
+        /*
         String[] tableXpath = new String[5];
         // Loop to generate and store XPaths
         for (int i = 1; i <= 5; i++) {
@@ -28,6 +40,9 @@ public class Tables {
             System.out.println("Raw Number:"+ i +" --> "+ driver.findElement(By.xpath(xpath)).getText());
             i++;
         }
+
+         */
+
         driver.quit();
 
     }

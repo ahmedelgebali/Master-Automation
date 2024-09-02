@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -23,9 +24,14 @@ public class dynamicTables {
 //          js.executeScript("window.scrollBy(0,1000)");
 
 
-            Thread.sleep(1500);
-            driver.findElement(By.xpath("//input[@id='input-username']")).sendKeys("demo");
-            driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("demo");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='input-username']")));
+            WebElement uname = driver.findElement(By.xpath("//input[@id='input-username']"));
+            WebElement pass = driver.findElement(By.xpath("//input[@id='input-password']"));
+
+            uname.clear();
+            uname.sendKeys("demo");
+            pass.clear();
+            pass.sendKeys("demo");
             driver.findElement(By.xpath("//button[@type='submit']")).click();
             driver.findElement(By.xpath("//a[@class='parent collapsed'][normalize-space()='Customers']")).click();
             driver.findElement(By.xpath("//ul[@id='collapse-5']//a[contains(text(),'Customers')]")).click();

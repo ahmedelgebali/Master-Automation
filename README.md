@@ -1,5 +1,5 @@
 ## Project Structure
-
+Note: The project is still Under development and Refactoring 
 ```
 src/
 └── test/
@@ -20,7 +20,6 @@ Test Cases Credits to URL https://automationexercise.com/
 
 
 ## TEST CASES
-Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:
 Test Case 1: Register User
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'

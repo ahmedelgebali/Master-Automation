@@ -15,7 +15,6 @@ public class HomeTest extends BaseTest {
     @Test
     public void testHoverOver(){
         Home home = new Home(driver);
-
         home.hoverOverallItems();
     }
 

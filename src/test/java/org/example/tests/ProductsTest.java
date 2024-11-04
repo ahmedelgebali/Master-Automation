@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import org.example.BaseTest;
+import org.example.pages.Home;
 import org.example.pages.Products;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +16,7 @@ public class ProductsTest extends BaseTest {
     public static void setup() throws InterruptedException {
         setUp("https://automationexercise.com/");
     }
-    @AfterAll
+//    @AfterAll
     public static void teardown(){
         tearDown();
     }
@@ -27,8 +28,24 @@ public class ProductsTest extends BaseTest {
 
     @Test
     public void addItemsToCart() throws InterruptedException {
+//        By[] productsPaths = Home.getItemsPathsArray();
         product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath, product.thirdItemPath});
     }
+
+
+     /*
+
+    @Test
+    public void addItemsToCart() throws InterruptedException {
+        By[] productsPaths = Home.getItemsPathsArray();
+        product.addItemsToCart(new By[] { productsPaths[1] });
+    }
+
+     */
+
+
+
+
     @Test
     public void applyMenAndWomenFilter(){
         product.applyFilter();

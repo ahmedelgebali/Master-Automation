@@ -3,22 +3,34 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
-public class Products {
-    private WebDriver driver;
-    private JavascriptExecutor js;
+
+
+public class Products{
+
+    public WebDriver driver = null;
+    public final Actions actions;
+    public final JavascriptExecutor js;
+
 
     // Corrected constructor
     public Products(WebDriver driver) {
         this.driver = driver;
+        this.actions = new Actions(driver);
         this.js = (JavascriptExecutor) driver;
     }
 
-    // Items' add to cart button's XPaths
+
+
+
+
+
+
+    // Items LOACTOR to add to cart
     public By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");
     public By secondItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
     public By thirdItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
@@ -31,18 +43,18 @@ public class Products {
 
     //filter XPaths --> category
             //WOMEN
-            public By womenFilter = By.xpath("//a[normalize-space()='Women']//i[@class='fa fa-plus']");
+                public By womenFilter = By.xpath("//a[normalize-space()='Women']//i[@class='fa fa-plus']");
                 public By dressFilter = By.xpath("//div[@id='Women']//a[contains(text(),'Dress')]");
                 public By topsFilter = By.xpath("//a[normalize-space()='Tops']");
                 public By sareeFilter = By.xpath("//a[normalize-space()='Saree']");
 
             //MEN
-            public By menFilter = By.xpath("//a[normalize-space()='Men']//i[@class='fa fa-plus']");
+                public By menFilter = By.xpath("//a[normalize-space()='Men']//i[@class='fa fa-plus']");
                 public By tshirtsFilter = By.xpath("//a[normalize-space()='Tshirts']");
                 public By jeansFilter = By.xpath("//a[normalize-space()='Jeans']");
 
             //KIDS
-            public By kidsFilter = By.xpath("//a[normalize-space()='Kids']//i[@class='fa fa-plus']");
+                public By kidsFilter = By.xpath("//a[normalize-space()='Kids']//i[@class='fa fa-plus']");
                 public By kidsDressFilter = By.xpath("//div[@id='Kids']//a[contains(text(),'Dress')]");
                 public By kidsTopsAndShirts = By.xpath("//a[normalize-space()='Tops & Shirts']");
 
@@ -60,10 +72,7 @@ public class Products {
 
 
 
-
-
-
-    // Add products to cart and filter
+// Add products to cart and filter
 
     // navigate to products page
     public void navigateToProductsPage(){
@@ -74,9 +83,11 @@ public class Products {
     // Add multiple items to the cart
     public void addItemsToCart(By[] itemPaths){
         for (By itemPath : itemPaths){
+//            waitFor(Home.itemsPathsArray[1]);
             driver.findElement(itemPath).click();
             waitFor(continueBtn);
             driver.findElement(continueBtn).click();
+
         }
     }
 
@@ -86,7 +97,9 @@ public class Products {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    // apply filter
+
+
+// apply filter
     public void applyFilter(){
         //women's filters
         clickFilter(womenFilter, dressFilter);
@@ -107,6 +120,8 @@ public class Products {
         driver.findElement(option).click();
     }
 
+
+
     // apply brand filter
     public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
@@ -118,9 +133,9 @@ public class Products {
         clickBrandFilter(seventhBrandFilter);
         clickBrandFilter(eighthBrandFilter);
     }
-
     // brand filter
     public void clickBrandFilter(By brandFilter){
         driver.findElement(brandFilter).click();
     }
+
 }

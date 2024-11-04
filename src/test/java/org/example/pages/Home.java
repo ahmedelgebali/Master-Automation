@@ -11,15 +11,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Home {
-    private final WebDriver driver;
-    private final Actions actions;
-    private final JavascriptExecutor js;
+    private WebDriver driver;
+    private Actions actions;
+    private JavascriptExecutor js;
 
+
+    public Home(){};
     public Home(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);
         this.js = (JavascriptExecutor) driver;
     }
+
+    public Home(WebDriver driver, Actions actions, JavascriptExecutor js){
+        this.driver = driver;
+        this.actions = actions;
+        this.js = js;
+    };
 
 
 
@@ -37,42 +45,42 @@ public class Home {
     
 
     //items locators
-    private final String item1 = ("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
-    private final String item2 = ("//div[3]//div[1]//div[1]//div[2]");
-    private final String item3 = ("//div[4]//div[1]//div[1]//div[2]");
-    private final String item4 = ("//div[5]//div[1]//div[1]//div[2]");
-    private final String item5 = ("//div[6]//div[1]//div[1]//div[2]");
-    private final String item6 = ("//div[7]//div[1]//div[1]//div[2]");
-    private final String item7 = ("//div[8]//div[1]//div[1]//div[2]");
-    private final String item8 = ("//div[9]//div[1]//div[1]//div[2]");
-    private final String item9 = ("//div[10]//div[1]//div[1]//div[2]");
-    private final String item10 = ("//div[11]//div[1]//div[1]//div[2]");
-    private final String item11 = ("//div[12]//div[1]//div[1]//div[2]");
-    private final String item12 = ("//div[13]//div[1]//div[1]//div[2]");
-    private final String item13 = ("//div[14]//div[1]//div[1]//div[2]");
-    private final String item14 = ("//div[15]//div[1]//div[1]//div[2]");
-    private final String item15 = ("//div[16]//div[1]//div[1]//div[2]");
-    private final String item16 = ("//div[17]//div[1]//div[1]//div[2]");
-    private final String item17 = ("//div[18]//div[1]//div[1]//div[2]");
-    private final String item18 = ("//div[19]//div[1]//div[1]//div[2]");
-    private final String item19 = ("//div[20]//div[1]//div[1]//div[2]");
-    private final String item20 = ("//div[21]//div[1]//div[1]//div[2]");
-    private final String item21 = ("//div[22]//div[1]//div[1]//div[2]");
-    private final String item22 = ("//div[23]//div[1]//div[1]//div[2]");
-    private final String item24 = ("//div[25]//div[1]//div[1]//div[2]");
-    private final String item25 = ("//div[26]//div[1]//div[1]//div[2]");
-    private final String item26 = ("//div[27]//div[1]//div[1]//div[2]");
-    private final String item27 = ("//div[28]//div[1]//div[1]//div[2]");
-    private final String item28 = ("//div[29]//div[1]//div[1]//div[2]");
-    private final String item29 = ("//div[30]//div[1]//div[1]//div[2]");
-    private final String item30 = ("//div[31]//div[1]//div[1]//div[2]");
-    private final String item31 = ("//div[32]//div[1]//div[1]//div[2]");
-    private final String item32 = ("//div[33]//div[1]//div[1]//div[2]");
-    private final String item33 = ("//div[34]//div[1]//div[1]//div[2]");
-    private final String item34 = ("//div[35]//div[1]//div[1]//div[2]");
+    private static final String item1 = ("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
+    private static final String item2 = ("//div[3]//div[1]//div[1]//div[2]");
+    private static final String item3 = ("//div[4]//div[1]//div[1]//div[2]");
+    private static final String item4 = ("//div[5]//div[1]//div[1]//div[2]");
+    private static final String item5 = ("//div[6]//div[1]//div[1]//div[2]");
+    private static final String item6 = ("//div[7]//div[1]//div[1]//div[2]");
+    private static final String item7 = ("//div[8]//div[1]//div[1]//div[2]");
+    private static final String item8 = ("//div[9]//div[1]//div[1]//div[2]");
+    private static final String item9 = ("//div[10]//div[1]//div[1]//div[2]");
+    private static final String item10 = ("//div[11]//div[1]//div[1]//div[2]");
+    private static final String item11 = ("//div[12]//div[1]//div[1]//div[2]");
+    private static final String item12 = ("//div[13]//div[1]//div[1]//div[2]");
+    private static final String item13 = ("//div[14]//div[1]//div[1]//div[2]");
+    private static final String item14 = ("//div[15]//div[1]//div[1]//div[2]");
+    private static final String item15 = ("//div[16]//div[1]//div[1]//div[2]");
+    private static final String item16 = ("//div[17]//div[1]//div[1]//div[2]");
+    private static final String item17 = ("//div[18]//div[1]//div[1]//div[2]");
+    private static final String item18 = ("//div[19]//div[1]//div[1]//div[2]");
+    private static final String item19 = ("//div[20]//div[1]//div[1]//div[2]");
+    private static final String item20 = ("//div[21]//div[1]//div[1]//div[2]");
+    private static final String item21 = ("//div[22]//div[1]//div[1]//div[2]");
+    private static final String item22 = ("//div[23]//div[1]//div[1]//div[2]");
+    private static final String item24 = ("//div[25]//div[1]//div[1]//div[2]");
+    private static final String item25 = ("//div[26]//div[1]//div[1]//div[2]");
+    private static final String item26 = ("//div[27]//div[1]//div[1]//div[2]");
+    private static final String item27 = ("//div[28]//div[1]//div[1]//div[2]");
+    private static final String item28 = ("//div[29]//div[1]//div[1]//div[2]");
+    private static final String item29 = ("//div[30]//div[1]//div[1]//div[2]");
+    private static final String item30 = ("//div[31]//div[1]//div[1]//div[2]");
+    private static final String item31 = ("//div[32]//div[1]//div[1]//div[2]");
+    private static final String item32 = ("//div[33]//div[1]//div[1]//div[2]");
+    private static final String item33 = ("//div[34]//div[1]//div[1]//div[2]");
+    private static final String item34 = ("//div[35]//div[1]//div[1]//div[2]");
 
     // array to hover over them in the loop
-    private final By[] itemsPathsArray = {
+    public static By[] itemsPathsArray = {
             By.xpath(item1),    By.xpath(item2),    By.xpath(item3),  By.xpath(item4),
             By.xpath(item5),    By.xpath(item6),    By.xpath(item7),  By.xpath(item8),
             By.xpath(item9),    By.xpath(item10),   By.xpath(item11), By.xpath(item12),
@@ -84,6 +92,10 @@ public class Home {
             By.xpath(item34)
     };
 
+    public static By[] getItemsPathsArray(){
+        return itemsPathsArray;
+    }
+
 
     //footer slider locators
     private final By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
@@ -92,6 +104,9 @@ public class Home {
     private final By firstItemAddToCartBtnInFooterSlider = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     private final By secondItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
     private final By thirdItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[3]//div[1]//div[1]//div[1]//a[1]");
+
+    // pop-up continue button xpath
+    private final By popupContinueBtn = By.xpath("//button[normalize-space()='Continue Shopping']");
 
 
 
@@ -121,11 +136,11 @@ public class Home {
                 pause(1000);
             }
         }
-
         footerAction(); //perform footer test
         // Click to scroll back up
         safeClick(By.xpath("//body/section[1]"));
     }
+
 
     // Hover with retry logic
     private boolean hoverOverElementWithRetries(WebElement element) {
@@ -159,6 +174,7 @@ public class Home {
         safeClick(firstItemAddToCartBtnInFooterSlider);
         safeClick(secondItemAddToCartBtnInFooterSlider);
         safeClick(thirdItemAddToCartBtnInFooterSlider);
+        safeClick(popupContinueBtn);
     }
 
 

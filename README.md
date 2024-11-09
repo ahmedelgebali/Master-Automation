@@ -17,7 +17,7 @@ The goal of this project is to provide a robust and reusable framework for web a
 
 ```plaintext
 Master-Automation
-│── docs                       
+│── .docs                       
 │   └── TestCases.md   
 ├── .idea           
 ├── src
@@ -42,6 +42,7 @@ Master-Automation
 ├── pom.xml                    
 └── README.md                 
 ```
+<<<<<<< HEAD
 
 ## Getting Started
 

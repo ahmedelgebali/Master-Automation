@@ -1,23 +1,28 @@
 ## Project Structure
 Note: The project is still Under development and Refactoring 
 ```
-src/
-└── test/
-    ├── java/
-    │   └── org/
-    │       └── example/
-    │           ├── pages/
-    │           │   ├── SignupPage.java
-    │           │   ├── Login.java
-    |           |   └── Home.java
-    │           ├── tests/
-    │           │   ├── LoginAndSignupTest.java
-    │           │   └── [other test classes]
-    │           └── BaseTest.java
-    └── resources/
+Project Structure
+src
+└── test
+    └── java
+        └── org
+            └── example
+                ├── pages
+                │   ├── Cart.java
+                │   ├── ContactUs.java
+                │   ├── Home.java
+                │   ├── Login.java
+                │   ├── Products.java
+                │   └── Signup.java
+                └── tests
+                    ├── checkCode.java
+                    ├── HomeTest.java
+                    ├── ProductsTest.java
+                    ├── SignupTest.java
+                    └── BaseTest.java
 ```
-Test Cases Credits to URL https://automationexercise.com/
 
+Test Cases Credits to URL https://automationexercise.com/
 
 ## TEST CASES
 Test Case 1: Register User

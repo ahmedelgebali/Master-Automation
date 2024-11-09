@@ -42,7 +42,6 @@ Master-Automation
 ├── pom.xml                    
 └── README.md                 
 ```
-<<<<<<< HEAD
 
 ## Getting Started
 

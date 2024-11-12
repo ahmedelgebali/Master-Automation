@@ -1,5 +1,6 @@
 package org.example;
 
+import base.PropReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,6 +17,7 @@ public class BaseTest {
 
     //set up the browser
     public static void setUp(String url) throws InterruptedException {
+
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(url);

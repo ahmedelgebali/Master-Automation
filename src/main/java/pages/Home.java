@@ -1,4 +1,4 @@
-package org.example.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,24 +10,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Home {
-    private WebDriver driver;
-    private Actions actions;
-    private JavascriptExecutor js;
+public class Home extends Base{
 
-
-    public Home(){};
+    public Home(){}
+    // Constructor with WebDriver
     public Home(WebDriver driver) {
-        this.driver = driver;
-        this.actions = new Actions(driver);
-        this.js = (JavascriptExecutor) driver;
+        super(driver);
+    }
+    // Constructor with Actions and JavascriptExecutor
+    public Home(Actions actions, JavascriptExecutor js) {
+        super(actions, js);
     }
 
-    public Home(WebDriver driver, Actions actions, JavascriptExecutor js){
-        this.driver = driver;
-        this.actions = actions;
-        this.js = js;
-    };
 
 
 
@@ -91,6 +85,9 @@ public class Home {
             By.xpath(item30),   By.xpath(item31),   By.xpath(item32), By.xpath(item33),
             By.xpath(item34)
     };
+
+
+
 
     public static By[] getItemsPathsArray(){
         return itemsPathsArray;
@@ -185,7 +182,7 @@ public class Home {
 
     // Scrolls the page by a certain amount
     private void scrollPageBy() {
-        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
+            js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
     }
 
     // Waits until the element is clickable

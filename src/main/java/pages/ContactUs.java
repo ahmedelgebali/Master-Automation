@@ -1,4 +1,4 @@
-package org.example.pages;
+package pages;
 
 public class ContactUs {
 }

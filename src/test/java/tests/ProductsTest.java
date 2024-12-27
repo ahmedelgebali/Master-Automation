@@ -1,11 +1,9 @@
-package org.example.tests;
+package tests;
 
-import org.example.BaseTest;
-import org.example.pages.Home;
-import org.example.pages.Products;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.Products;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -16,12 +14,13 @@ public class ProductsTest extends BaseTest {
     public static void setup() throws InterruptedException {
         setUp("https://automationexercise.com/");
     }
-//    @AfterAll
+    @AfterAll
     public static void teardown(){
         tearDown();
     }
 
     @Test
+
     public void navigateToPage(){
         product.navigateToProductsPage();
     }

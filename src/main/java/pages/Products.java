@@ -27,7 +27,7 @@ public class Products extends Base{
 
 
 
-    // Items LOACTOR to add to cart
+    // Items LOCATOR to add to cart
     public By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");
     public By secondItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
     public By thirdItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
@@ -120,7 +120,7 @@ public class Products extends Base{
 
 
     // apply brand filter
-    public void applyBrandFilter(){
+    public Cart applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
         clickBrandFilter(secondBrandFilter);
         clickBrandFilter(thirdBrandFilter);
@@ -129,6 +129,10 @@ public class Products extends Base{
         clickBrandFilter(sixthBrandFilter);
         clickBrandFilter(seventhBrandFilter);
         clickBrandFilter(eighthBrandFilter);
+
+        // transfer controlling into Cart Page
+        return new Cart(driver);
+
     }
     // brand filter
     public void clickBrandFilter(By brandFilter){

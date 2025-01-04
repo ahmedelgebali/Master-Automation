@@ -12,7 +12,6 @@ import java.time.Duration;
 
 public class Home extends Base{
 
-    public Home(){}
     // Constructor with WebDriver
     public Home(WebDriver driver) {
         super(driver);

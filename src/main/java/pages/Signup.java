@@ -77,6 +77,8 @@ public class Signup extends Base{
         driver.findElement(passInput).sendKeys(pass);
     }
     public void selectDay(String berthDay){
+        WebElement dayElement = driver.findElement(dayDropdown);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dayElement);
         new Select (driver.findElement(dayDropdown)).selectByVisibleText(berthDay);
     }
     public void selectMonth(String month){

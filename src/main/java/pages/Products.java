@@ -1,4 +1,4 @@
-package org.example.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,19 +10,16 @@ import java.time.Duration;
 
 
 
-public class Products{
+public class Products extends Base{
 
-    public WebDriver driver = null;
-    public final Actions actions;
-    public final JavascriptExecutor js;
-
-
-    // Corrected constructor
     public Products(WebDriver driver) {
-        this.driver = driver;
-        this.actions = new Actions(driver);
-        this.js = (JavascriptExecutor) driver;
+        super(driver);
     }
+    // Constructor with Actions and JavascriptExecutor
+    public Products(Actions actions, JavascriptExecutor js) {
+        super(actions, js);
+    }
+
 
 
 

@@ -1,9 +1,7 @@
-package org.example.tests;
+package tests;
 
-import org.example.BaseTest;
-import org.example.pages.Signup;
+import pages.Signup;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SignupTest extends BaseTest {

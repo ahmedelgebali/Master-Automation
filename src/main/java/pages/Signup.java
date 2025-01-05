@@ -1,15 +1,20 @@
-package org.example.pages;
+package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class Signup {
+public class Signup extends Base{
 
-    private final WebDriver driver;
-    public Signup(WebDriver driver){
-        this.driver = driver;
+    public Signup(WebDriver driver) {
+        super(driver);
+    }
+    // Constructor with Actions and JavascriptExecutor
+    public Signup(Actions actions, JavascriptExecutor js) {
+        super(actions, js);
     }
 
 

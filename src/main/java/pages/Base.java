@@ -10,8 +10,6 @@ public class Base {
     protected JavascriptExecutor js;
 
 
-    public Base(){};
-
 
     // Constructor with WebDriver
     public Base(WebDriver driver) {

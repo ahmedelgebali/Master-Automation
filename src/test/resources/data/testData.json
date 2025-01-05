@@ -1,0 +1,13 @@
+{
+  "login": {
+    "username": "testUser",
+    "password": "password123"
+  },
+  "registration": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "password": "securePass",
+    "confirmPassword": "securePass"
+  }
+}

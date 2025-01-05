@@ -1,6 +1,6 @@
-package org.example;
+package tests;
 
-import base.PropReader;
+import Properties.PropReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,8 +15,9 @@ public class BaseTest {
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
 
+
     //set up the browser
-    public static void setUp(String url) throws InterruptedException {
+    public static void setUp(String url) {
 
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));

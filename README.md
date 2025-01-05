@@ -4,7 +4,7 @@ This project is an automated testing suite for a web application built with Sele
 
 ## Project Overview
 
-The goal of this project is to provide a robust and reusable framework for web application testing. Using Selenium WebDriver and Java, this framework facilitates testing of UI elements and workflows, ensuring they work as expected across different scenarios. The project is modularized with a clear separation between page classes (Page Object Model) and test classes, enhancing readability, maintainability, and scalability.
+This project aims to provide a robust and reusable framework for web application testing. Using Selenium WebDriver and Java, this framework facilitates testing of UI elements and workflows, ensuring they work as expected across different scenarios. The project is modularized with a clear separation between page classes (Page Object Model) and test classes, enhancing readability, maintainability, and scalability.
 
 ### Features
 
@@ -15,32 +15,47 @@ The goal of this project is to provide a robust and reusable framework for web a
 
 ## Project Structure
 
-```plaintext
+```
 Master-Automation
-│── .docs                       
-│   └── TestCases.md   
-├── .idea           
-├── src
-│   └── test
-│       └── java
-│           └── org
-│               └── example
-│                   ├── pages  # Page Object classes representing web pages
-│                   │   ├── Cart.java
-│                   │   ├── ContactUs.java
-│                   │   ├── Home.java
-│                   │   ├── Login.java
-│                   │   ├── Products.java
-│                   │   └── Signup.java
-│                   └── tests  # Test classes for different pages
-│                       ├── checkCode.java
-│                       ├── HomeTest.java
-│                       ├── ProductsTest.java
-│                       ├── SignupTest.java
-│                       └── BaseTest.java   
+
+├── .docs/
+│   └── TestCases.md
+├── .idea/
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── pages/
+│   │           ├── Base.java
+│   │           ├── Cart.java
+│   │           ├── ContactUs.java
+│   │           ├── Home.java
+│   │           ├── Login.java
+│   │           ├── Products.java
+│   │           └── Signup.java
+│   └── test/
+│       ├── java/
+│       │   ├── Properties/
+│       │   │   └── PropReader.java
+│       │   ├── practice/
+│       │   ├── tests/
+│       │   │   ├── BaseTest.java
+│       │   │   ├── ContactUsTest.java
+│       │   │   ├── HomeTest.java
+│       │   │   ├── LoginTest.java
+│       │   │   ├── ProductsTest.java
+│       │   │   ├── SignupTest.java
+│       │   │   └── checkCode.java
+│       │   └── utils/
+│       │       └── jsonReader.java
+│       └── resources/
+│           ├── config/
+│           │   └── prop.properties
+│           └── data/
+│               └── testData.json
+│
 ├── .gitignore                
 ├── pom.xml                    
-└── README.md                 
+└── README.md        
 ```
 
 ## Getting Started

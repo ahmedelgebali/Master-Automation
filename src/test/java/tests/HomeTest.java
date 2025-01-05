@@ -10,21 +10,24 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 public class HomeTest extends BaseTest {
+    private Home  home;
+
+
 
     @BeforeEach
     public void setup() throws InterruptedException, IOException {
         String url= PropReader.getProp("baseUrl");
         setUp(url);
     }
-    @AfterAll
-    public static void tear(){
-        tearDown();
-    }
+//    @AfterAll
+//    public static void tear(){
+//        tearDown();
+//    }
 
 
     @Test
     public void testHoverOver(){
-        Home home = new Home(driver);
+         home = new Home(driver);
         home.hoverOverallItems();
     }
 

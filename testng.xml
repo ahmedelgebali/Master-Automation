@@ -2,7 +2,8 @@
 <suite name="AllTests">
     <test name="TestClasses">
         <classes>
-            <class name="tests.LoginTest"/>
+<!--            <class name="tests.LoginTest"/>-->
+            <class name="tests.CartTest"/>
         </classes>
     </test>
     <listeners>

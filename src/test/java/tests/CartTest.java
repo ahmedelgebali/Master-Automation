@@ -1,14 +1,14 @@
 package tests;
 
 import Properties.PropReader;
+import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
 import pages.Cart;
 import pages.Products;
-import java.io.IOException;
 
-import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 
 public class CartTest extends BaseTest {
     private Cart cart;
@@ -21,13 +21,18 @@ public class CartTest extends BaseTest {
     }
 
 
+    @AfterClass
+    public static void tearDown() {
+        driver.quit(); // Close the WebDriver session after all tests are complete
 
-    @Test (priority = 1)
-    public String addItemToCart() {
+    }
+
+    @Test(priority = 1)
+    public void addItemToCart() {
         Products product = new Products(driver);
-        itemName = driver.findElement(product.firstItemPath).getText();
         product.addItemsToCart(new By[]{product.firstItemPath}); // Add the first item
-        return itemName;
+        itemName = driver.findElement(product.firstItemPath).getText();
+        System.out.println(itemName);
     }
 
 //    @Test(priority = 2)
@@ -42,12 +47,4 @@ public class CartTest extends BaseTest {
         String itemPath = cart.getDynamicXPath(itemText);
         cart.clickProduct(itemPath);
     }
-
-
-
-
-//    @AfterAll
-//    public static void tearDown() {
-//        driver.quit(); // Close the WebDriver session after all tests are complete
-
 }

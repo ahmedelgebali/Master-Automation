@@ -1,11 +1,10 @@
 package tests;
 
 import Properties.PropReader;
-import org.junit.jupiter.api.AfterAll;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.Home;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ public class HomeTest extends BaseTest {
 
 
 
-    @BeforeEach
+    @BeforeClass
     public void setup() throws InterruptedException, IOException {
         String url= PropReader.getProp("baseUrl");
         setUp(url);

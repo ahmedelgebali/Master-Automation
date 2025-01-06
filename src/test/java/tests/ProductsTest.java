@@ -1,11 +1,10 @@
 package tests;
 
 import Properties.PropReader;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.Products;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.io.IOException;
 public class ProductsTest extends BaseTest {
     Products product = new Products(driver);
 
-    @BeforeAll
+    @BeforeClass
     public static void setup() throws IOException {
         String url = PropReader.getProp("baseURL");
         setUp(url);
@@ -24,7 +23,6 @@ public class ProductsTest extends BaseTest {
 //    }
 
     @Test
-
     public void navigateToPage(){
         product.navigateToProductsPage();
     }

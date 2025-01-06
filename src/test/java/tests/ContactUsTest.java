@@ -1,9 +1,8 @@
 package tests;
 
 import Properties.PropReader;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.ContactUs;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.io.IOException;
 public class ContactUsTest extends BaseTest{
     ContactUs contact = new ContactUs(driver);
 
-    @BeforeAll
+    @BeforeClass
     public static void setup() throws IOException {
         String url = PropReader.getProp("contactUs");
         setUp(url);

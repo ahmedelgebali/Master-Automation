@@ -22,7 +22,6 @@
                 <artifactId>string-width</artifactId>
                 <version>2.0.0</version>
             </dependency>
-            <!-- Add other dependencies that need version control here -->
         </dependencies>
     </dependencyManagement>
 
@@ -38,7 +37,6 @@
             <artifactId>poi</artifactId>
             <version>5.3.0</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -63,10 +61,11 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 </project>

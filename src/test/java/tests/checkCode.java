@@ -1,15 +1,16 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class checkCode extends BaseTest {
 
     private JavascriptExecutor js;
 
-    @BeforeEach
+    @BeforeClass
     public void setup() throws InterruptedException {
         setUp("https://automationexercise.com/");
     }

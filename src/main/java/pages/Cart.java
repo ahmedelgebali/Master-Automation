@@ -12,10 +12,37 @@ public class Cart extends Base{
         super(action, js);
     }
 
-    //elements
-    //item names
-    private final By firstItme = By.xpath("//a[normalize-space()='Men Tshirt']");
 
+
+    public void moveToCart(){
+        driver.get("https://automationexercise.com/view_cart");
+    }
+
+
+    public String getDynamicXpathToGetItemText(String itemTextName) {
+        String returnedItemName = driver.findElement(By.xpath("//a[normalize-space()='"+itemTextName+"']")).getText();
+        return returnedItemName;
+    }
+
+    // the dynamic xpath for each product based on the product name in the Products page
+    public String getDynamicXPath(String itemName) {
+        return "//a[normalize-space()='" + itemName + "']";
+    }
+
+
+    public void clickProduct(String itemXpath) {
+        driver.findElement(By.xpath(itemXpath)).click();
+    }
+
+
+
+
+
+
+
+
+
+    private final By firstItme = By.xpath("//a[normalize-space()='Men Tshirt']");
     private final By firstItemRemoveBtn = By.xpath("//tr[@id='product-1']//i[@class='fa fa-times']");
     private final By secondItemRemoveBtn = By.xpath("//tr[@id='product-3']//a[@class='cart_quantity_delete']");
     private final By thirdItemRemoveBtn = By.xpath("");
@@ -27,4 +54,15 @@ public class Cart extends Base{
     private final By placeOrderBtn = By.xpath("//a[@class='btn btn-default check_out']");
 
 
+    public boolean isItemInCart(By firstItemPath) {
+        return false;
+    }
+
+    public boolean isCartPageDisplayed() {
+        return false;
+    }
+
+    public boolean isProductActionSuccessful(String itemName) {
+        return false;
+    }
 }

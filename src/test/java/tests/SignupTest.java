@@ -1,10 +1,9 @@
 package tests;
 
 import Properties.PropReader;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.Signup;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
 public class SignupTest extends BaseTest {
@@ -13,7 +12,7 @@ public class SignupTest extends BaseTest {
     Signup signup = new Signup(driver);
 
 
-    @BeforeAll
+    @BeforeClass
     public static void setUpTest() throws IOException, InterruptedException {
         String url = PropReader.getProp("baseURL");
         setUp(url);

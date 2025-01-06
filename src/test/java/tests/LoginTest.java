@@ -1,9 +1,9 @@
 package tests;
 
 import Properties.PropReader;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.Login;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     Login login = new Login(driver);
 
 
-    @BeforeAll
+    @BeforeClass
     public static void setupTest() throws IOException, InterruptedException {
         String url = PropReader.getProp("loginURL");
         setUp(url);
@@ -27,7 +27,7 @@ public class LoginTest extends BaseTest {
         login.checkFromLogin();
     }
 
-    @AfterAll
+    @AfterClass
     public static void tear(){
         tearDown();
     }

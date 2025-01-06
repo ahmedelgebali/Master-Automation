@@ -78,13 +78,20 @@ public class Products extends Base{
     }
 
     // Add multiple items to the cart
-    public void addItemsToCart(By[] itemPaths){
-        for (By itemPath : itemPaths){
-//            waitFor(Home.itemsPathsArray[1]);
-            driver.findElement(itemPath).click();
-            waitFor(continueBtn);
-            driver.findElement(continueBtn).click();
+    public void addItemsToCart(By[] itemPaths) {
+        for (By itemPath : itemPaths) {
+            try {
+                // Wait for the item to be clickable and click it
+                waitFor(itemPath);
+                driver.findElement(itemPath).click();
 
+                // Wait for the continue button and click it
+                waitFor(continueBtn);
+                driver.findElement(continueBtn).click();
+            } catch (Exception e) {
+                System.err.println("Error adding item to cart: " + itemPath);
+                e.printStackTrace();
+            }
         }
     }
 

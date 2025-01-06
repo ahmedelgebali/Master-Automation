@@ -3,6 +3,7 @@ package tests;
 import Properties.PropReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +28,7 @@ public class BaseTest {
 
     public static void tearDown(){
         driver.quit();
+        driver.close();
     }
 
 }

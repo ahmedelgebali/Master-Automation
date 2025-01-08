@@ -26,6 +26,7 @@ public class Products extends Base{
 
 
 
+    public By firstItemName = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
 
     // Items LOCATOR to add to cart
     public By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");

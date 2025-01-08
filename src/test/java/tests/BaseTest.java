@@ -1,9 +1,7 @@
 package tests;
 
-import Properties.PropReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,7 +14,6 @@ public class BaseTest {
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
 
-
     //set up the browser
     public static void setUp(String url) {
 
@@ -26,7 +23,7 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-    public static void tearDown(){
+    public static void tearDown() {
         driver.quit();
         driver.close();
     }

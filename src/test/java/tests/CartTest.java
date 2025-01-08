@@ -23,20 +23,22 @@ public class CartTest extends BaseTest {
 
 
     @Test (priority = 1)
-    public String addItemToCart() {
+    public void addItemToCart() {
         Products product = new Products(driver);
-        itemName = driver.findElement(product.firstItemPath).getText();
+
+        itemName = driver.findElement(product.firstItemName).getText();
+        System.out.println(itemName);
         product.addItemsToCart(new By[]{product.firstItemPath}); // Add the first item
-        return itemName;
+
     }
 
-//    @Test(priority = 2)
+    @Test(priority = 2)
     public void navigateToCart() {
         cart = new Cart(driver);
         cart.moveToCart(); // Navigate directly to cart
     }
 
-//    @Test(priority = 3)
+    @Test(priority = 3)
     public void performActionOnItem() {
         String itemText = cart.getDynamicXpathToGetItemText(itemName);
         String itemPath = cart.getDynamicXPath(itemText);

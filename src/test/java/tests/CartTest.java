@@ -1,6 +1,8 @@
 package tests;
 
 import Properties.PropReader;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -13,6 +15,7 @@ import static org.testng.Assert.assertTrue;
 public class CartTest extends BaseTest {
     private Cart cart;
     String itemName;
+    int theTendedItemNumber = 1;
 
     @BeforeClass
     public static void setup() throws IOException {
@@ -23,27 +26,44 @@ public class CartTest extends BaseTest {
 
 
     @Test (priority = 1)
-    public void addItemToCart() {
+    public void addItemsToCart() {
         Products product = new Products(driver);
-
+        //getting the name of the item for latter use in the dynamic xpath in the cart
         itemName = driver.findElement(product.firstItemName).getText();
-        System.out.println(itemName);
-        product.addItemsToCart(new By[]{product.firstItemPath}); // Add the first item
-
+        // add the first item to cart
+        product.addItemsToCart(new By[]{product.firstItemPath}); //adding the first item in products page to Cart
     }
+
+
 
     @Test(priority = 2)
     public void navigateToCart() {
         cart = new Cart(driver);
-        cart.moveToCart(); // Navigate directly to cart
+        cart.moveToCart(); // navigate directly to Cart
     }
 
+
     @Test(priority = 3)
-    public void performActionOnItem() {
-        String itemText = cart.getDynamicXpathToGetItemText(itemName);
-        String itemPath = cart.getDynamicXPath(itemText);
-        cart.clickProduct(itemPath);
+    public void performActionOnItems() {
+        //giving the item name that I got from the "addItemToCart" methode and receive the dynamic path for the item in the cart page
+        String itemPath = cart.getItemPathViaItemName(itemName);
+        cart.clickProduct(itemPath);                                                //open the product info page
+        cart.changeQuantity("10",itemPath);                      //change the product quantity, then add them to cart and handle the po-up to continue
+        driver.navigate().back();                                                   //back to cart
+        driver.navigate().refresh();
+        By itemPricePath = cart.getItemPriceViaItemNumber(theTendedItemNumber);     //the item price
+        String itePriceText = driver.findElement(itemPricePath).getText();
+        System.out.println("the price for the --> ["+itemName+"] is --> ["+itePriceText+"]");
+
+        By itemQuantityPath = cart.getItemQuantityNumViaItemNumber(theTendedItemNumber); //item quantity
+        String itemQuantity = driver.findElement(itemQuantityPath).getText();
+        System.out.println("the total number of quantity for the --> ["+itemName+"] is --> [" +itemQuantity+"]");
+
+        By itemTotalPricePath = cart.getItemTotalPriceViaItemNumber(theTendedItemNumber); //items total price
+        String itemsTotalPrice = driver.findElement(itemTotalPricePath).getText();
+        System.out.println("the total price for the --> ["+itemName+"] is --> ["+itemsTotalPrice+"]");
     }
+
 
 
 

@@ -18,7 +18,7 @@ public class BaseTest {
     public static void setUp(String url) {
 
         driver = new FirefoxDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         driver.get(url);
         driver.manage().window().maximize();
     }

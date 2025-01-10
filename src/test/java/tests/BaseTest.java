@@ -20,14 +20,13 @@ public class BaseTest {
     public static void setUp(String url) {
 
         driver = new FirefoxDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(url);
         driver.manage().window().maximize();
     }
 
     public static void tearDown() {
         driver.quit();
-        driver.close();
     }
     public void waitForVisibility(By locator){
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

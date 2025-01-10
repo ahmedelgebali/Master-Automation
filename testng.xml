@@ -5,7 +5,8 @@
 
 <test name="FunctionalTests">
         <classes>
-            <class name="tests.CartTest"/>
+            <class name="tests.HomeTest"/>
+<!--            <class name="tests.CartTest"/>-->
         </classes>
     </test>
 

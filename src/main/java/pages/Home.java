@@ -10,32 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Home extends Base{
+public class Home extends Base {
 
-    // Constructor with WebDriver
+    //constructors
     public Home(WebDriver driver) {
         super(driver);
     }
-    // Constructor with Actions and JavascriptExecutor
     public Home(Actions actions, JavascriptExecutor js) {
         super(actions, js);
     }
-
-
-
-
-    //header slider locators
-    private final String leftSliderHeader = "://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
-    private final String rightSliderHeader = "//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']";
-    private final String sliderThreeDots1 = "//section[@id='slider']//li[1]";
-    private final String sliderThreeDots2 = "//section[@id='slider']//li[2]";
-    private final String sliderThreeDots3 = "//section[@id='slider']//li[3]";
-
-    private final By[]  sliderHeaderArray = {
-            By.xpath(leftSliderHeader), By.xpath(rightSliderHeader),    By.xpath(sliderThreeDots1),
-            By.xpath(sliderThreeDots2), By.xpath(sliderThreeDots3)
-    };
-    
 
     //items locators
     private static final String item1 = ("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
@@ -71,74 +54,90 @@ public class Home extends Base{
     private static final String item32 = ("//div[33]//div[1]//div[1]//div[2]");
     private static final String item33 = ("//div[34]//div[1]//div[1]//div[2]");
     private static final String item34 = ("//div[35]//div[1]//div[1]//div[2]");
-
     // array to hover over them in the loop
     public static By[] itemsPathsArray = {
-            By.xpath(item1),    By.xpath(item2),    By.xpath(item3),  By.xpath(item4),
-            By.xpath(item5),    By.xpath(item6),    By.xpath(item7),  By.xpath(item8),
-            By.xpath(item9),    By.xpath(item10),   By.xpath(item11), By.xpath(item12),
-            By.xpath(item13),   By.xpath(item14),   By.xpath(item15), By.xpath(item16),
-            By.xpath(item17),   By.xpath(item18),   By.xpath(item19), By.xpath(item20),
-            By.xpath(item21),   By.xpath(item22),   By.xpath(item24), By.xpath(item25),
-            By.xpath(item26),   By.xpath(item27),   By.xpath(item28), By.xpath(item29),
-            By.xpath(item30),   By.xpath(item31),   By.xpath(item32), By.xpath(item33),
+            By.xpath(item1), By.xpath(item2), By.xpath(item3), By.xpath(item4),
+            By.xpath(item5), By.xpath(item6), By.xpath(item7), By.xpath(item8),
+            By.xpath(item9), By.xpath(item10), By.xpath(item11), By.xpath(item12),
+            By.xpath(item13), By.xpath(item14), By.xpath(item15), By.xpath(item16),
+            By.xpath(item17), By.xpath(item18), By.xpath(item19), By.xpath(item20),
+            By.xpath(item21), By.xpath(item22), By.xpath(item24), By.xpath(item25),
+            By.xpath(item26), By.xpath(item27), By.xpath(item28), By.xpath(item29),
+            By.xpath(item30), By.xpath(item31), By.xpath(item32), By.xpath(item33),
             By.xpath(item34)
     };
-
-
-
-
-    public static By[] getItemsPathsArray(){
-        return itemsPathsArray;
-    }
-
-
+    //header slider locators
+    private final String leftSliderHeader = "://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
+    private final String rightSliderHeader = "//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']";
+    private final String sliderThreeDots1 = "//section[@id='slider']//li[1]";
+    private final String sliderThreeDots2 = "//section[@id='slider']//li[2]";
+    private final String sliderThreeDots3 = "//section[@id='slider']//li[3]";
+    private final By[] sliderHeaderArray = {
+            By.xpath(leftSliderHeader), By.xpath(rightSliderHeader), By.xpath(sliderThreeDots1),
+            By.xpath(sliderThreeDots2), By.xpath(sliderThreeDots3)
+    };
     //footer slider locators
     private final By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
     private final By sliderRightFooter = By.xpath("//a[@class='right recommended-item-control']//i[@class='fa fa-angle-right']");
-
     private final By firstItemAddToCartBtnInFooterSlider = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     private final By secondItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
     private final By thirdItemAddToCartBtnInFooterSlider = By.xpath("//div[@class='item active']//div[3]//div[1]//div[1]//div[1]//a[1]");
-
     // pop-up continue button xpath
     private final By popupContinueBtn = By.xpath("//button[normalize-space()='Continue Shopping']");
 
 
+    public static By[] getItemsPathsArray() {
+        return itemsPathsArray;
+    }
 
 
 
 
+    //perform action on the header slider
+    public void headerSliderAction() {
+        for (By slider : sliderHeaderArray) {
+            safeClick(slider);
+            pause(500);
+        }
+    }
 
-    // Hover over all items in the array
+    //footer slider
+    public void footerSliderAction() {
+        safeClick(sliderLeftFooter);
+        safeClick(sliderLeftFooter);
+        safeClick(sliderRightFooter);
+        safeClick(firstItemAddToCartBtnInFooterSlider);
+        safeClick(secondItemAddToCartBtnInFooterSlider);
+        safeClick(thirdItemAddToCartBtnInFooterSlider);
+        safeClick(popupContinueBtn);
+    }
+
+    // hover over all items in the array
     public void hoverOverallItems() {
-        headerAction(); //perform header test
-
         int counter = 0;
         for (By itemLocator : itemsPathsArray) {
             WebElement itemToHover = safeFindElement(itemLocator);
-            if (itemToHover == null) continue;  // Skip if the element is not found
-            // Perform hover operation
+            if (itemToHover == null) continue;  // skip if the element is not found
+            // perform hover operation
             if (hoverOverElementWithRetries(itemToHover)) {
-                // Wait for any potential animation to complete
-                waitForAnimationToComplete(itemToHover);
+                waitForAnimationToComplete(itemToHover); // wait for any potential animation to complete
             }
             pause(1000);
             counter++;
 
-            // Scroll down after every 3 items
+            // scroll down after every 3 items
             if (counter % 4 == 0) {
                 scrollPageBy();
                 pause(1000);
             }
         }
-        footerAction(); //perform footer test
-        // Click to scroll back up
+        // click on the btn to scroll back up
         safeClick(By.xpath("//body/section[1]"));
     }
 
+    //bellow all methods associated with --> (hoverOverallItems)
 
-    // Hover with retry logic
+    // hover over all item on home
     private boolean hoverOverElementWithRetries(WebElement element) {
         int retries = 3;
         for (int i = 0; i < retries; i++) {
@@ -156,23 +155,6 @@ public class Home extends Base{
         }
         return false;
     }
-    public void headerAction(){
-        for (By slider : sliderHeaderArray){
-            safeClick(slider);
-            pause(500);
-        }
-    }
-
-    public void footerAction(){
-        safeClick(sliderLeftFooter);
-        safeClick(sliderLeftFooter);
-        safeClick(sliderRightFooter);
-        safeClick(firstItemAddToCartBtnInFooterSlider);
-        safeClick(secondItemAddToCartBtnInFooterSlider);
-        safeClick(thirdItemAddToCartBtnInFooterSlider);
-        safeClick(popupContinueBtn);
-    }
-
 
     // Scrolls the element into view
     private void scrollIntoView(WebElement element) {
@@ -181,7 +163,7 @@ public class Home extends Base{
 
     // Scrolls the page by a certain amount
     private void scrollPageBy() {
-            js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
+        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
     }
 
     // Waits until the element is clickable
@@ -225,7 +207,6 @@ public class Home extends Base{
             System.out.println("Pause interrupted: " + e.getMessage());
         }
     }
-        
 
-    }
 
+}

@@ -1,6 +1,7 @@
 package tests;
 
 import Properties.PropReader;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Home;
@@ -9,25 +10,34 @@ import pages.Home;
 import java.io.IOException;
 
 public class HomeTest extends BaseTest {
-    private Home  home;
-
-
+    private Home home;
 
     @BeforeClass
-    public void setup() throws InterruptedException, IOException {
-        String url= PropReader.getProp("baseUrl");
+    public void setup() throws IOException {
+        String url= PropReader.getProp("baseURL");
         setUp(url);
     }
-//    @AfterAll
-//    public static void tear(){
-//        tearDown();
-//    }
+    @AfterClass
+    public static void tear(){
+        tearDown();
+    }
 
 
-    @Test
-    public void testHoverOver(){
-         home = new Home(driver);
+    @Test (priority = 1)
+    public void testHeaderSliderInHome(){
+        home = new Home(driver);
+        home.headerSliderAction();
+    }
+
+    @Test (priority = 2)
+    public void testHoverOverItemsInHome(){
         home.hoverOverallItems();
     }
+
+    @Test (priority = 3)
+    public void testFooterSliderInHome(){
+        home.footerSliderAction();
+    }
+
 
 }

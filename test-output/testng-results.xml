@@ -2,59 +2,23 @@
 <testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-10T11:12:39Z" name="AllTests" finished-at="2025-01-10T11:12:56Z" duration-ms="16683">
+  <suite started-at="2025-01-10T13:26:21Z" name="AllTests" finished-at="2025-01-10T13:27:20Z" duration-ms="58590">
     <groups>
     </groups>
-    <test started-at="2025-01-10T11:12:39Z" name="FunctionalTests" finished-at="2025-01-10T11:12:56Z" duration-ms="16683">
-      <class name="tests.CartTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CartTest@61d47554]" started-at="2025-01-10T13:12:39Z" name="setup" finished-at="2025-01-10T13:12:49Z" duration-ms="9660" status="PASS">
+    <test started-at="2025-01-10T13:26:21Z" name="FunctionalTests" finished-at="2025-01-10T13:27:20Z" duration-ms="58590">
+      <class name="tests.HomeTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:21Z" name="setup" finished-at="2025-01-10T15:26:32Z" duration-ms="10716" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="addItemsToCart()[pri:1, instance:tests.CartTest@61d47554]" started-at="2025-01-10T13:12:49Z" name="addItemsToCart" finished-at="2025-01-10T13:12:50Z" duration-ms="1059" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addItemsToCart -->
-        <test-method signature="navigateToCart()[pri:2, instance:tests.CartTest@61d47554]" started-at="2025-01-10T13:12:50Z" name="navigateToCart" finished-at="2025-01-10T13:12:51Z" duration-ms="793" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToCart -->
-        <test-method signature="performActionOnItems()[pri:3, instance:tests.CartTest@61d47554]" started-at="2025-01-10T13:12:51Z" name="performActionOnItems" finished-at="2025-01-10T13:12:55Z" duration-ms="4262" status="FAIL">
-          <exception class="org.openqa.selenium.InvalidSelectorException">
+        <test-method signature="testHeaderSliderInHome()[pri:1, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:32Z" name="testHeaderSliderInHome" finished-at="2025-01-10T15:26:32Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.NullPointerException">
             <message>
-              <![CDATA[Given xpath expression "tr[id='product-1'] td[class='cart_total']" is invalid: SyntaxError: Document.evaluate: The expression is not a legal expression
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [23c31a8d-3c42-4546-9582-f93b8e5e69d2, findElement {using=xpath, value=tr[id='product-1'] td[class='cart_total']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 133.0.3, moz:accessibilityChecks: false, moz:buildID: 20241209150345, moz:debuggerAddress: 127.0.0.1:25524, moz:geckodriverVersion: 0.35.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13748, moz:profile: C:\Users\AL\AppData\Local\T..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:25524/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 23c31a8d-3c42-4546-9582-f93b8e5e69d2]]>
+              <![CDATA[Cannot invoke "pages.Home.headerSliderAction()" because "this.home" is null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.InvalidSelectorException: Given xpath expression "tr[id='product-1'] td[class='cart_total']" is invalid: SyntaxError: Document.evaluate: The expression is not a legal expression
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [23c31a8d-3c42-4546-9582-f93b8e5e69d2, findElement {using=xpath, value=tr[id='product-1'] td[class='cart_total']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 133.0.3, moz:accessibilityChecks: false, moz:buildID: 20241209150345, moz:debuggerAddress: 127.0.0.1:25524, moz:geckodriverVersion: 0.35.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13748, moz:profile: C:\Users\AL\AppData\Local\T..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:25524/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 23c31a8d-3c42-4546-9582-f93b8e5e69d2
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351)
-	at tests.CartTest.performActionOnItems(CartTest.java:69)
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "pages.Home.headerSliderAction()" because "this.home" is null
+	at tests.HomeTest.testHeaderSliderInHome(HomeTest.java:29)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
@@ -79,15 +43,23 @@ Session ID: 23c31a8d-3c42-4546-9582-f93b8e5e69d2
 	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- performActionOnItems -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CartTest@61d47554]" started-at="2025-01-10T13:12:55Z" name="tearDown" finished-at="2025-01-10T13:12:56Z" duration-ms="892" status="PASS">
+        </test-method> <!-- testHeaderSliderInHome -->
+        <test-method signature="testHoverOverItemsInHome()[pri:2, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:32Z" name="testHoverOverItemsInHome" finished-at="2025-01-10T15:27:17Z" duration-ms="45586" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.CartTest -->
+        </test-method> <!-- testHoverOverItemsInHome -->
+        <test-method signature="testFooterSliderInHome()[pri:3, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:27:17Z" name="testFooterSliderInHome" finished-at="2025-01-10T15:27:19Z" duration-ms="1346" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFooterSliderInHome -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:27:19Z" name="tear" finished-at="2025-01-10T15:27:20Z" duration-ms="920" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- tests.HomeTest -->
     </test> <!-- FunctionalTests -->
   </suite> <!-- AllTests -->
 </testng-results>

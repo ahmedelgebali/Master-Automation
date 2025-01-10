@@ -23,7 +23,7 @@ public class Products extends Base{
 
 
 
-    // Items LOCATOR to add to cart
+    // items locator to add to cart
     public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
     public By firstItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
     public By secondItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
@@ -139,4 +139,9 @@ public class Products extends Base{
         driver.findElement(brandFilter).click();
     }
 
+    public String getFirstItemName(){
+        return driver.findElement(firstItemNamePath).getText();
+
+    }
 }
+

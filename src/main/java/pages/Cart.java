@@ -22,13 +22,16 @@ public class Cart extends Base{
     public By itemTotalPricePath = By.xpath("tr[id='product-x'] td[class='cart_total']");
     public By itemDeleteBtnPath = By.xpath("(//td[@class='cart_delete'])[x]");
     public By itemQuantityNumberPath = By.xpath("(//td[@class='cart_quantity'])[x]");
+    public By addToCartBtn = By.xpath("//button[normalize-space()='Add to cart']");
 
-    public By quantityFiled = By.xpath("//input[@id='quantity']");
+    public By quantityFiledPath = By.xpath("//input[@id='quantity']");
 
     //processed btn
     private final By processedBtn = By.xpath("//a[@class='btn btn-default check_out']");
     //place order btn
     private final By placeOrderBtn = By.xpath("//a[@class='btn btn-default check_out']");
+
+
 
 
     public void moveToCart(){
@@ -37,12 +40,16 @@ public class Cart extends Base{
 
 
 
-    // the dynamic xpath for each product based on the product name in the Products page
+    // getting dynamic diff paths for each product based on the product name in the Products page
     public String getItemPathViaItemName(String itemName) {
         return "//a[normalize-space()='" + itemName + "']";    }
 
     public By getItemPriceViaItemNumber(int itemNum) {
-        return By.xpath("tr[id='product-" + itemNum + "'] td[class='cart_price']");
+        //table[@id='cart_info_table']//tr[1]
+//        return By.xpath("//table[@id='cart_info_table']//tr[" + itemNum + "]");
+
+//        tr[id='product-1'] td[class='cart_price'] p
+        return By.xpath("tr[id='product-"+itemNum+ "'] td[class='cart_price'] p");
     }
     public By getItemTotalPriceViaItemNumber(int itemNum) {
         return By.xpath("tr[id='product-" + itemNum + "'] td[class='cart_total']");
@@ -58,13 +65,14 @@ public class Cart extends Base{
 
 
     public void clickProduct(String itemXpath) {
+        By itemElement = By.xpath(itemXpath);
+        waitForElementToBeClickable(itemElement);
         driver.findElement(By.xpath(itemXpath)).click();
     }
-    public void changeQuantity(String numOfQuantityNeeded, String itemPath){
-        driver.findElement(quantityFiled).clear();
-        driver.findElement(quantityFiled).sendKeys(numOfQuantityNeeded);
-        By itemLocator = By.xpath(itemPath);
-        product.addItemsToCart(new By []{itemLocator});
+    public void changeQuantity(String numOfQuantityNeeded){
+        driver.findElement(quantityFiledPath).clear();
+        driver.findElement(quantityFiledPath).sendKeys(numOfQuantityNeeded);
+        product.addItemsToCart(new By []{addToCartBtn});
 
     }
 

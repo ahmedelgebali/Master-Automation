@@ -1,13 +1,19 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Base {
     protected WebDriver driver;
     protected Actions actions;
     protected JavascriptExecutor js;
+    WebDriverWait wait;
 
 
 
@@ -22,6 +28,12 @@ public class Base {
     public Base(Actions actions, JavascriptExecutor js) {
         this.actions = actions;
         this.js = js;
+    }
+
+
+    public void waitForElementToBeClickable(By locator){
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
 }

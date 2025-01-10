@@ -4,10 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
-
 
 
 public class Products extends Base{
@@ -26,12 +22,13 @@ public class Products extends Base{
 
 
 
-    public By firstItemName = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
 
     // Items LOCATOR to add to cart
-    public By firstItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[1]/a");
-    public By secondItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
-    public By thirdItemPath = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");
+    public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
+    public By firstItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
+    public By secondItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
+    public By thirdItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
+
 
 
     // continue shopping btn's xpath
@@ -83,11 +80,11 @@ public class Products extends Base{
         for (By itemPath : itemPaths) {
             try {
                 // Wait for the item to be clickable and click it
-                waitFor(itemPath);
+                waitForElementToBeClickable(itemPath);
                 driver.findElement(itemPath).click();
 
                 // Wait for the continue button and click it
-                waitFor(continueBtn);
+                waitForElementToBeClickable(continueBtn);
                 driver.findElement(continueBtn).click();
             } catch (Exception e) {
                 System.err.println("Error adding item to cart: " + itemPath);
@@ -96,11 +93,6 @@ public class Products extends Base{
         }
     }
 
-    // wait for the btn 2b clickable and then click on it
-    public void waitFor(By locator){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
 
 
 
@@ -128,7 +120,7 @@ public class Products extends Base{
 
 
     // apply brand filter
-    public Cart applyBrandFilter(){
+    public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
         clickBrandFilter(secondBrandFilter);
         clickBrandFilter(thirdBrandFilter);
@@ -139,7 +131,7 @@ public class Products extends Base{
         clickBrandFilter(eighthBrandFilter);
 
         // transfer controlling into Cart Page
-        return new Cart(driver);
+        new Cart(driver);
 
     }
     // brand filter

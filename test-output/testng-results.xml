@@ -1,65 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-10T13:26:21Z" name="AllTests" finished-at="2025-01-10T13:27:20Z" duration-ms="58590">
+  <suite started-at="2025-01-11T23:23:51 EET" name="GroupingSuit" finished-at="2025-01-11T23:23:51 EET" duration-ms="105">
     <groups>
+      <group name="smoke">
+        <method signature="signup.signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" name="signupWithGoogle" class="practice.signup"/>
+        <method signature="signup.signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" name="signupWithIcloud" class="practice.signup"/>
+      </group> <!-- smoke -->
+      <group name="sanity">
+        <method signature="login.loginWithGoogle()[pri:1, instance:practice.login@78b66d36]" name="loginWithGoogle" class="practice.login"/>
+        <method signature="signup.signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" name="signupWithGoogle" class="practice.signup"/>
+        <method signature="login.loginWithIcloud()[pri:2, instance:practice.login@78b66d36]" name="loginWithIcloud" class="practice.login"/>
+        <method signature="signup.signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" name="signupWithIcloud" class="practice.signup"/>
+        <method signature="login.openApp()[pri:5, instance:practice.login@78b66d36]" name="openApp" class="practice.login"/>
+      </group> <!-- sanity -->
+      <group name="functionality">
+        <method signature="cart.addItemToCart()[pri:0, instance:practice.cart@34b7ac2f]" name="addItemToCart" class="practice.cart"/>
+        <method signature="cart.removeItem()[pri:0, instance:practice.cart@34b7ac2f]" name="removeItem" class="practice.cart"/>
+        <method signature="cart.reAddItemToCart()[pri:0, instance:practice.cart@34b7ac2f]" name="reAddItemToCart" class="practice.cart"/>
+        <method signature="cart.checkOut()[pri:0, instance:practice.cart@34b7ac2f]" name="checkOut" class="practice.cart"/>
+        <method signature="cart.cancelOrder()[pri:0, instance:practice.cart@34b7ac2f]" name="cancelOrder" class="practice.cart"/>
+      </group> <!-- functionality -->
     </groups>
-    <test started-at="2025-01-10T13:26:21Z" name="FunctionalTests" finished-at="2025-01-10T13:27:20Z" duration-ms="58590">
-      <class name="tests.HomeTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:21Z" name="setup" finished-at="2025-01-10T15:26:32Z" duration-ms="10716" status="PASS">
+    <test started-at="2025-01-11T23:23:51 EET" name="grouping test" finished-at="2025-01-11T23:23:51 EET" duration-ms="105">
+      <class name="practice.cart">
+        <test-method signature="addItemToCart()[pri:0, instance:practice.cart@34b7ac2f]" started-at="2025-01-11T23:23:51 EET" name="addItemToCart" depends-on-groups="sanity" finished-at="2025-01-11T23:23:51 EET" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testHeaderSliderInHome()[pri:1, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:32Z" name="testHeaderSliderInHome" finished-at="2025-01-10T15:26:32Z" duration-ms="0" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "pages.Home.headerSliderAction()" because "this.home" is null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "pages.Home.headerSliderAction()" because "this.home" is null
-	at tests.HomeTest.testHeaderSliderInHome(HomeTest.java:29)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:756)
-	at org.testng.TestRunner.run(TestRunner.java:610)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
-	at org.testng.TestNG.runSuites(TestNG.java:1133)
-	at org.testng.TestNG.run(TestNG.java:1104)
-	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
-	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        </test-method> <!-- addItemToCart -->
+        <test-method signature="removeItem()[pri:0, instance:practice.cart@34b7ac2f]" started-at="2025-01-11T23:23:51 EET" name="removeItem" depends-on-groups="sanity" finished-at="2025-01-11T23:23:51 EET" depends-on-methods="practice.cart.addItemToCart" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHeaderSliderInHome -->
-        <test-method signature="testHoverOverItemsInHome()[pri:2, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:26:32Z" name="testHoverOverItemsInHome" finished-at="2025-01-10T15:27:17Z" duration-ms="45586" status="PASS">
+        </test-method> <!-- removeItem -->
+        <test-method signature="reAddItemToCart()[pri:0, instance:practice.cart@34b7ac2f]" started-at="2025-01-11T23:23:51 EET" name="reAddItemToCart" depends-on-groups="sanity" finished-at="2025-01-11T23:23:51 EET" depends-on-methods="practice.cart.removeItem, practice.cart.addItemToCart" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHoverOverItemsInHome -->
-        <test-method signature="testFooterSliderInHome()[pri:3, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:27:17Z" name="testFooterSliderInHome" finished-at="2025-01-10T15:27:19Z" duration-ms="1346" status="PASS">
+        </test-method> <!-- reAddItemToCart -->
+        <test-method signature="checkOut()[pri:0, instance:practice.cart@34b7ac2f]" started-at="2025-01-11T23:23:51 EET" name="checkOut" depends-on-groups="sanity" finished-at="2025-01-11T23:23:51 EET" depends-on-methods="practice.cart.reAddItemToCart, practice.cart.addItemToCart" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testFooterSliderInHome -->
-        <test-method is-config="true" signature="tear()[pri:0, instance:tests.HomeTest@69b794e2]" started-at="2025-01-10T15:27:19Z" name="tear" finished-at="2025-01-10T15:27:20Z" duration-ms="920" status="PASS">
+        </test-method> <!-- checkOut -->
+        <test-method signature="cancelOrder()[pri:0, instance:practice.cart@34b7ac2f]" started-at="2025-01-11T23:23:51 EET" name="cancelOrder" depends-on-groups="sanity" finished-at="2025-01-11T23:23:51 EET" depends-on-methods="practice.cart.checkOut" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tear -->
-      </class> <!-- tests.HomeTest -->
-    </test> <!-- FunctionalTests -->
-  </suite> <!-- AllTests -->
+        </test-method> <!-- cancelOrder -->
+      </class> <!-- practice.cart -->
+      <class name="practice.signup">
+        <test-method signature="signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" started-at="2025-01-11T23:23:51 EET" name="signupWithGoogle" finished-at="2025-01-11T23:23:51 EET" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signupWithGoogle -->
+        <test-method signature="signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" started-at="2025-01-11T23:23:51 EET" name="signupWithIcloud" finished-at="2025-01-11T23:23:51 EET" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signupWithIcloud -->
+      </class> <!-- practice.signup -->
+      <class name="practice.login">
+        <test-method signature="loginWithGoogle()[pri:1, instance:practice.login@78b66d36]" started-at="2025-01-11T23:23:51 EET" name="loginWithGoogle" finished-at="2025-01-11T23:23:51 EET" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithGoogle -->
+        <test-method signature="loginWithIcloud()[pri:2, instance:practice.login@78b66d36]" started-at="2025-01-11T23:23:51 EET" name="loginWithIcloud" finished-at="2025-01-11T23:23:51 EET" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithIcloud -->
+        <test-method signature="openApp()[pri:5, instance:practice.login@78b66d36]" started-at="2025-01-11T23:23:51 EET" name="openApp" finished-at="2025-01-11T23:23:51 EET" depends-on-methods="practice.login.loginWithGoogle" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApp -->
+      </class> <!-- practice.login -->
+    </test> <!-- grouping test -->
+  </suite> <!-- GroupingSuit -->
 </testng-results>

@@ -35,23 +35,23 @@ public class Cart extends Base {
     }
 
     // dynamic locators
-    private By getDynamicLocator(String baseXPath, int itemNum) {
+    private By getDynamicLocator(String baseXPath, String itemNum) {
         return By.xpath(baseXPath.replace("x", String.valueOf(itemNum)));
     }
 
-    public By getItemPriceLocator(int itemNum) {
+    public By getItemPriceLocator(String itemNum) {
         return getDynamicLocator("//tr[@id='product-x']//td[@class='cart_price']", itemNum);
     }
 
-    public By getItemTotalPriceLocator(int itemNum) {
+    public By getItemTotalPriceLocator(String itemNum) {
         return getDynamicLocator("//tr[@id='product-x']//td[@class='cart_total']", itemNum);
     }
 
-    public By getItemDeleteButtonLocator(int itemNum) {
+    public By getItemDeleteButtonLocator(String itemNum) {
         return getDynamicLocator("(//td[@class='cart_delete'])[x]", itemNum);
     }
 
-    public By getItemQuantityLocator(int itemNum) {
+    public By getItemQuantityLocator(String itemNum) {
         return getDynamicLocator("(//td[@class='cart_quantity'])[x]", itemNum);
     }
 

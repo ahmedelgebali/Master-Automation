@@ -49,12 +49,14 @@ public class CartTest extends BaseTest {
         // add item to the cart
         product.addItemsToCart(new By[]{product.firstItemPath});
         softAssert.assertTrue(cart.isItemInCart(itemName), "the item wasn't added to the cart successfully");
+        softAssert.assertAll();
     }
 
     @Test(priority = 2, dependsOnMethods = "addItemsToCart")
     public void navigateToCart() {
         cart.moveToCart();
         softAssert.assertTrue(cart.isCartPageDisplayed(), "Cart page is displayed");
+        softAssert.assertAll();
     }
 
     @Test(priority = 3, dependsOnMethods = "navigateToCart")
@@ -91,5 +93,6 @@ public class CartTest extends BaseTest {
         // validate total price
         By totalPrice = cart.getItemTotalPriceLocator(theTendedItemNumber);
         softAssert.assertNotNull(totalPrice, "Total price should not be null.");
+        softAssert.assertAll();
     }
 }

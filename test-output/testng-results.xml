@@ -2,95 +2,12 @@
 <testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-12T19:35:04 EET" name="Test login using date provider concept with multiple browsers" finished-at="2025-01-12T19:36:13 EET" duration-ms="69286">
+  <suite started-at="2025-01-12T19:46:05 EET" name="Test login using date provider concept with multiple browsers" finished-at="2025-01-12T19:46:20 EET" duration-ms="15777">
     <groups>
     </groups>
-    <test started-at="2025-01-12T19:35:04 EET" name="test login via FireFox browser" finished-at="2025-01-12T19:35:35 EET" duration-ms="30855">
+    <test started-at="2025-01-12T19:46:05 EET" name="test login via Chrome browser" finished-at="2025-01-12T19:46:18 EET" duration-ms="13232">
       <class name="practice.dataProviderPractice">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:04 EET" name="setup" finished-at="2025-01-12T19:35:27 EET" duration-ms="22695" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="320" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ahmed]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Pass@12]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="268" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ahmed]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Pass@12]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="260" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[student]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Pass@12]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:34 EET" duration-ms="6508" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[student]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:34 EET" name="tear" finished-at="2025-01-12T19:35:35 EET" duration-ms="771" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tear -->
-      </class> <!-- practice.dataProviderPractice -->
-    </test> <!-- test login via FireFox browser -->
-    <test started-at="2025-01-12T19:35:35 EET" name="test login via Chrome browser" finished-at="2025-01-12T19:35:47 EET" duration-ms="12382">
-      <class name="practice.dataProviderPractice">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:35 EET" name="setup" finished-at="2025-01-12T19:35:40 EET" duration-ms="5167" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:05 EET" name="setup" finished-at="2025-01-12T19:46:10 EET" duration-ms="5030" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -101,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:40 EET" duration-ms="254" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:10 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:10 EET" duration-ms="327" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -117,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:40 EET" duration-ms="206" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:10 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:10 EET" duration-ms="241" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -133,7 +50,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:41 EET" duration-ms="213" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:10 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:11 EET" duration-ms="275" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -149,7 +66,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:41 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:47 EET" duration-ms="6428" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:11 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:18 EET" duration-ms="7154" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -165,15 +82,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:47 EET" name="tear" finished-at="2025-01-12T19:35:47 EET" duration-ms="111" status="PASS">
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:46:18 EET" name="tear" finished-at="2025-01-12T19:46:18 EET" duration-ms="141" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tear -->
       </class> <!-- practice.dataProviderPractice -->
     </test> <!-- test login via Chrome browser -->
-    <test started-at="2025-01-12T19:35:47 EET" name="test login via Edge browser" finished-at="2025-01-12T19:36:13 EET" duration-ms="26047">
+    <test started-at="2025-01-12T19:46:05 EET" name="test login via Edge browser" finished-at="2025-01-12T19:46:19 EET" duration-ms="14477">
       <class name="practice.dataProviderPractice">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:35:47 EET" name="setup" finished-at="2025-01-12T19:36:03 EET" duration-ms="16182" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:05 EET" name="setup" finished-at="2025-01-12T19:46:10 EET" duration-ms="5086" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -184,7 +101,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:03 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="252" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:10 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:11 EET" duration-ms="786" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -200,7 +117,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="205" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:11 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:11 EET" duration-ms="240" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -216,7 +133,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="203" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:11 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:11 EET" duration-ms="210" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -232,7 +149,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:12 EET" duration-ms="7914" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:11 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:18 EET" duration-ms="6905" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -248,11 +165,94 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:12 EET" name="tear" finished-at="2025-01-12T19:36:13 EET" duration-ms="1286" status="PASS">
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:46:18 EET" name="tear" finished-at="2025-01-12T19:46:19 EET" duration-ms="1217" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tear -->
       </class> <!-- practice.dataProviderPractice -->
     </test> <!-- test login via Edge browser -->
+    <test started-at="2025-01-12T19:46:05 EET" name="test login via FireFox browser" finished-at="2025-01-12T19:46:20 EET" duration-ms="15777">
+      <class name="practice.dataProviderPractice">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:05 EET" name="setup" finished-at="2025-01-12T19:46:13 EET" duration-ms="8370" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:13 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:13 EET" duration-ms="336" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:13 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:14 EET" duration-ms="259" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:14 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:14 EET" duration-ms="261" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:14 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:46:20 EET" duration-ms="5674" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:46:20 EET" name="tear" finished-at="2025-01-12T19:46:20 EET" duration-ms="855" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- practice.dataProviderPractice -->
+    </test> <!-- test login via FireFox browser -->
   </suite> <!-- Test login using date provider concept with multiple browsers -->
 </testng-results>

@@ -55,31 +55,48 @@ public class CartTest extends BaseTest {
 
     @Test(priority = 3, dependsOnMethods = "navigateToCart")
     public void performActionOnItems() {
-        String quantity;
-        // navigate to product details
+        navigateToProductDetails();
+        changeQuantity(numOfQuantityNeeded);
+        verifyQuantityChange();
+        validateItemPrice();
+        validateTotalPrice();
+    }
+
+
+    public void navigateToProductDetails() {
+        // Navigate to product details page
         cart.clickProduct(cart.getItemPathByName(itemName)); //add product to cart
         By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber); //get quantity path
-        System.out.println(quantityPath);
         softAssert.assertNotNull(quantityPath, "Item price should not be null.");
-        cart.changeQuantity(numOfQuantityNeeded);
-        // verify changes
+    }
+
+    public void changeQuantity(String quantity) {
+        // Change the quantity of the item in the cart
+        cart.changeQuantity(quantity);
         driver.navigate().back();
         driver.navigate().refresh();
-        quantity = driver.findElement(quantityPath).getText();
-        System.out.println("quantity after chang it --> " +quantity);
-        // validate item quantity
-        By itemQuantity = cart.getItemQuantityLocator(theTendedItemNumber);
-        softAssert.assertEquals(itemQuantity, "11", "Item quantity should be updated");
+    }
 
-        // validate item price
+    public void verifyQuantityChange() {
+        // Verify the quantity change was successful
+        By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber);
+        String quantity = driver.findElement(quantityPath).getText();
+        System.out.println("Quantity after change: " + quantity);
+        softAssert.assertEquals(quantity, "11", "Item quantity should be updated");
+    }
+
+    public void validateItemPrice() {
+        // Validate the item price
         By itemPrice = cart.getItemPriceLocator(theTendedItemNumber);
         String price = driver.findElement(itemPrice).getText();
         softAssert.assertNotNull(itemPrice, "Item price should not be null");
-        System.out.println("the price is -->" +price);
+        System.out.println("Item price: " + price);
+    }
 
-
-        // validate total price
+    public void validateTotalPrice() {
+        // Validate the total price
         By totalPrice = cart.getItemTotalPriceLocator(theTendedItemNumber);
         softAssert.assertNotNull(totalPrice, "Total price should not be null.");
     }
+
 }

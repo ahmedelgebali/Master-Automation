@@ -12,15 +12,15 @@ public class signup {
     void signupWithFacebook(){
         System.out.println("this is signup with facebook method");
     }
-    @Test(priority = 2, groups = {"sanity","smoke"})
+    @Test(priority = 2, groups = {"regression","smoke"})
     void signupWithIcloud(){
         System.out.println("this is signup with icloud method");
     }
-    @Test(priority = 4, groups = "regression")
+    @Test(priority = 4, groups = {"regression", "smoke"})
     void signupWithTwitter(){
         System.out.println("this is signup with twitter method");
     }
-    @Test(priority = 5, dependsOnGroups = "sanity")
+    @Test(priority = 5, dependsOnGroups = {"regression", "smoke"})
     void openAppAfterSignup(){
         System.out.println("this is openAppAfterSignup method");
     }

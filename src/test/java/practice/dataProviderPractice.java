@@ -3,12 +3,11 @@ package practice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 import java.util.List;
@@ -17,8 +16,14 @@ public class dataProviderPractice {
     WebDriver driver;
 
     @BeforeClass
-    void setup(){
-        driver = new FirefoxDriver();
+    @Parameters({"browser"})
+    void setup(String browser){
+        switch (browser){
+            case "chrome" : driver = new ChromeDriver();  break;
+            case "edge"   : driver = new EdgeDriver();    break;
+            case "firefox": driver = new FirefoxDriver(); break;
+            default       : driver = new FirefoxDriver(); break;
+        }
         driver.get("https://practicetestautomation.com/practice-test-login/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
@@ -48,7 +53,7 @@ public class dataProviderPractice {
 
 
 
-    @DataProvider(name = "loginData", indices = {0,3})
+    @DataProvider(name = "loginData", indices = {})
     String [][] login(){
         String uerData [][] ={
                 {"ahmed", "Pass@12"},

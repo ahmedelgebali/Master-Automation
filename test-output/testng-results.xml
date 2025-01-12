@@ -1,69 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+<testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-12T11:18:40 EET" name="GroupingSuit" finished-at="2025-01-12T11:18:40 EET" duration-ms="81">
+  <suite started-at="2025-01-12T19:35:04 EET" name="Test login using date provider concept with multiple browsers" finished-at="2025-01-12T19:36:13 EET" duration-ms="69286">
     <groups>
-      <group name="regression">
-        <method signature="signup.signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" name="signupWithIcloud" class="practice.signup"/>
-        <method signature="signup.signupWithFacebook()[pri:3, instance:practice.signup@5a63f509]" name="signupWithFacebook" class="practice.signup"/>
-        <method signature="signup.signupWithTwitter()[pri:4, instance:practice.signup@5a63f509]" name="signupWithTwitter" class="practice.signup"/>
-        <method signature="login.search()[pri:6, instance:practice.login@78b66d36]" name="search" class="practice.login"/>
-        <method signature="login.advSearch()[pri:7, instance:practice.login@78b66d36]" name="advSearch" class="practice.login"/>
-      </group> <!-- regression -->
-      <group name="smoke">
-        <method signature="signup.signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" name="signupWithGoogle" class="practice.signup"/>
-        <method signature="signup.signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" name="signupWithIcloud" class="practice.signup"/>
-        <method signature="signup.signupWithTwitter()[pri:4, instance:practice.signup@5a63f509]" name="signupWithTwitter" class="practice.signup"/>
-      </group> <!-- smoke -->
-      <group name="sanity">
-        <method signature="login.loginWithGoogle()[pri:1, instance:practice.login@78b66d36]" name="loginWithGoogle" class="practice.login"/>
-        <method signature="signup.signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" name="signupWithGoogle" class="practice.signup"/>
-        <method signature="login.loginWithIcloud()[pri:2, instance:practice.login@78b66d36]" name="loginWithIcloud" class="practice.login"/>
-        <method signature="login.openApp()[pri:5, instance:practice.login@78b66d36]" name="openApp" class="practice.login"/>
-      </group> <!-- sanity -->
     </groups>
-    <test started-at="2025-01-12T11:18:40 EET" name="grouping test" finished-at="2025-01-12T11:18:40 EET" duration-ms="81">
-      <class name="practice.signup">
-        <test-method signature="signupWithGoogle()[pri:1, instance:practice.signup@5a63f509]" started-at="2025-01-12T11:18:40 EET" name="signupWithGoogle" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+    <test started-at="2025-01-12T19:35:04 EET" name="test login via FireFox browser" finished-at="2025-01-12T19:35:35 EET" duration-ms="30855">
+      <class name="practice.dataProviderPractice">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:04 EET" name="setup" finished-at="2025-01-12T19:35:27 EET" duration-ms="22695" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signupWithGoogle -->
-        <test-method signature="signupWithTwitter()[pri:4, instance:practice.signup@5a63f509]" started-at="2025-01-12T11:18:40 EET" name="signupWithTwitter" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signupWithTwitter -->
-        <test-method signature="signupWithFacebook()[pri:3, instance:practice.signup@5a63f509]" started-at="2025-01-12T11:18:40 EET" name="signupWithFacebook" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="268" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signupWithFacebook -->
-        <test-method signature="signupWithIcloud()[pri:2, instance:practice.signup@5a63f509]" started-at="2025-01-12T11:18:40 EET" name="signupWithIcloud" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:27 EET" duration-ms="260" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signupWithIcloud -->
-      </class> <!-- practice.signup -->
-      <class name="practice.login">
-        <test-method signature="loginWithGoogle()[pri:1, instance:practice.login@78b66d36]" started-at="2025-01-12T11:18:40 EET" name="loginWithGoogle" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:27 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:34 EET" duration-ms="6508" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginWithGoogle -->
-        <test-method signature="loginWithIcloud()[pri:2, instance:practice.login@78b66d36]" started-at="2025-01-12T11:18:40 EET" name="loginWithIcloud" finished-at="2025-01-12T11:18:40 EET" duration-ms="5" status="PASS">
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@43195e57]" started-at="2025-01-12T19:35:34 EET" name="tear" finished-at="2025-01-12T19:35:35 EET" duration-ms="771" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginWithIcloud -->
-        <test-method signature="openApp()[pri:5, instance:practice.login@78b66d36]" started-at="2025-01-12T11:18:40 EET" name="openApp" finished-at="2025-01-12T11:18:40 EET" depends-on-methods="practice.login.loginWithGoogle" duration-ms="0" status="PASS">
+        </test-method> <!-- tear -->
+      </class> <!-- practice.dataProviderPractice -->
+    </test> <!-- test login via FireFox browser -->
+    <test started-at="2025-01-12T19:35:35 EET" name="test login via Chrome browser" finished-at="2025-01-12T19:35:47 EET" duration-ms="12382">
+      <class name="practice.dataProviderPractice">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:35 EET" name="setup" finished-at="2025-01-12T19:35:40 EET" duration-ms="5167" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openApp -->
-        <test-method signature="advSearch()[pri:7, instance:practice.login@78b66d36]" started-at="2025-01-12T11:18:40 EET" name="advSearch" finished-at="2025-01-12T11:18:40 EET" depends-on-methods="practice.login.search" duration-ms="0" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:40 EET" duration-ms="254" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- advSearch -->
-        <test-method signature="search()[pri:6, instance:practice.login@78b66d36]" started-at="2025-01-12T11:18:40 EET" name="search" depends-on-groups="sanity" finished-at="2025-01-12T11:18:40 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:40 EET" duration-ms="206" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- search -->
-      </class> <!-- practice.login -->
-    </test> <!-- grouping test -->
-  </suite> <!-- GroupingSuit -->
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:40 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:41 EET" duration-ms="213" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:41 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:35:47 EET" duration-ms="6428" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@4fb61f4a]" started-at="2025-01-12T19:35:47 EET" name="tear" finished-at="2025-01-12T19:35:47 EET" duration-ms="111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- practice.dataProviderPractice -->
+    </test> <!-- test login via Chrome browser -->
+    <test started-at="2025-01-12T19:35:47 EET" name="test login via Edge browser" finished-at="2025-01-12T19:36:13 EET" duration-ms="26047">
+      <class name="practice.dataProviderPractice">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:35:47 EET" name="setup" finished-at="2025-01-12T19:36:03 EET" duration-ms="16182" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:03 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="252" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="205" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ahmed]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:04 EET" duration-ms="203" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Pass@12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:04 EET" name="login" data-provider="loginData" finished-at="2025-01-12T19:36:12 EET" duration-ms="7914" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[student]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:practice.dataProviderPractice@6d763516]" started-at="2025-01-12T19:36:12 EET" name="tear" finished-at="2025-01-12T19:36:13 EET" duration-ms="1286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- practice.dataProviderPractice -->
+    </test> <!-- test login via Edge browser -->
+  </suite> <!-- Test login using date provider concept with multiple browsers -->
 </testng-results>

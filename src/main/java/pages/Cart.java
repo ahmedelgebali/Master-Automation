@@ -55,19 +55,19 @@ public class Cart extends Base {
         return getDynamicLocator("(//td[@class='cart_quantity'])[x]", itemNum);
     }
 
-    // Get Item Path by Name
+    // get item path by name
     public String getItemPathByName(String itemName) {
         return "//a[normalize-space()='" + itemName + "']";
     }
 
-    // Click Product
+    // click product
     public void clickProduct(String itemXpath) {
         By itemLocator = By.xpath(itemXpath);
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
     }
 
-    // Change Quantity
+    // change quantity
     public void changeQuantity(String quantity) {
         waitForElementToBeClickable(quantityFieldPath);
         driver.findElement(quantityFieldPath).clear();
@@ -75,7 +75,7 @@ public class Cart extends Base {
         product.addItemsToCart(new By[]{addToCartBtn});
     }
 
-    // Helper Methods for Validation (Example Placeholders)
+    // helper methods for validation
     public boolean isItemInCart(String itemName) {
         By itemLocator = By.xpath(getItemPathByName(itemName));
         return isElementDisplayed(itemLocator);
@@ -85,7 +85,7 @@ public class Cart extends Base {
         try {
             return driver.findElement(locator).isDisplayed();
         } catch (Exception e) {
-            // Log the exception or debug message if needed
+            // log the exception
             System.out.println("Element not found: " + locator);
             return false;
         }
@@ -94,9 +94,5 @@ public class Cart extends Base {
 
     public boolean isCartPageDisplayed() {
         return isElementDisplayed(cartPagePath);
-    }
-
-    public boolean isProductActionSuccessful(String itemName) {
-        return isItemInCart(itemName);
     }
 }

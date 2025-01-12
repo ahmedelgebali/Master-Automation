@@ -17,10 +17,7 @@ public class ProductsTest extends BaseTest {
         String url = PropReader.getProp("baseURL");
         setUp(url);
     }
-//    @AfterAll
-//    public static void teardown(){
-//        tearDown();
-//    }
+
 
     @Test
     public void navigateToPage(){

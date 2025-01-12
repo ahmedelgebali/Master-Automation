@@ -12,7 +12,6 @@ import java.io.IOException;
 public class HomeTest extends BaseTest {
     private Home home;
 
-    @BeforeClass
     public void setup() throws IOException {
         String url= PropReader.getProp("baseURL");
         setUp(url);

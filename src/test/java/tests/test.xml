@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="Test Classes in multiple browsers" parallel="tests">
+
+
+    <test name="test CartTest via Chrome browser">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.CartTest"/>
+        </classes>
+    </test>
+
+
+
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.JUnitReportReporter"/>
+        <listener class-name="org.testng.reporters.XMLReporter"/>
+    </listeners>
+
+</suite>

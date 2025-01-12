@@ -48,7 +48,7 @@ public class dataProviderPractice {
 
 
 
-    @DataProvider(name = "loginData")
+    @DataProvider(name = "loginData", indices = {0,3})
     String [][] login(){
         String uerData [][] ={
                 {"ahmed", "Pass@12"},

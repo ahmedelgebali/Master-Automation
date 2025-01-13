@@ -3,8 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class Products extends Base{
 
@@ -120,6 +123,7 @@ public class Products extends Base{
 
 
     // apply brand filter
+//    By enterItemOrder
     public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
         clickBrandFilter(secondBrandFilter);
@@ -139,9 +143,23 @@ public class Products extends Base{
         driver.findElement(brandFilter).click();
     }
 
-    public String getFirstItemName(){
-        return driver.findElement(firstItemNamePath).getText();
 
+
+    public List<String> getItemNames() {
+        return Arrays.asList(
+                extractText(firstItemPath),
+                extractText(secondItemPath),
+                extractText(secondItemPath)
+        );
     }
+
+    public String extractText (By itemPath) {
+        WebElement itemElement = driver.findElement(itemPath);
+        return itemElement.getText();
+    }
+//    public String getItemName(){
+//        return driver.findElement(firstItemNamePath).getText();
+//
+//    }
 }
 

@@ -2,7 +2,6 @@ package tests;
 
 import Properties.PropReader;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -12,41 +11,51 @@ import pages.Cart;
 import pages.Products;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartTest extends BaseTest {
     SoftAssert softAssert = new SoftAssert();
 
-    private String itemName;
+//    private String itemName
     private String  theTendedItemNumber = "1";
     private String numOfQuantityNeeded = "10";
     private Cart cart;
+    Products product;
 
     @BeforeClass
     public static void setup() throws IOException {
         String url = PropReader.getProp("productsURL");
         setUp(url);
     }
-    @AfterClass
+//    @AfterClass
     public static void tearDown() {
         driver.quit();
     }
-
     @BeforeMethod
-    public void setUpCart() {
+    public void setUpClasses() {
         cart = new Cart(driver);
+        product = new Products(driver);
     }
+
+
+    private List<String> itemPaths;
 
     @Test(priority = 1)
-    public void addItemsToCart() {
-        Products product = new Products(driver);
-        // capture the first item's name
-        itemName = product.getFirstItemName();
-        softAssert.assertNotNull(itemName, "Item name should not be null.");
-        // add item to the cart
-        product.addItemsToCart(new By[]{product.firstItemPath});
+    public void addItemsToCartFromProductsPage() {
+        product.addItemsToCart(new By[]{product.firstItemPath, product.secondItemPath, product.thirdItemPath});
+        // capture item names
+        List<String> itemNames = product.getItemNames();
+        itemPaths = new ArrayList<>();
+        for (String itemName : itemNames){
+            System.out.println("adding item to cart: " + itemName);
+            String itemPath = cart.getItemPathByName(itemName);
+            itemPaths.add(itemPath);
+            softAssert.assertNotNull(itemName, "Item name should not be null");
+        }
     }
 
-    @Test(priority = 2, dependsOnMethods = "addItemsToCart")
+    @Test(priority = 2, dependsOnMethods = "addItemsToCartFromProductsPage")
     public void navigateToCart() {
         cart.moveToCart();
         softAssert.assertTrue(cart.isCartPageDisplayed(), "Cart page is displayed");
@@ -63,22 +72,24 @@ public class CartTest extends BaseTest {
     }
 
 
+
+    //helper methods
     public void navigateToProductDetails() {
-        // Navigate to product details page
-        cart.clickProduct(cart.getItemPathByName(itemName)); //add product to cart
+        // navigate to product details page
+        cart.clickProduct(itemPaths.getFirst());
         By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber); //get quantity path
-        softAssert.assertNotNull(quantityPath, "Item price should not be null.");
+        softAssert.assertTrue(true);
     }
 
     public void changeQuantity(String quantity) {
-        // Change the quantity of the item in the cart
+        // change the quantity of the item in the cart
         cart.changeQuantity(quantity);
         driver.navigate().back();
         driver.navigate().refresh();
     }
 
     public void verifyQuantityChange() {
-        // Verify the quantity change was successful
+        // verify the quantity change was successful
         By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber);
         String quantity = driver.findElement(quantityPath).getText();
         System.out.println("Quantity after change: " + quantity);

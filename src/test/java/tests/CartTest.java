@@ -2,14 +2,10 @@ package tests;
 
 import Properties.PropReader;
 import org.openqa.selenium.By;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pages.Cart;
 import pages.Products;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +13,6 @@ import java.util.List;
 public class CartTest extends BaseTest {
     SoftAssert softAssert = new SoftAssert();
 
-//    private String itemName
     private String  theTendedItemNumber = "1";
     private String numOfQuantityNeeded = "10";
     private Cart cart;
@@ -40,7 +35,6 @@ public class CartTest extends BaseTest {
 
 
     private List<String> itemPaths;
-
     @Test(priority = 1)
     public void addItemsToCartFromProductsPage() {
         product.addItemsToCart(new By[]{product.firstItemPath, product.secondItemPath, product.thirdItemPath});

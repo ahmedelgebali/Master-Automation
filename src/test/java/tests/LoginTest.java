@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
 
     @BeforeClass
-    public static void setupTest() throws IOException, InterruptedException {
+    public static void setupTest() throws IOException {
         String url = PropReader.getProp("loginURL");
         setUp(url);
     }

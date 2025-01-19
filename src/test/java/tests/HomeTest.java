@@ -1,6 +1,7 @@
 package tests;
 
 import Properties.PropReader;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,6 +13,8 @@ import java.io.IOException;
 public class HomeTest extends BaseTest {
     private Home home;
 
+
+    @BeforeClass
     public void setup() throws IOException {
         String url= PropReader.getProp("baseURL");
         setUp(url);

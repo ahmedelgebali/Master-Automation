@@ -1,6 +1,7 @@
 package tests;
 
 import Properties.PropReader;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ContactUs;
@@ -14,6 +15,10 @@ public class ContactUsTest extends BaseTest{
     public static void setup() throws IOException {
         String url = PropReader.getProp("contactUs");
         setUp(url);
+    }
+    @AfterClass
+    public static void tear(){
+        tearDown();
     }
 
     @Test
@@ -32,8 +37,4 @@ public class ContactUsTest extends BaseTest{
         contact.clickSubmit();
     }
 
-//    @AfterAll
-//    public static void tear(){
-//        tearDown();
-//    }
 }

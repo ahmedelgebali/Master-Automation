@@ -10,36 +10,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Products extends Base{
-
     public Products(WebDriver driver) {
         super(driver);
     }
-    // Constructor with Actions and JavascriptExecutor
     public Products(Actions actions, JavascriptExecutor js) {
         super(actions, js);
     }
 
 
-
-
-
-
-
-
-    // items locator to add to cart
+// <--------------------------> Locators <-------------------------->
+    // items to add to cart
     public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
     public By firstItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
     public By secondItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
     public By thirdItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
 
-
-
-    // continue shopping btn's xpath
+    // continue shopping btn
     public By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
     //view cart btn
     public By viewCartBtn = By.xpath("//u[normalize-space()='View Cart']");
 
-    //filter XPaths --> category
+    //filter locators --> category
             //WOMEN
                 public By womenFilter = By.xpath("//a[normalize-space()='Women']//i[@class='fa fa-plus']");
                 public By dressFilter = By.xpath("//div[@id='Women']//a[contains(text(),'Dress')]");
@@ -56,7 +47,7 @@ public class Products extends Base{
                 public By kidsDressFilter = By.xpath("//div[@id='Kids']//a[contains(text(),'Dress')]");
                 public By kidsTopsAndShirts = By.xpath("//a[normalize-space()='Tops & Shirts']");
 
-    //filter XPaths --> Brands
+    //filter locators --> Brands
             public By firstBrandFilter = By.xpath("//a[@href='/brand_products/Polo']");
             public By secondBrandFilter = By.xpath("//a[@href='/brand_products/H&M']");
             public By thirdBrandFilter = By.xpath("//a[@href='/brand_products/Madame']");
@@ -70,8 +61,7 @@ public class Products extends Base{
 
 
 
-// Add products to cart and filter
-
+// <--------------------------> Actions methods  <-------------------------->
     // navigate to products page
     public void navigateToProductsPage(){
         driver.findElement(By.xpath("//a[@href='/products']")).click(); //navigate to Products page
@@ -98,8 +88,7 @@ public class Products extends Base{
 
 
 
-
-// apply filter
+    // apply filter
     public void applyFilter(){
         //women's filters
         clickFilter(womenFilter, dressFilter);
@@ -114,6 +103,7 @@ public class Products extends Base{
         clickFilter(kidsFilter, kidsDressFilter);
         clickFilter(kidsFilter, kidsTopsAndShirts);
     }
+
     //click filter method
     public void clickFilter(By filter, By option){
         driver.findElement(filter).click();
@@ -123,7 +113,6 @@ public class Products extends Base{
 
 
     // apply brand filter
-//    By enterItemOrder
     public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
         clickBrandFilter(secondBrandFilter);
@@ -138,11 +127,11 @@ public class Products extends Base{
         new Cart(driver);
 
     }
+
     // brand filter
     public void clickBrandFilter(By brandFilter){
         driver.findElement(brandFilter).click();
     }
-
 
 
     public List<String> getItemNames() {
@@ -157,9 +146,6 @@ public class Products extends Base{
         WebElement itemElement = driver.findElement(itemPath);
         return itemElement.getText();
     }
-//    public String getItemName(){
-//        return driver.findElement(firstItemNamePath).getText();
-//
-//    }
+
 }
 

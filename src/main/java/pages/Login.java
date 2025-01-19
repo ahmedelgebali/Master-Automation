@@ -8,13 +8,16 @@ public class Login extends Base{
 
 
 
-    //fields locator
+// <--------------------------> Locators  <-------------------------->
     private By mailInput = By.xpath("//input[@data-qa='login-email']");
     private By passInput = By.xpath("//input[@placeholder='Password']");
     private By loginBtn = By.xpath("//button[normalize-space()='Login']");
     private By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
 
 
+
+
+// <--------------------------> Actions methods  <-------------------------->
     public void enterLoginMail(String mail){
         driver.findElement(mailInput).sendKeys(mail);
     }

@@ -15,20 +15,20 @@ public class Base {
     protected JavascriptExecutor js;
     WebDriverWait wait;
 
-
-
-    // Constructor with WebDriver
+    // Constructors
+    //with driver
     public Base(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver); // Initialize Actions
         this.js = (JavascriptExecutor) driver; // Cast driver to JavascriptExecutor
     }
 
-    // Constructor with Actions and JavascriptExecutor explicitly
+    // with Actions and javascript explicitly
     public Base(Actions actions, JavascriptExecutor js) {
         this.actions = actions;
         this.js = js;
     }
+
 
 
     public void waitForElementToBeClickable(By locator){

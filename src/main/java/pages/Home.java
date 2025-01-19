@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Home extends Base {
-
-    //constructors
     public Home(WebDriver driver) {
         super(driver);
     }
@@ -20,7 +18,8 @@ public class Home extends Base {
         super(actions, js);
     }
 
-    //items locators
+
+// <--------------------------> items locators <-------------------------->
     private static final String item1 = ("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]");
     private static final String item2 = ("//div[3]//div[1]//div[1]//div[2]");
     private static final String item3 = ("//div[4]//div[1]//div[1]//div[2]");
@@ -54,6 +53,7 @@ public class Home extends Base {
     private static final String item32 = ("//div[33]//div[1]//div[1]//div[2]");
     private static final String item33 = ("//div[34]//div[1]//div[1]//div[2]");
     private static final String item34 = ("//div[35]//div[1]//div[1]//div[2]");
+
     // array to hover over them in the loop
     public static By[] itemsPathsArray = {
             By.xpath(item1), By.xpath(item2), By.xpath(item3), By.xpath(item4),
@@ -66,6 +66,7 @@ public class Home extends Base {
             By.xpath(item30), By.xpath(item31), By.xpath(item32), By.xpath(item33),
             By.xpath(item34)
     };
+
     //header slider locators
     private final String leftSliderHeader = "://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
     private final String rightSliderHeader = "//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']";
@@ -76,6 +77,7 @@ public class Home extends Base {
             By.xpath(leftSliderHeader), By.xpath(rightSliderHeader), By.xpath(sliderThreeDots1),
             By.xpath(sliderThreeDots2), By.xpath(sliderThreeDots3)
     };
+
     //footer slider locators
     private final By sliderLeftFooter = By.xpath("//a[@class='left recommended-item-control']//i[@class='fa fa-angle-left']");
     private final By sliderRightFooter = By.xpath("//a[@class='right recommended-item-control']//i[@class='fa fa-angle-right']");
@@ -86,11 +88,12 @@ public class Home extends Base {
     private final By popupContinueBtn = By.xpath("//button[normalize-space()='Continue Shopping']");
 
 
+
+
+// <--------------------------> Actions methods  <-------------------------->
     public static By[] getItemsPathsArray() {
         return itemsPathsArray;
     }
-
-
 
 
     //perform action on the header slider

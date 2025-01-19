@@ -7,7 +7,7 @@ public class ContactUs extends Base{
     public ContactUs(WebDriver driver){super(driver);}
 
 
-    //locators
+// <--------------------------> locators <-------------------------->
     private By name = By.xpath("//input[@placeholder='Name']");
     private By mail = By.xpath("//input[@placeholder='Email']");
     private By subject = By.xpath("//input[@placeholder='Subject']");
@@ -18,6 +18,7 @@ public class ContactUs extends Base{
 
 
 
+// <--------------------------> Action methods <-------------------------->
     public void  setName(String enterName){
         driver.findElement(name).sendKeys(enterName);
     }

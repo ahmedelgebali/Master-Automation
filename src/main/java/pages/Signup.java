@@ -8,23 +8,22 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class Signup extends Base{
-
     public Signup(WebDriver driver) {
         super(driver);
     }
-    // Constructor with Actions and JavascriptExecutor
     public Signup(Actions actions, JavascriptExecutor js) {
         super(actions, js);
     }
 
 
-    // sign up Locators
+// <--------------------------> Locators  <-------------------------->
+    // sign up
     private By loginPagePath = By.xpath( "//a[normalize-space()='Signup / Login']");
     private By nameInput = By.xpath("//input[@placeholder='Name']");
     private By mailInput = By.xpath("//input[@data-qa='signup-email']");
     private By signupBtn = By.xpath("//button[normalize-space()='Signup']");
 
-    // account info page locators
+    // account info page
     private By titleInput = By.xpath("//input[@id='id_gender1']"); //Mr
     private By passInput = By.xpath("//input[@id='password']");
     private By dayDropdown = By.id("days");
@@ -32,7 +31,8 @@ public class Signup extends Base{
     private By yearDropdown = By.id("years");
     private By newsletterCheckbox = By.id("newsletter");
     private By receiveOffersCheckbox = By.id("optin");
-    //Address Information locators
+
+    //Address Information
     private By firstNameInput = By.xpath("//input[@id='first_name']");
     private By lastNameInput = By.xpath("//input[@id='last_name']");
     private By companyInput = By.xpath("//input[@id='company']");
@@ -51,8 +51,7 @@ public class Signup extends Base{
 
 
 
-
-
+// <--------------------------> Actions methods  <-------------------------->
     //open login and signup page
     public void openLoginAndSignupPage(){
         driver.findElement(loginPagePath).click();
@@ -68,8 +67,8 @@ public class Signup extends Base{
     public void clickSignupBtn(){
     driver.findElement(signupBtn).click();
     }
-    // following sign up, entering the user info
 
+    // following sign up, entering the user info
     public void selectTitle(){
         driver.findElement(titleInput).click();
     }
@@ -101,7 +100,7 @@ public class Signup extends Base{
         driver.findElement(address2Input).sendKeys(address2);
     }
     public void setCountryDropdown(String country){
-        new Select(driver.findElement(countryDropdown)).selectByVisibleText(country); // wanna select after clicking ????????
+        new Select(driver.findElement(countryDropdown)).selectByVisibleText(country);
     }
     public void stateAndCity(String state, String city){
         driver.findElement(stateInput).sendKeys(state);
@@ -116,8 +115,6 @@ public class Signup extends Base{
     public void createAccountBtn(){
         driver.findElement(createAccountBtn).click();
     }
-
-
     public void printSignupConfirmationMessage(){
     WebElement successTitleElement = driver.findElement(confirmMessage);
     String successTitle = successTitleElement.getText();

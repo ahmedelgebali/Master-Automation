@@ -4,12 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-
 public class Cart extends Base {
-
     private final Products product;
-
-    // constructors
     public Cart(WebDriver driver) {
         super(driver);
         this.product = new Products(driver);
@@ -19,7 +15,9 @@ public class Cart extends Base {
         this.product = new Products(driver);
     }
 
-    //  locators
+
+
+// <--------------------------> locators <-------------------------->
     private final By cartPagePath = By.xpath("//div//ul//li//a[@href='/view_cart']");
     private final By addToCartBtn = By.xpath("//button[normalize-space()='Add to cart']");
     private final By quantityFieldPath = By.xpath("//input[@id='quantity']");
@@ -28,6 +26,7 @@ public class Cart extends Base {
 
 
 
+// <--------------------------> Action methods <-------------------------->
     // navigate to Cart
     public void moveToCart() {
         waitForElementToBeClickable(cartPagePath);
@@ -75,8 +74,10 @@ public class Cart extends Base {
         product.addItemsToCart(new By[]{addToCartBtn});
     }
 
-    // helper methods for validation
-    public boolean isItemInCart(String itemName) {
+
+// <--------------------------> helper methods for validation <-------------------------->
+
+        public boolean isItemInCart(String itemName) {
         By itemLocator = By.xpath(getItemPathByName(itemName));
         return isElementDisplayed(itemLocator);
     }

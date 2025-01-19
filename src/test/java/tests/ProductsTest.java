@@ -25,13 +25,9 @@ public class ProductsTest extends BaseTest {
     }
 
     @Test
-    public void addItemsToCart() throws InterruptedException {
-//        By[] productsPaths = Home.getItemsPathsArray();
+    public void addItemsToCart() {
         product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath, product.thirdItemPath});
     }
-
-
-
 
 
     @Test

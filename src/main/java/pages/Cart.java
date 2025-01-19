@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 public class Cart extends Base {
     private final Products product;
     public Cart(WebDriver driver) {
@@ -62,7 +64,7 @@ public class Cart extends Base {
     // click product
     public void clickProduct(String itemXpath) {
         By itemLocator = By.xpath(itemXpath);
-        waitForElementToBeClickable(itemLocator);
+       wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
         driver.findElement(itemLocator).click();
     }
 

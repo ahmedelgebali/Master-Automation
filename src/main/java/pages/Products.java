@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,10 +23,18 @@ public class Products extends Base{
 
 // <--------------------------> Locators <-------------------------->
     // items to add to cart
-    public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
+    //public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
     public By firstItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
     public By secondItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
     public By thirdItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
+    public By fourthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[7]");
+    public By fifthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[11]");
+    public By sixthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[13]");
+    public By seventhItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[15]");
+    public By ninthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[17]");
+    public By tenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[19]");
+    public By fifteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[29]");
+    public By sixteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[31]");
 
     // continue shopping btn
     public By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
@@ -65,6 +76,7 @@ public class Products extends Base{
     // navigate to products page
     public void navigateToProductsPage(){
         driver.findElement(By.xpath("//a[@href='/products']")).click(); //navigate to Products page
+        waitForElementToBeClickable(By.xpath("//a[@href='/products']"));
         js.executeScript("window.scrollBy(0, 100);");
     }
 
@@ -89,24 +101,30 @@ public class Products extends Base{
 
 
     // apply filter
-    public void applyFilter(){
+    public void womenFilter() {
         //women's filters
         clickFilter(womenFilter, dressFilter);
         clickFilter(womenFilter, topsFilter);
         clickFilter(womenFilter, sareeFilter);
+    }
 
-        //men's filters
-        clickFilter(menFilter, tshirtsFilter);
-        clickFilter(menFilter, jeansFilter);
+    //men's filters
+    public void menFilter() {
+            clickFilter(menFilter, tshirtsFilter);
+            clickFilter(menFilter, jeansFilter);
+        }
 
-        //kids' filters
+    //kids' filters
+    public void kidsFilter(){
         clickFilter(kidsFilter, kidsDressFilter);
         clickFilter(kidsFilter, kidsTopsAndShirts);
     }
 
-    //click filter method
+    //click filter method , helper methode
     public void clickFilter(By filter, By option){
+        waitForElementToBeClickable(filter);
         driver.findElement(filter).click();
+        waitForElementToBeClickable(option);
         driver.findElement(option).click();
     }
 

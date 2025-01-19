@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-12T21:47:29 EET" name="Test Classes in multiple browsers" finished-at="2025-01-12T21:47:46 EET" duration-ms="17236">
+  <suite started-at="2025-01-19T19:38:26 EET" name="Test Classes in multiple browsers" finished-at="2025-01-19T19:39:03 EET" duration-ms="37270">
     <groups>
     </groups>
-    <test started-at="2025-01-12T21:47:29 EET" name="test CartTest via Chrome browser" finished-at="2025-01-12T21:47:46 EET" duration-ms="17236">
-      <class name="tests.CartTest">
-        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:29 EET" name="setBrowser" finished-at="2025-01-12T21:47:32 EET" duration-ms="3588" status="PASS">
+    <test started-at="2025-01-19T19:38:26 EET" name="test CartTest via Chrome browser" finished-at="2025-01-19T19:39:03 EET" duration-ms="37270">
+      <class name="tests.ProductsTest">
+        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:26 EET" name="setBrowser" finished-at="2025-01-19T19:38:27 EET" duration-ms="1558" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:32 EET" name="setup" finished-at="2025-01-12T21:47:38 EET" duration-ms="5929" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:27 EET" name="setup" finished-at="2025-01-19T19:38:32 EET" duration-ms="5003" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setUpCart()[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:38 EET" name="setUpCart" finished-at="2025-01-12T21:47:38 EET" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="initializeProduct()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:32 EET" name="initializeProduct" finished-at="2025-01-19T19:38:32 EET" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpCart -->
-        <test-method signature="addItemsToCart()[pri:1, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:38 EET" name="addItemsToCart" finished-at="2025-01-12T21:47:39 EET" duration-ms="1055" status="PASS">
+        </test-method> <!-- initializeProduct -->
+        <test-method signature="navigateToPage()[pri:1, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:32 EET" name="navigateToPage" finished-at="2025-01-19T19:38:36 EET" duration-ms="3567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToPage -->
+        <test-method signature="addItemsToCart()[pri:2, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:36 EET" name="addItemsToCart" finished-at="2025-01-19T19:38:38 EET" duration-ms="2300" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addItemsToCart -->
-        <test-method signature="navigateToCart()[pri:2, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:39 EET" name="navigateToCart" finished-at="2025-01-12T21:47:40 EET" depends-on-methods="tests.CartTest.addItemsToCart" duration-ms="856" status="PASS">
+        <test-method is-config="true" signature="initializeProduct()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:36 EET" name="initializeProduct" finished-at="2025-01-19T19:38:36 EET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- navigateToCart -->
-        <test-method is-config="true" signature="setUpCart()[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:39 EET" name="setUpCart" finished-at="2025-01-12T21:47:39 EET" duration-ms="0" status="PASS">
+        </test-method> <!-- initializeProduct -->
+        <test-method signature="applyMenAndWomenFilter()[pri:3, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:38 EET" name="applyMenAndWomenFilter" finished-at="2025-01-19T19:38:53 EET" duration-ms="14780" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpCart -->
-        <test-method is-config="true" signature="setUpCart()[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:40 EET" name="setUpCart" finished-at="2025-01-12T21:47:40 EET" duration-ms="1" status="PASS">
+        </test-method> <!-- applyMenAndWomenFilter -->
+        <test-method is-config="true" signature="initializeProduct()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:38 EET" name="initializeProduct" finished-at="2025-01-19T19:38:38 EET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpCart -->
-        <test-method signature="performActionOnItems()[pri:3, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:40 EET" name="performActionOnItems" finished-at="2025-01-12T21:47:45 EET" depends-on-methods="tests.CartTest.navigateToCart" duration-ms="4861" status="PASS">
+        </test-method> <!-- initializeProduct -->
+        <test-method is-config="true" signature="initializeProduct()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:53 EET" name="initializeProduct" finished-at="2025-01-19T19:38:53 EET" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- performActionOnItems -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CartTest@4466af20]" started-at="2025-01-12T21:47:45 EET" name="tearDown" finished-at="2025-01-12T21:47:46 EET" duration-ms="901" status="PASS">
+        </test-method> <!-- initializeProduct -->
+        <test-method signature="applyBrandFilter()[pri:4, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:38:53 EET" name="applyBrandFilter" finished-at="2025-01-19T19:39:03 EET" duration-ms="9856" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.CartTest -->
+        </test-method> <!-- applyBrandFilter -->
+        <test-method is-config="true" signature="tear()[pri:0, instance:tests.ProductsTest@47af7f3d]" started-at="2025-01-19T19:39:03 EET" name="tear" finished-at="2025-01-19T19:39:03 EET" duration-ms="177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- tests.ProductsTest -->
     </test> <!-- test CartTest via Chrome browser -->
   </suite> <!-- Test Classes in multiple browsers -->
 </testng-results>

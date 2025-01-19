@@ -4,9 +4,9 @@
 
 
     <test name="test CartTest via Chrome browser">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.CartTest"/>
+            <class name="tests.ProductsTest"/>
         </classes>
     </test>
 

@@ -19,8 +19,7 @@ public class Base {
     //with driver
     public Base(WebDriver driver) {
         this.driver = driver;
-        this.actions = new Actions(driver); // Initialize Actions
-        this.js = (JavascriptExecutor) driver; // Cast driver to JavascriptExecutor
+        this.js = (JavascriptExecutor) driver;
     }
 
     // with Actions and javascript explicitly

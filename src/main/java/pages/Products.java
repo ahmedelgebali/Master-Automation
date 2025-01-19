@@ -104,20 +104,27 @@ public class Products extends Base{
     public void womenFilter() {
         //women's filters
         clickFilter(womenFilter, dressFilter);
+        scrollBy(0,200);
         clickFilter(womenFilter, topsFilter);
+        scrollBy(0,400);
         clickFilter(womenFilter, sareeFilter);
+        scrollBy(0,600);
     }
 
     //men's filters
     public void menFilter() {
             clickFilter(menFilter, tshirtsFilter);
+            scrollBy(0,200);
             clickFilter(menFilter, jeansFilter);
+            scrollBy(0,400);
         }
 
     //kids' filters
     public void kidsFilter(){
         clickFilter(kidsFilter, kidsDressFilter);
+        scrollBy(0,200);
         clickFilter(kidsFilter, kidsTopsAndShirts);
+        scrollBy(0,400);
     }
 
     //click filter method , helper methode
@@ -133,13 +140,21 @@ public class Products extends Base{
     // apply brand filter
     public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(secondBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(thirdBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(fourthBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(fifthBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(sixthBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(seventhBrandFilter);
+        scrollBy(0,200);
         clickBrandFilter(eighthBrandFilter);
+        scrollBy(0,200);
 
         // transfer controlling into Cart Page
         new Cart(driver);

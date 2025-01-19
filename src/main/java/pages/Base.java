@@ -35,5 +35,10 @@ public class Base {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public void scrollBy(int x, int y){
+        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x,y);
+
+    }
+
 }
 

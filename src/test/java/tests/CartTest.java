@@ -121,7 +121,7 @@ public class CartTest extends BaseTest {
         driver.navigate().refresh();
     }
 
-    public void verifyQuantityChange() {
+public void verifyQuantityChange() {
         // verify the quantity change was successful
         By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber);
         String quantity = driver.findElement(quantityPath).getText();

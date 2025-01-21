@@ -2,11 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="5" name="Test Classes in multiple browsers" parallel="tests">
 
+    <groups>
+        <run>
+            <include name="checkMethode"/>
+        </run>
+    </groups>
 
     <test name="test CartTest via Chrome browser">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.ProductsTest"/>
+            <class name="tests.CartTest2"/>
         </classes>
     </test>
 

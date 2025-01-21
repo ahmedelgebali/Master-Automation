@@ -19,7 +19,7 @@ public class CartTest2 extends BaseTest {
         String url = PropReader.getProp("baseURL");
         setUp(url);
     }
-    @AfterClass
+//    @AfterClass
     public static void tear(){
         tearDown();
     }
@@ -29,12 +29,25 @@ public class CartTest2 extends BaseTest {
         product = new Products(driver);
     }
 
-
-    @Test (priority = 1)
-    public void addItemsToCart(){
+    @Test (priority = 2)
+    public void viewProductDetails(){
         product.navigateToProductsPage();
-        product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath});
+        product.viewItemDetails(new By[]{
+                product.itemDetails1, product.itemDetails2, product.itemDetails3, product.itemDetails4,
+                product.itemDetails5, product.itemDetails6, product.itemDetails7, product.itemDetails8, product.itemDetails9,
+                product.itemDetails10, product.itemDetails11, product.itemDetails12, product.itemDetails13, product.itemDetails14,
+                product.itemDetails15, product.itemDetails16, product.itemDetails17, product.itemDetails18, product.itemDetails19,
+                product.itemDetails20, product.itemDetails21
+        });
     }
+
+    @Test (priority = 1, groups = "checkMethode")
+    public void addItemsToCart(){
+        product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath, product.lasteItemPath});
+    }
+
+
+
     @Test (dependsOnMethods = "addItemsToCart")
     public void clickOnItemToView() {
         cart.moveToCart();

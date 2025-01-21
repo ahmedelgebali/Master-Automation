@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,8 +21,8 @@ public class Products extends Base{
 // <--------------------------> Locators <-------------------------->
     // items to add to cart
     //public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
-    public By firstItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
-    public By secondItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
+    public By itemPath1 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
+    public By itemPath2 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
     public By thirdItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
     public By fourthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[7]");
     public By fifthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[11]");
@@ -35,11 +32,37 @@ public class Products extends Base{
     public By tenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[19]");
     public By fifteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[29]");
     public By sixteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[31]");
+    public By lasteItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[67]");
 
     // continue shopping btn
     public By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
     //view cart btn
     public By viewCartBtn = By.xpath("//u[normalize-space()='View Cart']");
+
+
+    // view product details
+    public By itemDetails1 = By.cssSelector("a[href='/product_details/1']");
+    public By itemDetails2 = By.cssSelector("a[href='/product_details/2']");
+    public By itemDetails3 = By.cssSelector("a[href='/product_details/3']");
+    public By itemDetails4 = By.cssSelector("a[href='/product_details/4']");
+    public By itemDetails5 = By.cssSelector("a[href='/product_details/5']");
+    public By itemDetails6 = By.cssSelector("a[href='/product_details/6']");
+    public By itemDetails7 = By.cssSelector("a[href='/product_details/7']");
+    public By itemDetails8 = By.cssSelector("a[href='/product_details/8']");
+    public By itemDetails9 = By.cssSelector("a[href='/product_details/11']");
+    public By itemDetails10 = By.cssSelector("a[href='/product_details/12']");
+    public By itemDetails11 = By.cssSelector("a[href='/product_details/13']");
+    public By itemDetails12 = By.cssSelector("a[href='/product_details/14']");
+    public By itemDetails13 = By.cssSelector("a[href='/product_details/15']");
+    public By itemDetails14 = By.cssSelector("a[href='/product_details/16']");
+    public By itemDetails15 = By.cssSelector("a[href='/product_details/18']");
+    public By itemDetails16 = By.cssSelector("a[href='/product_details/19']");
+    public By itemDetails17 = By.cssSelector("a[href='/product_details/20']");
+    public By itemDetails18 = By.cssSelector("a[href='/product_details/21']");
+    public By itemDetails19 = By.cssSelector("a[href='/product_details/22']");
+    public By itemDetails20 = By.cssSelector("a[href='/product_details/23']");
+    public By itemDetails21 = By.cssSelector("a[href='/product_details/24']");
+
 
     //filter locators --> category
             //WOMEN
@@ -97,7 +120,20 @@ public class Products extends Base{
             }
         }
     }
-
+    public void viewItemDetails(By[] itemPaths) {
+        for (By itemPath : itemPaths) {
+            try {
+                // Wait for the item to be clickable and click it
+                waitForElementToBeClickable(itemPath);
+                driver.findElement(itemPath).click();
+                Thread.sleep(1000);
+                driver.navigate().back();
+            } catch (Exception e) {
+                System.err.println("Error viewing item details: " + itemPath);
+                e.printStackTrace();
+            }
+        }
+    }
 
 
     // apply filter
@@ -166,19 +202,6 @@ public class Products extends Base{
         driver.findElement(brandFilter).click();
     }
 
-
-    public List<String> getItemNames() {
-        return Arrays.asList(
-                extractText(firstItemPath),
-                extractText(secondItemPath),
-                extractText(secondItemPath)
-        );
-    }
-
-    public String extractText (By itemPath) {
-        WebElement itemElement = driver.findElement(itemPath);
-        return itemElement.getText();
-    }
 
 }
 

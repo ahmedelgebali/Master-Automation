@@ -3,11 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Products extends Base{
     public Products(WebDriver driver) {
@@ -23,15 +19,15 @@ public class Products extends Base{
     //public By firstItemNamePath = By.xpath("(//div[@class='productinfo text-center'])[1]/p");
     public By itemPath1 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[1]");
     public By itemPath2 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[3]");
-    public By thirdItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
-    public By fourthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[7]");
-    public By fifthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[11]");
-    public By sixthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[13]");
-    public By seventhItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[15]");
-    public By ninthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[17]");
-    public By tenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[19]");
-    public By fifteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[29]");
-    public By sixteenthItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[31]");
+    public By itemPath3 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[5]");
+    public By itemPath4 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[7]");
+    public By itemPath5 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[11]");
+    public By itemPath6 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[13]");
+    public By itemPath7 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[15]");
+    public By itemPath9 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[17]");
+    public By itemPath10 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[19]");
+    public By itemPath15 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[29]");
+    public By itemPath16 = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[31]");
     public By lasteItemPath = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[67]");
 
     // continue shopping btn

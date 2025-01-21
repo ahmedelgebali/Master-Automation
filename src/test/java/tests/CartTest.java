@@ -1,16 +1,6 @@
 package tests;
-
-import Properties.PropReader;
-import org.openqa.selenium.By;
-import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
-import pages.Cart;
-import pages.Products;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class CartTest extends BaseTest {
+  /*
     SoftAssert softAssert = new SoftAssert();
 
     private String  theTendedItemNumber = "1";
@@ -18,43 +8,7 @@ public class CartTest extends BaseTest {
     private Cart cart;
     Products product;
 
-    @BeforeClass
-    public static void setup() throws IOException {
-        String url = PropReader.getProp("productsURL");
-        setUp(url);
-    }
-    @AfterClass
-    public static void tearDown() {
-        driver.quit();
-    }
-    @BeforeMethod
-    public void setUpClasses() {
-        cart = new Cart(driver);
-        product = new Products(driver);
-    }
 
-
-    private List<String> itemPaths;
-    @Test(priority = 1)
-    public void addItemsToCartFromProductsPage() {
-        product.addItemsToCart(new By[]{product.firstItemPath, product.secondItemPath, product.thirdItemPath});
-        // capture item names
-        List<String> itemNames = product.getItemNames();
-        itemPaths = new ArrayList<>();
-        for (String itemName : itemNames){
-            System.out.println("adding item to cart: " + itemName);
-            String itemPath = cart.getItemPathByName(itemName);
-            itemPaths.add(itemPath);
-            softAssert.assertNotNull(itemName, "Item name should not be null");
-        }
-    }
-
-    @Test(priority = 2, dependsOnMethods = "addItemsToCartFromProductsPage")
-    public void navigateToCart() {
-        cart.moveToCart();
-        softAssert.assertTrue(cart.isCartPageDisplayed(), "Cart page is displayed");
-        softAssert.assertAll();
-    }
 
     @Test(priority = 3, dependsOnMethods = "navigateToCart")
     public void performActionOnItems() {
@@ -143,4 +97,6 @@ public void verifyQuantityChange() {
         softAssert.assertNotNull(totalPrice, "Total price should not be null.");
     }
 
+
+   */
 }

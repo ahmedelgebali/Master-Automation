@@ -29,7 +29,8 @@ public class ProductsTest extends BaseTest {
 
     @Test(priority = 2)
     public void addItemsToCart() {
-        product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath, product.thirdItemPath, product.fourthItemPath, product.fifthItemPath, product.sixthItemPath, product.seventhItemPath, product.ninthItemPath});
+        product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2, product.itemPath3, product.itemPath4, product.itemPath5,
+                product.itemPath6, product.itemPath7});
     }
 
     @Test(priority = 3)

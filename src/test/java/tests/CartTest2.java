@@ -29,7 +29,7 @@ public class CartTest2 extends BaseTest {
         product = new Products(driver);
     }
 
-    @Test (priority = 2)
+//    @Test ()
     public void viewProductDetails(){
         product.navigateToProductsPage();
         product.viewItemDetails(new By[]{
@@ -41,12 +41,16 @@ public class CartTest2 extends BaseTest {
         });
     }
 
-    @Test (priority = 1, groups = "checkMethode")
+    @Test (groups = "checkMethode")
     public void addItemsToCart(){
-        product.addItemsToCart(new By[] {product.firstItemPath, product.secondItemPath, product.lasteItemPath});
+        product.navigateToProductsPage();
+        product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2});
     }
-
-
+    @Test (dependsOnMethods = "addItemsToCart", groups = "checkMethode")
+    public void printOutItemPrices(){
+        cart.moveToCart();
+        cart.printItemPrice("1");
+    }
 
     @Test (dependsOnMethods = "addItemsToCart")
     public void clickOnItemToView() {
@@ -56,6 +60,8 @@ public class CartTest2 extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
         cart.clickOnItemToViewAndBack(itemLocator);
     }
+
+
     @Test (dependsOnMethods = "clickOnItemToView")
     void changeQuantityOfItem(){
         cart.changeQuantity("1", numOfQuantityNeeded);

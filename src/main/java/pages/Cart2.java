@@ -36,11 +36,6 @@ public class Cart2 extends Base {
     }
 
     public By getItemPathBasedOnItsOrderInCart(String itemOrder){
-
-    // cssSelector   a[href='/product_details/X']
-    // index xpath   (//a[normalize-space()='Blue Top'])[X]
-        //tr[@id='product-X']//img[@alt='Product Image']
-
         String itemsLocator = "(//a[normalize-space()='Blue Top'])[X]";
         return By.xpath(itemsLocator.replace("X", String.valueOf(itemOrder)));
     }
@@ -54,7 +49,6 @@ public class Cart2 extends Base {
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
     }
-
     // change quantity
     public void changeQuantity(String itemOrder, String quantity) {
         By itemLocator = getItemPathBasedOnItsOrderInCart(itemOrder);
@@ -65,5 +59,31 @@ public class Cart2 extends Base {
         product.addItemsToCart(new By[]{addToCartBtn});
     }
 
+    public void printItemPrice(String itemNumber){
+        String itemPrice = driver.findElement(getItemPriceLocator(itemNumber)).getText();
+        System.out.println(itemPrice);
+    }
+
+
+    // dynamic locators
+    private By getDynamicLocator(String baseLocator, String itemNum) {
+        return By.cssSelector(baseLocator.replace("X", String.valueOf(itemNum)));
+    }
+
+    public By getItemPriceLocator(String itemNum) {
+        return getDynamicLocator("tr[id='product-X'] td[class='cart_price'] p", itemNum);
+    }
+
+    public By getItemTotalPriceLocator(String itemNum) {
+        return getDynamicLocator("//tr[@id='product-x']//td[@class='cart_total']", itemNum);
+    }
+
+    public By getItemDeleteButtonLocator(String itemNum) {
+        return getDynamicLocator("(//td[@class='cart_delete'])[x]", itemNum);
+    }
+
+    public By getItemQuantityLocator(String itemNum) {
+        return getDynamicLocator("(//td[@class='cart_quantity'])[x]", itemNum);
+    }
 
 }

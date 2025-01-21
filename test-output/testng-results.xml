@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-21T21:28:05 EET" name="Test Classes in multiple browsers" finished-at="2025-01-21T21:28:07 EET" duration-ms="1617">
+  <suite started-at="2025-01-21T22:29:31 EET" name="Test Classes in multiple browsers" finished-at="2025-01-21T22:30:10 EET" duration-ms="39131">
     <groups>
       <group name="checkMethode">
-        <method signature="CartTest2.addItemsToCart()[pri:1, instance:tests.CartTest2@dbf57b3]" name="addItemsToCart" class="tests.CartTest2"/>
-        <method signature="CartTest2.viewProductDetails()[pri:2, instance:tests.CartTest2@dbf57b3]" name="viewProductDetails" class="tests.CartTest2"/>
+        <method signature="CartTest2.addItemsToCart()[pri:0, instance:tests.CartTest2@384ad17b]" name="addItemsToCart" class="tests.CartTest2"/>
+        <method signature="CartTest2.printOutItemPrices()[pri:0, instance:tests.CartTest2@384ad17b]" name="printOutItemPrices" class="tests.CartTest2"/>
       </group> <!-- checkMethode -->
     </groups>
-    <test started-at="2025-01-21T21:28:05 EET" name="test CartTest via Chrome browser" finished-at="2025-01-21T21:28:07 EET" duration-ms="1617">
+    <test started-at="2025-01-21T22:29:31 EET" name="test CartTest via Chrome browser" finished-at="2025-01-21T22:30:10 EET" duration-ms="39131">
       <class name="tests.CartTest2">
-        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.CartTest2@dbf57b3]" started-at="2025-01-21T21:28:05 EET" name="setBrowser" finished-at="2025-01-21T21:28:07 EET" duration-ms="1554" status="PASS">
+        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.CartTest2@384ad17b]" started-at="2025-01-21T22:29:31 EET" name="setBrowser" finished-at="2025-01-21T22:30:10 EET" duration-ms="39081" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,14 +22,14 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="addItemsToCart()[pri:1, instance:tests.CartTest2@dbf57b3]" started-at="2025-01-21T21:28:07 EET" name="addItemsToCart" finished-at="2025-01-21T21:28:07 EET" duration-ms="3" status="FAIL">
+        <test-method signature="addItemsToCart()[pri:0, instance:tests.CartTest2@384ad17b]" started-at="2025-01-21T22:30:10 EET" name="addItemsToCart" finished-at="2025-01-21T22:30:10 EET" duration-ms="4" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[Cannot invoke "pages.Products.navigateToProductsPage()" because "this.product" is null]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException: Cannot invoke "pages.Products.navigateToProductsPage()" because "this.product" is null
-at tests.CartTest2.addItemsToCart(CartTest2.java:35)
+at tests.CartTest2.addItemsToCart(CartTest2.java:46)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -70,22 +70,16 @@ at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addItemsToCart -->
-        <test-method signature="viewProductDetails()[pri:2, instance:tests.CartTest2@dbf57b3]" started-at="2025-01-21T21:28:07 EET" name="viewProductDetails" finished-at="2025-01-21T21:28:07 EET" duration-ms="0" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method signature="printOutItemPrices()[pri:0, instance:tests.CartTest2@384ad17b]" started-at="2025-01-21T22:30:10 EET" name="printOutItemPrices" finished-at="2025-01-21T22:30:10 EET" depends-on-methods="tests.CartTest2.addItemsToCart" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Cannot read field "firstItemDetails" because "this.product" is null]]>
+              <![CDATA[Method tests.CartTest2.printOutItemPrices() on instance tests.CartTest2@384ad17b depends on not successfully finished methods 
+[tests.CartTest2.addItemsToCart() on instance tests.CartTest2@384ad17b]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot read field "firstItemDetails" because "this.product" is null
-at tests.CartTest2.viewProductDetails(CartTest2.java:40)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+              <![CDATA[java.lang.Throwable: Method tests.CartTest2.printOutItemPrices() on instance tests.CartTest2@384ad17b depends on not successfully finished methods 
+[tests.CartTest2.addItemsToCart() on instance tests.CartTest2@384ad17b]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:157)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
@@ -114,10 +108,10 @@ at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
 at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- viewProductDetails -->
+        </test-method> <!-- printOutItemPrices -->
       </class> <!-- tests.CartTest2 -->
     </test> <!-- test CartTest via Chrome browser -->
   </suite> <!-- Test Classes in multiple browsers -->

@@ -13,7 +13,7 @@ public class ProductsTest extends BaseTest {
         String url = PropReader.getProp("baseURL");
         setUp(url);
     }
-//    @AfterClass
+    @AfterClass
     public void tear(){
         tearDown();
     }

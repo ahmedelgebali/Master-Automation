@@ -14,6 +14,9 @@ public class Login extends Base{
     private By loginBtn = By.xpath("//button[normalize-space()='Login']");
     private By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
 
+    private By logout = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
+
+
 
 
 
@@ -31,5 +34,10 @@ public class Login extends Base{
         String text = driver.findElement(loggedInAsText).getText();
         System.out.println(text);
     }
+
+    public void clickLogoutBtn(){
+        driver.findElement(logout).click();
+    }
+
 
 }

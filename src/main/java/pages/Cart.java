@@ -68,13 +68,13 @@ public class Cart extends Base {
         driver.findElement(itemLocator).click();
     }
 
-    // change quantity
-    public void changeQuantity(String quantity) {
-        waitForElementToBeClickable(quantityFieldPath);
-        driver.findElement(quantityFieldPath).clear();
-        driver.findElement(quantityFieldPath).sendKeys(quantity);
-        product.addItemsToCart(new By[]{addToCartBtn});
-    }
+//    // change quantity
+//    public void changeQuantity(String quantity) {
+//        waitForElementToBeClickable(quantityFieldPath);
+//        driver.findElement(quantityFieldPath).clear();
+//        driver.findElement(quantityFieldPath).sendKeys(quantity);
+//        product.addItemsToCart(new By[]{addToCartBtn});
+//    }
 
 
 // <--------------------------> helper methods for validation <-------------------------->

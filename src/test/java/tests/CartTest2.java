@@ -9,28 +9,26 @@ import pages.Products;
 
 import java.io.IOException;
 
-public class CartTest2 extends BaseTest {
-    private String numOfQuantityNeeded = "10";
-    private Cart2 cart;
-    private Products product;
+    public class CartTest2 extends BaseTest {
+        private String numOfQuantityNeeded = "10";
+        private Cart2 cart;
+        private Products product;
 
 
-    @BeforeClass
-    public void setup() throws IOException {
-        String url = PropReader.getProp("baseURL");
-        setUp(url);
-    }
-    @AfterClass
-    public  static void tear(){
-        tearDown();
-    }
-    @BeforeMethod
-    public void initializeCart() {
-        cart = new Cart2(driver);
-        product = new Products(driver);
-        System.out.println("Cart initialized: " + cart);
-        System.out.println("Product initialized: " + product);
-    }
+        @BeforeClass
+        public void setup() throws IOException {
+            String url = PropReader.getProp("baseURL");
+            setUp(url);
+        }
+//        @AfterClass
+        public  static void tear(){
+            tearDown();
+        }
+        @BeforeMethod
+        public void initializeCart() {
+            cart = new Cart2(driver);
+            product = new Products(driver);
+        }
 
 //    @Test ()
     public void viewProductDetails(){

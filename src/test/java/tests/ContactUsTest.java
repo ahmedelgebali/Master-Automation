@@ -9,7 +9,7 @@ import pages.ContactUs;
 import java.io.IOException;
 
 public class ContactUsTest extends BaseTest{
-    ContactUs contact = new ContactUs(driver);
+    ContactUs contact;
 
     @BeforeClass
     public static void setup() throws IOException {
@@ -22,7 +22,8 @@ public class ContactUsTest extends BaseTest{
     }
 
     @Test
-    public void testContactUs() throws IOException{
+    public void testContactUs() throws Exception {
+        contact = new ContactUs(driver);
         String name = PropReader.getProp("contactName");
         String mail = PropReader.getProp("contactMail");
         String subject = PropReader.getProp("contactSubject");

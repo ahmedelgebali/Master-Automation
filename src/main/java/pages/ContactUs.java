@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 public class ContactUs extends Base{
     public ContactUs(WebDriver driver){super(driver);}
 
@@ -31,18 +33,21 @@ public class ContactUs extends Base{
     public void setYourMessage(String yourMessage){
         driver.findElement(enterYourMessageBox).sendKeys(yourMessage);
     }
-    public void uploadFile(String filePath){
-        driver.findElement(attacheFile).sendKeys(filePath);
-        String imageUploadedMessage = driver.findElement(attacheFile).getText();
-        System.out.println(imageUploadedMessage);
-        if (imageUploadedMessage != null) {
-            System.out.println(imageUploadedMessage);
-        } else {
-            System.out.println("Couldn't upload the file.");
-        }
 
+    public void uploadFile(String filePath) {
+        filePath = filePath.trim(); // Trim spaces
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + filePath);
+            return;
+        }
+        driver.findElement(attacheFile).sendKeys(filePath);
+        System.out.println("File upload attempted: " + filePath);
     }
-    public void clickSubmit(){
+
+    public void clickSubmit() throws Exception{
+        scrollBy(0,500);
+        waitForElementToBeClickable(submitBtn);
         driver.findElement(submitBtn).click();
     }
 

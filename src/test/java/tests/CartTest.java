@@ -1,102 +1,87 @@
 package tests;
-public class CartTest extends BaseTest {
-  /*
-    SoftAssert softAssert = new SoftAssert();
 
-    private String  theTendedItemNumber = "1";
+import Properties.PropReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.*;
+import pages.Cart;
+import pages.Products;
+
+import java.io.IOException;
+
+public class CartTest extends BaseTest {
     private String numOfQuantityNeeded = "10";
     private Cart cart;
-    Products product;
+    private Products product;
 
 
+    @BeforeClass
+    public void setup() throws IOException {
+        String url = PropReader.getProp("baseURL");
+        setUp(url);
+    }
+    //        @AfterClass
+    public  static void tear(){
+        tearDown();
+    }
 
-    @Test(priority = 3, dependsOnMethods = "navigateToCart")
-    public void performActionOnItems() {
-        navigateToProductDetails();
-        changeQuantity(numOfQuantityNeeded);
-        verifyQuantityChange();
-        validateItemPrice();
-        validateTotalPrice();
+    @BeforeMethod
+    public void initializeCart() {
+        cart = new Cart(driver);
+        product = new Products(driver);
+    }
+
+//    @Test ()
+    public void viewProductDetails(){
+        product.navigateToProductsPage();
+        product.viewItemDetails(new By[]{
+                product.itemDetails1, product.itemDetails2, product.itemDetails3, product.itemDetails4,
+                product.itemDetails5, product.itemDetails6, product.itemDetails7, product.itemDetails8, product.itemDetails9,
+                product.itemDetails10, product.itemDetails11, product.itemDetails12, product.itemDetails13, product.itemDetails14,
+                product.itemDetails15, product.itemDetails16, product.itemDetails17, product.itemDetails18, product.itemDetails19,
+                product.itemDetails20, product.itemDetails21
+        });
+    }
+
+    @Test (groups = "checkMethode")
+    public void addItemsToCart(){
+        product.navigateToProductsPage();
+        product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2});
+    }
+//    @Test (dependsOnMethods = "addItemsToCart")
+    public void printOutItemPrices(){
+        cart.moveToCart();
+        cart.printItemPrice("1");
+    }
+
+//    @Test (dependsOnMethods = "addItemsToCart")
+    public void clickOnItemToView() {
+        cart.moveToCart();
+        By itemLocator = cart.getItemPathBasedOnItsOrderInCart("1");
+        System.out.println(itemLocator);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
+        cart.clickOnItemToViewAndBack(itemLocator);
     }
 
 
-
-    //helper methods
-
-    public void navigateToProductDetails() {
-        try {
-            // Ensure itemPaths is initialized and not empty
-            if (itemPaths == null || itemPaths.isEmpty()) {
-                throw new IllegalStateException("Item paths list is empty. Ensure addItemsToCartFromProductsPage was called successfully.");
-            }
-
-            // Navigate to the first product's details page
-            String firstItemPath = itemPaths.get(0);
-            System.out.println("Navigating to product details for item path: " + firstItemPath);
-            cart.clickProduct(firstItemPath);
-
-            // Wait for the product details page to load (add explicit wait if necessary)
-            By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber); // Get the quantity locator for the intended item
-            boolean isElementPresent = driver.findElements(quantityPath).size() > 0;
-
-            if (isElementPresent) {
-                // Retrieve quantity and perform assertions
-                String quantity = driver.findElement(quantityPath).getText();
-                System.out.println("Quantity displayed on product details page: " + quantity);
-                softAssert.assertTrue(true, "Quantity field is displayed on the product details page.");
-            } else {
-                // Log and handle when the quantity field is missing
-                System.err.println("Quantity field not found for item number: " + theTendedItemNumber);
-                softAssert.fail("Quantity field is missing on the product details page.");
-            }
-        } catch (Exception e) {
-            // Catch unexpected errors and handle them
-            System.err.println("Error while navigating to product details: " + e.getMessage());
-            e.printStackTrace();
-            softAssert.fail("Failed to navigate to product details due to an exception.");
-        }
+//    @Test (dependsOnMethods = "clickOnItemToView")
+    public void changeQuantityOfItem(){
+        cart.changeQuantity("1", numOfQuantityNeeded);
     }
+    @Test (dependsOnMethods = "addItemsToCart", groups = "checkMethode")
+    public void checkout() throws IOException {
+        cart.moveToCart();
 
+        String name = PropReader.getProp("nameOnCart");
+        String cartNum = PropReader.getProp("cartNum");
+        String cvc = PropReader.getProp("CVC");
+        String expMonth = PropReader.getProp("expirationMonth");
+        String expYear = PropReader.getProp("expirationYear");
 
+        cart.processedCheckout(name, cartNum,cvc, expMonth, expYear);
 
-//    public void navigateToProductDetails() {
-//        // navigate to product details page
-//        cart.clickProduct(itemPaths.getFirst());
-//        By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber); //get quantity path
-//        String quantity = driver.findElement(quantityPath).getText();
-//        System.out.println("Quantity: " + quantity);
-//        softAssert.assertTrue(true);
-//    }
-
-    public void changeQuantity(String quantity) {
-        // change the quantity of the item in the cart
-        cart.changeQuantity(quantity);
-        driver.navigate().back();
-        driver.navigate().refresh();
     }
-
-public void verifyQuantityChange() {
-        // verify the quantity change was successful
-        By quantityPath = cart.getItemQuantityLocator(theTendedItemNumber);
-        String quantity = driver.findElement(quantityPath).getText();
-        System.out.println("Quantity after change: " + quantity);
-        softAssert.assertEquals(quantity, "11", "Item quantity should be updated");
-    }
-
-    public void validateItemPrice() {
-        // Validate the item price
-        By itemPrice = cart.getItemPriceLocator(theTendedItemNumber);
-        String price = driver.findElement(itemPrice).getText();
-        softAssert.assertNotNull(itemPrice, "Item price should not be null");
-        System.out.println("Item price: " + price);
-    }
-
-    public void validateTotalPrice() {
-        // Validate the total price
-        By totalPrice = cart.getItemTotalPriceLocator(theTendedItemNumber);
-        softAssert.assertNotNull(totalPrice, "Total price should not be null.");
-    }
-
-
-   */
 }
+
+
+

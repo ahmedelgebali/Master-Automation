@@ -17,6 +17,7 @@ public class ProductsTest extends BaseTest {
     public void tear(){
         tearDown();
     }
+
     @BeforeMethod
     public void initializeProduct() {
         product = new Products(driver);

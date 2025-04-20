@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-23T16:30:48 EET" name="Test Classes in multiple browsers" finished-at="2025-03-23T16:30:51 EET" duration-ms="3063">
+  <suite started-at="2025-04-20T11:28:20 EET" name="Test Classes in multiple browsers" finished-at="2025-04-20T11:28:35 EET" duration-ms="15548">
     <groups>
       <group name="checkMethode">
-        <method signature="CartTest2.addItemsToCart()[pri:0, instance:tests.CartTest2@40ef3420]" name="addItemsToCart" class="tests.CartTest2"/>
-        <method signature="CartTest2.printOutItemPrices()[pri:0, instance:tests.CartTest2@40ef3420]" name="printOutItemPrices" class="tests.CartTest2"/>
+        <method signature="CartTest.addItemsToCart()[pri:0, instance:tests.CartTest@290dbf45]" name="addItemsToCart" class="tests.CartTest"/>
+        <method signature="CartTest.checkout()[pri:0, instance:tests.CartTest@290dbf45]" name="checkout" class="tests.CartTest"/>
       </group> <!-- checkMethode -->
     </groups>
-    <test started-at="2025-03-23T16:30:48 EET" name="test CartTest via Chrome browser" finished-at="2025-03-23T16:30:51 EET" duration-ms="3063">
-      <class name="tests.CartTest2">
-        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.CartTest2@40ef3420]" started-at="2025-03-23T16:30:48 EET" name="setBrowser" finished-at="2025-03-23T16:30:51 EET" duration-ms="3007" status="PASS">
+    <test started-at="2025-04-20T11:28:20 EET" name="test CartTest via Chrome browser" finished-at="2025-04-20T11:28:35 EET" duration-ms="15548">
+      <class name="tests.CartTest">
+        <test-method is-config="true" signature="setBrowser(java.lang.String)[pri:0, instance:tests.CartTest@290dbf45]" started-at="2025-04-20T11:28:20 EET" name="setBrowser" finished-at="2025-04-20T11:28:35 EET" duration-ms="15485" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,14 +22,14 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="addItemsToCart()[pri:0, instance:tests.CartTest2@40ef3420]" started-at="2025-03-23T16:30:51 EET" name="addItemsToCart" finished-at="2025-03-23T16:30:51 EET" duration-ms="5" status="FAIL">
+        <test-method signature="addItemsToCart()[pri:0, instance:tests.CartTest@290dbf45]" started-at="2025-04-20T11:28:35 EET" name="addItemsToCart" finished-at="2025-04-20T11:28:35 EET" duration-ms="3" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[Cannot invoke "pages.Products.navigateToProductsPage()" because "this.product" is null]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException: Cannot invoke "pages.Products.navigateToProductsPage()" because "this.product" is null
-at tests.CartTest2.addItemsToCart(CartTest2.java:64)
+at tests.CartTest.addItemsToCart(CartTest.java:49)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -70,15 +70,15 @@ at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addItemsToCart -->
-        <test-method signature="printOutItemPrices()[pri:0, instance:tests.CartTest2@40ef3420]" started-at="2025-03-23T16:30:51 EET" name="printOutItemPrices" finished-at="2025-03-23T16:30:51 EET" depends-on-methods="tests.CartTest2.addItemsToCart" duration-ms="0" status="SKIP">
+        <test-method signature="checkout()[pri:0, instance:tests.CartTest@290dbf45]" started-at="2025-04-20T11:28:35 EET" name="checkout" finished-at="2025-04-20T11:28:35 EET" depends-on-methods="tests.CartTest.addItemsToCart" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method tests.CartTest2.printOutItemPrices() on instance tests.CartTest2@40ef3420 depends on not successfully finished methods 
-[tests.CartTest2.addItemsToCart() on instance tests.CartTest2@40ef3420]]]>
+              <![CDATA[Method tests.CartTest.checkout() on instance tests.CartTest@290dbf45 depends on not successfully finished methods 
+[tests.CartTest.addItemsToCart() on instance tests.CartTest@290dbf45]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method tests.CartTest2.printOutItemPrices() on instance tests.CartTest2@40ef3420 depends on not successfully finished methods 
-[tests.CartTest2.addItemsToCart() on instance tests.CartTest2@40ef3420]
+              <![CDATA[java.lang.Throwable: Method tests.CartTest.checkout() on instance tests.CartTest@290dbf45 depends on not successfully finished methods 
+[tests.CartTest.addItemsToCart() on instance tests.CartTest@290dbf45]
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:157)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -111,8 +111,8 @@ at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- printOutItemPrices -->
-      </class> <!-- tests.CartTest2 -->
+        </test-method> <!-- checkout -->
+      </class> <!-- tests.CartTest -->
     </test> <!-- test CartTest via Chrome browser -->
   </suite> <!-- Test Classes in multiple browsers -->
 </testng-results>

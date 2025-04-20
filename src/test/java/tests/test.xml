@@ -11,7 +11,7 @@
     <test name="test CartTest via Chrome browser">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.CartTest2"/>
+            <class name="tests.CartTest"/>
         </classes>
     </test>
 

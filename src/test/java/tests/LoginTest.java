@@ -10,13 +10,11 @@ import java.io.IOException;
 
 public class LoginTest extends BaseTest {
     Login login;
-
     @BeforeClass
     public static void setupTest() throws IOException {
         String url = PropReader.getProp("loginURL");
         setUp(url);
     }
-
     @BeforeMethod
     public void initialize(){
        login = new Login(driver);

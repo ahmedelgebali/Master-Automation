@@ -7,7 +7,7 @@ public class PropReader {
     public static void main(String[] args) throws IOException {
 
 
-        //check properity
+        //check property
         FileInputStream file = new FileInputStream( "src/test/resources/config/prop.properties");
         Properties properties = new Properties();
         properties.load(file);

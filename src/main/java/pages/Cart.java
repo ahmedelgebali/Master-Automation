@@ -7,14 +7,20 @@ import org.openqa.selenium.interactions.Actions;
 
 public class Cart extends Base {
     private final Products product;
+    private final Login login;
+
     public Cart(WebDriver driver) {
         super(driver);
         this.product = new Products(driver);
+        this.login = new Login(driver);
     }
     public Cart(Actions action, JavascriptExecutor js) {
         super(action, js);
         this.product = new Products(driver);
+        this.login = new Login(driver);
     }
+
+
 
 // <--------------------------> Locators <-------------------------->
     private final By cartPagePath = By.xpath("//div//ul//li//a[@href='/view_cart']");
@@ -26,7 +32,7 @@ public class Cart extends Base {
     private final By cartNum = By.xpath("//input[@name='card_number']");
     private final By cvc = By.xpath("//input[@placeholder='ex. 311']");
     private final By expirationMonth = By.xpath("//input[@placeholder='MM']");
-    private final By expirationYear = By.xpath("//input[@placeholder='yyyy']");
+    private final By expirationYear = By.xpath("//input[@placeholder='YYYY']");
     private final By payAndConfirm = By.xpath("//button[@id='submit']");
     private final By continueBtn = By.xpath("//a[normalize-space()='Continue']");
 
@@ -97,7 +103,7 @@ public class Cart extends Base {
 
     public void processedCheckout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
         driver.findElement(processedBtn).click();
-        scrollBy(0,100);
+        scrollBy(0,500);
         driver.findElement(placeOrderBtn).click();
         driver.findElement(nameOnCart).sendKeys(NameOnCart);
         driver.findElement(cartNum).sendKeys(CartNumber);

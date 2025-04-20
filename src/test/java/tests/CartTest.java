@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.*;
 import pages.Cart;
+import pages.Login;
 import pages.Products;
 
 import java.io.IOException;
@@ -13,11 +14,12 @@ public class CartTest extends BaseTest {
     private String numOfQuantityNeeded = "10";
     private Cart cart;
     private Products product;
+    private Login login;
 
 
     @BeforeClass
     public void setup() throws IOException {
-        String url = PropReader.getProp("baseURL");
+        String url = PropReader.getProp("loginURL");
         setUp(url);
     }
     //        @AfterClass
@@ -29,6 +31,7 @@ public class CartTest extends BaseTest {
     public void initializeCart() {
         cart = new Cart(driver);
         product = new Products(driver);
+        login = new Login(driver);
     }
 
 //    @Test ()
@@ -43,7 +46,19 @@ public class CartTest extends BaseTest {
         });
     }
 
-    @Test (groups = "checkMethode")
+//    >>>>>>>>>>>>>>>>>>>>>>>>>>>>!<<<<<<<<<<<<<<<<<<<<<<
+@Test(priority = 1)
+public void testLogin() throws IOException{
+
+    String mail = PropReader.getProp("mail");
+    String pass = PropReader.getProp("pass");
+    login.enterLoginMail(mail);
+    login.enterLoginPass(pass);
+    login.clickLoginBtn();
+    login.checkFromLogin();
+}
+
+    @Test (priority = 2)
     public void addItemsToCart(){
         product.navigateToProductsPage();
         product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2});
@@ -68,7 +83,10 @@ public class CartTest extends BaseTest {
     public void changeQuantityOfItem(){
         cart.changeQuantity("1", numOfQuantityNeeded);
     }
-    @Test (dependsOnMethods = "addItemsToCart", groups = "checkMethode")
+
+
+
+    @Test (dependsOnMethods = "addItemsToCart")
     public void checkout() throws IOException {
         cart.moveToCart();
 

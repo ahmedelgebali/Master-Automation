@@ -92,6 +92,7 @@ mvn test
 ### Documentation
 
 - [Test Cases](docs/TestCases.md): Detailed list of test cases with steps and expected outcomes.
+- Test cart: https://docs.stripe.com/testing 
 
 ## Contributing
 

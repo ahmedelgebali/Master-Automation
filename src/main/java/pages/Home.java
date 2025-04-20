@@ -14,9 +14,6 @@ public class Home extends Base {
     public Home(WebDriver driver) {
         super(driver);
     }
-    public Home(Actions actions, JavascriptExecutor js) {
-        super(actions, js);
-    }
 
 
 // <--------------------------> items locators <-------------------------->
@@ -68,7 +65,7 @@ public class Home extends Base {
     };
 
     //header slider locators
-    private final String leftSliderHeader = "://a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
+    private final String leftSliderHeader = "//a[@class='left control-carousel hidden-xs']//i[@class='fa fa-angle-left']";
     private final String rightSliderHeader = "//a[@class='right control-carousel hidden-xs']//i[@class='fa fa-angle-right']";
     private final String sliderThreeDots1 = "//section[@id='slider']//li[1]";
     private final String sliderThreeDots2 = "//section[@id='slider']//li[2]";

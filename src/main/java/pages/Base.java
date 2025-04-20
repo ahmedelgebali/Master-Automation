@@ -19,15 +19,14 @@ public class Base {
     //with driver
     public Base(WebDriver driver) {
         this.driver = driver;
+        this.actions = new Actions(driver);
         this.js = (JavascriptExecutor) driver;
     }
 
-    // with Actions and javascript explicitly
     public Base(Actions actions, JavascriptExecutor js) {
         this.actions = actions;
         this.js = js;
     }
-
 
 
     public void waitForElementToBeClickable(By locator){

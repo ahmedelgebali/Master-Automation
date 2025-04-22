@@ -1,5 +1,6 @@
 package tests;
 
+import com.aventstack.extentreports.Status;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,10 +14,12 @@ public class SignupTest extends BaseTest {
     @BeforeMethod
     public void initializeSignup() throws IOException {
         signup = new Signup(driver);
+        startTest("Signup Test");  // Start the test for each method
     }
 
     @Test(priority = 1)
     public void signupInitialPage() throws IOException {
+        test.log(Status.INFO, "Navigating to the base URL");
         driver.get(PropReader.getProp("baseURL"));
 
         String name = PropReader.getProp("name");
@@ -26,6 +29,8 @@ public class SignupTest extends BaseTest {
         signup.enterName(name);
         signup.enterMail(mail);
         signup.clickSignupBtn();
+
+        test.pass("Signup initial page loaded successfully");
     }
 
     @Test(priority = 2, dependsOnMethods = "signupInitialPage")
@@ -60,5 +65,7 @@ public class SignupTest extends BaseTest {
         signup.createAccountBtn();
         signup.printSignupConfirmationMessage();
         signup.clickContinueBtn();
+
+        test.pass("Signup info page completed successfully");
     }
 }

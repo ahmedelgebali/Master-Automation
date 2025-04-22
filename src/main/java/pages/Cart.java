@@ -38,11 +38,7 @@ public class Cart extends Base {
 
 
 
-
-
-
 // <--------------------------> Action methods <-------------------------->
-
     // navigate to Cart
     public void moveToCart() {
         waitForElementToBeClickable(cartPagePath);
@@ -63,7 +59,7 @@ public class Cart extends Base {
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
     }
-    // change quantity
+    // change quantity of a particular item
     public void changeQuantity(String itemOrder, String quantity) {
         By itemLocator = getItemPathBasedOnItsOrderInCart(itemOrder);
         clickOnItemToView(itemLocator);
@@ -78,6 +74,21 @@ public class Cart extends Base {
         System.out.println(itemPrice);
     }
 
+    public void processedCheckout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
+        driver.findElement(processedBtn).click();
+        scrollBy(0,500);
+        driver.findElement(placeOrderBtn).click();
+        driver.findElement(nameOnCart).sendKeys(NameOnCart);
+        driver.findElement(cartNum).sendKeys(CartNumber);
+        driver.findElement(cvc).sendKeys(CVC);
+        driver.findElement(expirationMonth).sendKeys(ExpirationMonth);
+        driver.findElement(expirationYear).sendKeys(ExpirationYear);
+        driver.findElement(payAndConfirm).click();
+        waitForElementToBeClickable(continueBtn);
+        driver.findElement(continueBtn).click();
+    }
+
+// <--------------------------> Helper methods <-------------------------->
 
     // dynamic locators
     private By getDynamicLocator(String baseLocator, String itemNum) {
@@ -99,22 +110,4 @@ public class Cart extends Base {
     public By getItemQuantityLocator(String itemNum) {
         return getDynamicLocator("(//td[@class='cart_quantity'])[x]", itemNum);
     }
-
-
-    public void processedCheckout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
-        driver.findElement(processedBtn).click();
-        scrollBy(0,500);
-        driver.findElement(placeOrderBtn).click();
-        driver.findElement(nameOnCart).sendKeys(NameOnCart);
-        driver.findElement(cartNum).sendKeys(CartNumber);
-        driver.findElement(cvc).sendKeys(CVC);
-        driver.findElement(expirationMonth).sendKeys(ExpirationMonth);
-        driver.findElement(expirationYear).sendKeys(ExpirationYear);
-        driver.findElement(payAndConfirm).click();
-        waitForElementToBeClickable(continueBtn);
-        driver.findElement(continueBtn).click();
-    }
-
-
-
 }

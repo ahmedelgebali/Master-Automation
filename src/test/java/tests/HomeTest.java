@@ -1,7 +1,6 @@
 package tests;
 
-import Properties.PropReader;
-import org.testng.Assert;
+import utils.PropReader;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

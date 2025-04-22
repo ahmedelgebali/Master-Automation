@@ -50,7 +50,6 @@ public class Signup extends Base{
 
 
 
-
 // <--------------------------> Actions methods  <-------------------------->
     //open login and signup page
     public void openLoginAndSignupPage(){
@@ -68,6 +67,7 @@ public class Signup extends Base{
     driver.findElement(signupBtn).click();
     }
 
+
     // following sign up, entering the user info
     public void selectTitle(){
         driver.findElement(titleInput).click();
@@ -80,18 +80,23 @@ public class Signup extends Base{
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dayElement);
         new Select (driver.findElement(dayDropdown)).selectByVisibleText(berthDay);
     }
+
     public void selectMonth(String month){
         new Select(driver.findElement(monthDropdown)).selectByVisibleText(month);
     }
+
     public void selectYear(String year){
         new Select(driver.findElement(yearDropdown)).selectByVisibleText(year); //??
     }
+
     public void newsCheckbox(){
         driver.findElement(newsletterCheckbox).click();
     }
+
     public void receiveOfferCheckbox(){
         driver.findElement(receiveOffersCheckbox).click();
     }
+
     public void nameAndAddresses(String firstName, String lastName, String companyName, String addressStreet, String address2){
         driver.findElement(firstNameInput).sendKeys(firstName);
         driver.findElement(lastNameInput).sendKeys(lastName);
@@ -99,33 +104,37 @@ public class Signup extends Base{
         driver.findElement(addressStreetInput).sendKeys(addressStreet);
         driver.findElement(address2Input).sendKeys(address2);
     }
+
     public void setCountryDropdown(String country){
         new Select(driver.findElement(countryDropdown)).selectByVisibleText(country);
     }
+
     public void stateAndCity(String state, String city){
         driver.findElement(stateInput).sendKeys(state);
         driver.findElement(cityInput).sendKeys(city);
     }
+
     public void zipCode(String zip){
         driver.findElement(zipcodeInput).sendKeys(zip);
     }
+
     public void mobileNumber(String mobilNum){
         driver.findElement(mobileNumInput).sendKeys(mobilNum);
     }
+
     public void createAccountBtn(){
         driver.findElement(createAccountBtn).click();
     }
+
     public void printSignupConfirmationMessage(){
     WebElement successTitleElement = driver.findElement(confirmMessage);
     String successTitle = successTitleElement.getText();
     System.out.println(successTitle);
     }
+
     public void clickContinueBtn(){
         driver.findElement(continueBtn).click();
     }
-
-
-
 
 
 }

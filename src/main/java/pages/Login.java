@@ -7,7 +7,6 @@ public class Login extends Base{
     public Login(WebDriver driver){super(driver);}
 
 
-
 // <--------------------------> Locators  <-------------------------->
     private By mailInput = By.xpath("//input[@data-qa='login-email']");
     private By passInput = By.xpath("//input[@placeholder='Password']");
@@ -15,8 +14,6 @@ public class Login extends Base{
     private By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
 
     private By logout = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
-
-
 
 
 
@@ -38,6 +35,5 @@ public class Login extends Base{
     public void clickLogoutBtn(){
         driver.findElement(logout).click();
     }
-
 
 }

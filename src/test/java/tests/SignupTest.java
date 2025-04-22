@@ -1,6 +1,6 @@
 package tests;
 
-import Properties.PropReader;
+import utils.PropReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Signup;

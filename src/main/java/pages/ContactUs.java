@@ -18,8 +18,6 @@ public class ContactUs extends Base{
     private By submitBtn = By.xpath("//input[@name='submit']");
 
 
-
-
 // <--------------------------> Action methods <-------------------------->
     public void  setName(String enterName){
         driver.findElement(name).sendKeys(enterName);
@@ -50,7 +48,5 @@ public class ContactUs extends Base{
         waitForElementToBeClickable(submitBtn);
         driver.findElement(submitBtn).click();
     }
-
-
 
 }

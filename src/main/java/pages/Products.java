@@ -89,8 +89,6 @@ public class Products extends Base{
 
 
 
-
-
 // <--------------------------> Actions methods  <-------------------------->
     // navigate to products page
     public void navigateToProductsPage(){
@@ -116,6 +114,7 @@ public class Products extends Base{
             }
         }
     }
+
     public void viewItemDetails(By[] itemPaths) {
         for (By itemPath : itemPaths) {
             try {
@@ -167,8 +166,6 @@ public class Products extends Base{
         driver.findElement(option).click();
     }
 
-
-
     // apply brand filter
     public void applyBrandFilter(){
         clickBrandFilter(firstBrandFilter);
@@ -190,7 +187,6 @@ public class Products extends Base{
 
         // transfer controlling into Cart Page
         new Cart(driver);
-
     }
 
     // brand filter

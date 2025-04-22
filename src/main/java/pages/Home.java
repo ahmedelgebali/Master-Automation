@@ -92,7 +92,6 @@ public class Home extends Base {
         return itemsPathsArray;
     }
 
-
     //perform action on the header slider
     public void headerSliderAction() {
         for (By slider : sliderHeaderArray) {
@@ -135,7 +134,7 @@ public class Home extends Base {
         safeClick(By.xpath("//body/section[1]"));
     }
 
-    //bellow all methods associated with --> (hoverOverallItems)
+    //bellow all methods associated with --> hoverOverallItems method
 
     // hover over all item on home
     private boolean hoverOverElementWithRetries(WebElement element) {
@@ -163,7 +162,7 @@ public class Home extends Base {
 
     // Scrolls the page by a certain amount
     private void scrollPageBy() {
-        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", 0, 100);
+        scrollBy(0,100);
     }
 
     // Waits until the element is clickable

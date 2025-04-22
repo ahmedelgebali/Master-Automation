@@ -1,5 +1,5 @@
 package tests;
-import Properties.PropReader;
+import utils.PropReader;
 import org.testng.annotations.*;
 import pages.Products;
 import org.openqa.selenium.By;

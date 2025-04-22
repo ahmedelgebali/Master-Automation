@@ -1,6 +1,6 @@
 package tests;
 
-import Properties.PropReader;
+import utils.PropReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.*;

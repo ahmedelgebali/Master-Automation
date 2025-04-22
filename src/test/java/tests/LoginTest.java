@@ -9,10 +9,13 @@ import pages.Login;
 import java.io.IOException;
 
 public class LoginTest extends BaseTest {
-        Login login;
+
+    Login login;
+
     @BeforeMethod
-    public void initialize() throws IOException {
-            login = new Login(driver);
+    public void initializeLogin() throws IOException {
+        driver.get(PropReader.getProp("loginURL"));
+        login = new Login(driver);
     }
 
     public void performLogin() throws IOException {
@@ -26,7 +29,6 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 1)
     public void testLogin() throws IOException {
-        driver.get(PropReader.getProp("loginURL"));
         performLogin();
     }
 

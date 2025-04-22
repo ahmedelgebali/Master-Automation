@@ -11,7 +11,7 @@ public class SignupTest extends BaseTest {
     Signup signup;
 
     @BeforeMethod
-    public void initialize() throws IOException {
+    public void initializeSignup() throws IOException {
         signup = new Signup(driver);
     }
 

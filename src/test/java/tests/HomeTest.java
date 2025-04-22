@@ -14,15 +14,14 @@ public class HomeTest extends BaseTest {
 
 
     @BeforeMethod
-    public void goToHomePage() throws IOException {
-        driver.get(PropReader.getProp("baseURL"));
+    public void initializeHome() throws IOException {
         home = new Home(driver);
     }
 
 
-
     @Test(priority = 1)
-    public void testHeaderSlider() {
+    public void testHeaderSlider() throws IOException {
+        driver.get(PropReader.getProp("baseURL"));
         home.headerSliderAction();
     }
 

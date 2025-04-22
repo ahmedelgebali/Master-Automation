@@ -12,7 +12,7 @@ public class ContactUsTest extends BaseTest{
     ContactUs contact;
 
     @BeforeClass
-    public static void setup() throws IOException {
+    public static void initializeContact() throws IOException {
         driver.get(PropReader.getProp("contactUs"));
     }
 

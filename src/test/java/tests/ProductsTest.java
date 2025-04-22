@@ -11,7 +11,7 @@ public class ProductsTest extends BaseTest {
 
     @BeforeMethod
     public void initializeProduct() throws IOException {
-        PropReader.getProp("baseURL");
+        driver.get(PropReader.getProp("baseURL"));
         product = new Products(driver);
     }
 

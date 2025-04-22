@@ -13,13 +13,9 @@ public class ContactUsTest extends BaseTest{
 
     @BeforeClass
     public static void setup() throws IOException {
-        String url = PropReader.getProp("contactUs");
-        setUp(url);
+        driver.get(PropReader.getProp("contactUs"));
     }
-    @AfterClass
-    public static void tear(){
-        tearDown();
-    }
+
 
     @Test
     public void testContactUs() throws Exception {

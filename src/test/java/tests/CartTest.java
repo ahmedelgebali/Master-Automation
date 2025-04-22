@@ -17,24 +17,17 @@ public class CartTest extends BaseTest {
     private Login login;
 
 
-    @BeforeClass
-    public void setup() throws IOException {
-        String url = PropReader.getProp("loginURL");
-        setUp(url);
-    }
-    //        @AfterClass
-    public  static void tear(){
-        tearDown();
-    }
-
     @BeforeMethod
-    public void initializeCart() {
+    public void initializeCart() throws IOException {
+        driver.get(PropReader.getProp("baseURL"));
+
         cart = new Cart(driver);
         product = new Products(driver);
         login = new Login(driver);
     }
 
-//    @Test ()
+
+    @Test (priority = 1)
     public void viewProductDetails(){
         product.navigateToProductsPage();
         product.viewItemDetails(new By[]{
@@ -46,30 +39,20 @@ public class CartTest extends BaseTest {
         });
     }
 
-//    >>>>>>>>>>>>>>>>>>>>>>>>>>>>!<<<<<<<<<<<<<<<<<<<<<<
-@Test(priority = 1)
-public void testLogin() throws IOException{
-
-    String mail = PropReader.getProp("mail");
-    String pass = PropReader.getProp("pass");
-    login.enterLoginMail(mail);
-    login.enterLoginPass(pass);
-    login.clickLoginBtn();
-    login.checkFromLogin();
-}
 
     @Test (priority = 2)
     public void addItemsToCart(){
         product.navigateToProductsPage();
         product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2});
     }
-//    @Test (dependsOnMethods = "addItemsToCart")
+
+    @Test (dependsOnMethods = "addItemsToCart")
     public void printOutItemPrices(){
         cart.moveToCart();
         cart.printItemPrice("1");
     }
 
-//    @Test (dependsOnMethods = "addItemsToCart")
+    @Test (dependsOnMethods = "printOutItemPrices")
     public void clickOnItemToView() {
         cart.moveToCart();
         By itemLocator = cart.getItemPathBasedOnItsOrderInCart("1");
@@ -79,14 +62,14 @@ public void testLogin() throws IOException{
     }
 
 
-//    @Test (dependsOnMethods = "clickOnItemToView")
+    @Test (dependsOnMethods = "clickOnItemToView")
     public void changeQuantityOfItem(){
         cart.changeQuantity("1", numOfQuantityNeeded);
     }
 
 
 
-    @Test (dependsOnMethods = "addItemsToCart")
+//    @Test (dependsOnMethods = "addItemsToCart")
     public void checkout() throws IOException {
         cart.moveToCart();
 

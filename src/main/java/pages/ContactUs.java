@@ -22,12 +22,15 @@ public class ContactUs extends Base{
     public void  setName(String enterName){
         driver.findElement(name).sendKeys(enterName);
     }
+
     public void setMail(String enterMail){
         driver.findElement(mail).sendKeys(enterMail);
     }
+
     public void setSubject(String enterSubject){
         driver.findElement(subject).sendKeys(enterSubject);
     }
+
     public void setYourMessage(String yourMessage){
         driver.findElement(enterYourMessageBox).sendKeys(yourMessage);
     }

@@ -8,18 +8,10 @@ import java.io.IOException;
 public class ProductsTest extends BaseTest {
     Products product;
 
-    @BeforeClass
-    public void setup() throws IOException {
-        String url = PropReader.getProp("baseURL");
-        setUp(url);
-    }
-    @AfterClass
-    public void tear(){
-        tearDown();
-    }
 
     @BeforeMethod
-    public void initializeProduct() {
+    public void initializeProduct() throws IOException {
+        PropReader.getProp("baseURL");
         product = new Products(driver);
     }
 
@@ -49,7 +41,7 @@ public class ProductsTest extends BaseTest {
     @Test(priority = 6)
     public void applyBrandFilter(){
         product.applyBrandFilter();
-        //note this methode pass the driver into Cart page once finished
+
     }
 
 

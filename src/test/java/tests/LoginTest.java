@@ -9,25 +9,13 @@ import pages.Login;
 import java.io.IOException;
 
 public class LoginTest extends BaseTest {
-    Login login;
-    @BeforeClass
-    public static void setupTest() throws IOException {
-        String url = PropReader.getProp("loginURL");
-        setUp(url);
-    }
+        Login login;
     @BeforeMethod
-    public void initialize(){
-       login = new Login(driver);
+    public void initialize() throws IOException {
+            login = new Login(driver);
     }
 
-//    @AfterClass
-    public static void tear(){
-        tearDown();
-    }
-
-    @Test(priority = 1)
-    public void testLogin() throws IOException{
-
+    public void performLogin() throws IOException {
         String mail = PropReader.getProp("mail");
         String pass = PropReader.getProp("pass");
         login.enterLoginMail(mail);
@@ -36,13 +24,17 @@ public class LoginTest extends BaseTest {
         login.checkFromLogin();
     }
 
-    @Test(priority = 2)
-    public void logoutAndLogin() throws IOException, InterruptedException {
-        login = new Login(driver);
-        login.clickLogoutBtn();
-        Thread.sleep(2000);
-        testLogin();
+    @Test(priority = 1)
+    public void testLogin() throws IOException {
+        driver.get(PropReader.getProp("loginURL"));
+        performLogin();
     }
 
-
+    @Test(priority = 2)
+    public void logoutAndLogin() throws IOException, InterruptedException {
+        login.clickLogoutBtn();
+        Thread.sleep(2000);
+        performLogin();
+    }
 }
+

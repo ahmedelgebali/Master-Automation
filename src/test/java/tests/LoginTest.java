@@ -12,23 +12,16 @@ public class LoginTest extends BaseTest {
 
     @BeforeMethod
     public void initializeLogin() throws IOException {
-        driver.get(PropReader.getProp("loginURL"));
         login = new Login(driver);
         startTest("Login Test");
     }
 
     @Test(priority = 1)
-    public void testLogin() throws IOException {
+    public void testLogin() throws IOException, InterruptedException {
+        driver.get(PropReader.getProp("loginURL"));
         test.info("Performing login");
 
-        String mail = PropReader.getProp("mail");
-        String pass = PropReader.getProp("pass");
-
-        login.enterLoginMail(mail);
-        login.enterLoginPass(pass);
-        login.clickLoginBtn();
-        login.checkFromLogin();
-
+        performLogin();
         test.pass("Login successful");
     }
 
@@ -37,8 +30,15 @@ public class LoginTest extends BaseTest {
         test.info("Logging out and performing login again");
 
         login.clickLogoutBtn();
-        Thread.sleep(2000); // Avoid using sleep, replace with proper wait if needed
+        Thread.sleep(1000);
 
+        performLogin();
+
+        test.pass("Login after logout successful");
+    }
+
+
+    public void performLogin() throws IOException, InterruptedException {
         String mail = PropReader.getProp("mail");
         String pass = PropReader.getProp("pass");
 
@@ -46,7 +46,5 @@ public class LoginTest extends BaseTest {
         login.enterLoginPass(pass);
         login.clickLoginBtn();
         login.checkFromLogin();
-
-        test.pass("Login after logout successful");
     }
 }

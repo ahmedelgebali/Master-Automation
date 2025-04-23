@@ -72,7 +72,7 @@ public class CartTest extends BaseTest {
         test.pass("Item quantity changed");
     }
 
-    // @Test (dependsOnMethods = "addItemsToCart")
+     @Test (dependsOnMethods = "addItemsToCart")
     public void checkout() throws IOException {
         test.info("Performing checkout");
         cart.moveToCart();

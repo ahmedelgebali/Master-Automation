@@ -12,29 +12,32 @@ public class SignupTest extends BaseTest {
     Signup signup;
 
     @BeforeMethod
-    public void initializeSignup() throws IOException {
+    public void initializeSignup() {
         signup = new Signup(driver);
-        startTest("Signup Test");  // Start the test for each method
+        startTest("Signup Test, opening Home page ");  // Start the test for each method
     }
 
     @Test(priority = 1)
     public void signupInitialPage() throws IOException {
-        test.log(Status.INFO, "Navigating to the base URL");
-        driver.get(PropReader.getProp("baseURL"));
+        test.log(Status.INFO, "Navigating to Signup Page to create a new user ");
 
+        String url = PropReader.getProp("baseURL");
         String name = PropReader.getProp("name");
         String mail = PropReader.getProp("mail");
 
+        driver.get(url);
         signup.openLoginAndSignupPage();
         signup.enterName(name);
         signup.enterMail(mail);
         signup.clickSignupBtn();
 
-        test.pass("Signup initial page loaded successfully");
+        test.pass("Signup initial Signup page loaded successfully");
     }
 
     @Test(priority = 2, dependsOnMethods = "signupInitialPage")
     public void signupInfoPage() throws IOException {
+        test.log(Status.INFO, "Filing the Signup info..");
+
         String pass = PropReader.getProp("pass");
         String day = PropReader.getProp("day");
         String month = PropReader.getProp("month");
@@ -50,12 +53,12 @@ public class SignupTest extends BaseTest {
         String city = PropReader.getProp("city");
         String mobileNumber = PropReader.getProp("mobileNumber");
 
-        signup.selectTitle();
+        signup.selectTitle(); //Mr.
         signup.enterPass(pass);
         signup.selectDay(day);
         signup.selectMonth(month);
         signup.selectYear(year);
-        signup.newsCheckbox();
+        signup.markNewsCheckbox();
         signup.receiveOfferCheckbox();
         signup.nameAndAddresses(firstName, lastName, companyName, addressStreet, address2);
         signup.setCountryDropdown(country);
@@ -66,6 +69,6 @@ public class SignupTest extends BaseTest {
         signup.printSignupConfirmationMessage();
         signup.clickContinueBtn();
 
-        test.pass("Signup info page completed successfully");
+        test.pass("Signup info completed and created a new user successfully");
     }
 }

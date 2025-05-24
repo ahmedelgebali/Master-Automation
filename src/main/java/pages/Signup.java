@@ -89,7 +89,7 @@ public class Signup extends Base{
         new Select(driver.findElement(yearDropdown)).selectByVisibleText(year); //??
     }
 
-    public void newsCheckbox(){
+    public void markNewsCheckbox(){
         driver.findElement(newsletterCheckbox).click();
     }
 
@@ -123,6 +123,7 @@ public class Signup extends Base{
     }
 
     public void createAccountBtn(){
+        scrollBy(0,100);
         driver.findElement(createAccountBtn).click();
     }
 

@@ -19,6 +19,7 @@ public class Base {
         this.driver = driver;
         this.actions = new Actions(driver);
         this.js = (JavascriptExecutor) driver;
+
     }
 
     // without driver
@@ -35,6 +36,11 @@ public class Base {
     public void scrollBy(int x, int y){
         js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x,y);
 
+    }
+
+    public void waitForVisibility(By locator) {
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 }

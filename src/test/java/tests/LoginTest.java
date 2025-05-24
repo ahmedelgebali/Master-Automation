@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     Login login;
 
     @BeforeMethod
-    public void initializeLogin() throws IOException {
+    public void initializeLogin() {
         login = new Login(driver);
         startTest("Login Test");
     }
@@ -22,10 +22,10 @@ public class LoginTest extends BaseTest {
         test.info("Performing login");
 
         performLogin();
-        test.pass("Login successful");
+        test.pass("Logged in successfully");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, dependsOnMethods = "testLogin")
     public void logoutAndLogin() throws IOException, InterruptedException {
         test.info("Logging out and performing login again");
 
@@ -33,12 +33,11 @@ public class LoginTest extends BaseTest {
         Thread.sleep(1000);
 
         performLogin();
-
-        test.pass("Login after logout successful");
+        test.pass("Re logged in successfully");
     }
 
 
-    public void performLogin() throws IOException, InterruptedException {
+    public void performLogin() throws IOException {
         String mail = PropReader.getProp("mail");
         String pass = PropReader.getProp("pass");
 

@@ -8,12 +8,11 @@ public class Login extends Base{
 
 
 // <--------------------------> Locators  <-------------------------->
-    private By mailInput = By.xpath("//input[@data-qa='login-email']");
-    private By passInput = By.xpath("//input[@placeholder='Password']");
-    private By loginBtn = By.xpath("//button[normalize-space()='Login']");
-    private By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
-
-    private By logout = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
+    private final By mailInput = By.xpath("//input[@data-qa='login-email']");
+    private final By passInput = By.xpath("//input[@placeholder='Password']");
+    private final By loginBtn = By.xpath("//button[normalize-space()='Login']");
+    private final By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
+    private final By logout = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
 
 
 
@@ -21,13 +20,17 @@ public class Login extends Base{
     public void enterLoginMail(String mail){
         driver.findElement(mailInput).sendKeys(mail);
     }
+
     public void enterLoginPass( String password){
         driver.findElement(passInput).sendKeys(password);
     }
+
     public void clickLoginBtn(){
         driver.findElement(loginBtn).click();
     }
+
     public void checkFromLogin(){
+        waitForElementToBeClickable(loggedInAsText);
         String text = driver.findElement(loggedInAsText).getText();
         System.out.println(text);
     }

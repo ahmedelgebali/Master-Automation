@@ -20,45 +20,51 @@ public class ProductsTest extends BaseTest {
     @Test(priority = 1)
     public void navigateToPage() {
         test.info("Navigating to products page");
+
         product.navigateToProductsPage();
-        test.pass("Navigated to products page");
+        test.pass("Navigated to products page successfully");
     }
 
     @Test(priority = 2)
     public void addItemsToCart() {
-        test.info("Adding items to cart");
+        test.info("Adding some items to cart");
+
         product.addItemsToCart(new By[] {
                 product.itemPath1, product.itemPath2, product.itemPath3, product.itemPath4,
                 product.itemPath5, product.itemPath6, product.itemPath7
         });
-        test.pass("Items added to cart");
+        test.pass("Some items added to the cart successfully");
     }
 
     @Test(priority = 3)
     public void testWomenFilter() {
-        test.info("Applying women filter");
+        test.info("Checking from women filter");
+
         product.womenFilter();
-        test.pass("Women filter applied");
+        test.pass("Women filter tested successfully");
     }
 
     @Test(priority = 4)
     public void testMenFilter() {
-        test.info("Applying men filter");
+        test.info("Testing men filter");
+
         product.menFilter();
-        test.pass("Men filter applied");
+        test.pass("Men filter tested successfully");
     }
 
     @Test(priority = 5)
     public void testKidsFilter() {
-        test.info("Applying kids filter");
+        test.info("Testing kids filter");
+
         product.kidsFilter();
-        test.pass("Kids filter applied");
+        test.pass("Kids filter tested successfully");
     }
 
     @Test(priority = 6)
     public void applyBrandFilter() {
-        test.info("Applying brand filter");
+        test.info("Testing brand filter");
+
         product.applyBrandFilter();
-        test.pass("Brand filter applied");
+        test.pass("Brand filter tested successfully");
     }
 }

@@ -12,7 +12,6 @@ import pages.Products;
 import java.io.IOException;
 
 public class CartTest extends BaseTest {
-    private String numOfQuantityNeeded = "10";
     private Cart cart;
     private Products product;
 
@@ -28,6 +27,7 @@ public class CartTest extends BaseTest {
     @Test(priority = 1)
     public void viewProductDetails() {
         test.info("Navigating to product details");
+
         product.navigateToProductsPage();
         product.viewItemDetails(new By[] {
                 ProductsLocators.itemDetails1, ProductsLocators.itemDetails2, ProductsLocators.itemDetails3, ProductsLocators.itemDetails4,
@@ -36,28 +36,31 @@ public class CartTest extends BaseTest {
                 ProductsLocators.itemDetails15, ProductsLocators.itemDetails16, ProductsLocators.itemDetails17, ProductsLocators.itemDetails18, ProductsLocators.itemDetails19,
                 ProductsLocators.itemDetails20, ProductsLocators.itemDetails21
         });
-        test.pass("Product details viewed");
+        test.pass("Product details viewed successfully");
     }
 
     @Test(priority = 2)
     public void addItemsToCart() {
         test.info("Adding items to cart");
+
         product.navigateToProductsPage();
         product.addItemsToCart(new By[] {ProductsLocators.itemPath1, ProductsLocators.itemPath2});
-        test.pass("Items added to cart");
+        test.pass("Items added to cart successfully");
     }
 
     @Test(dependsOnMethods = "addItemsToCart")
     public void printOutItemPrices() {
         test.info("Printing out item prices");
+
         cart.moveToCart();
         cart.printItemPrice("1");
-        test.pass("Item prices printed");
+        test.pass("Item prices printed in the console");
     }
 
     @Test(dependsOnMethods = "printOutItemPrices")
     public void clickOnItemToView() {
         test.info("Clicking on item to view");
+
         cart.moveToCart();
         By itemLocator = cart.getItemPathBasedOnItsOrderInCart("1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
@@ -68,11 +71,14 @@ public class CartTest extends BaseTest {
     @Test(dependsOnMethods = "clickOnItemToView")
     public void changeQuantityOfItem() {
         test.info("Changing quantity of item");
+
+        String numOfQuantityNeeded = "10";
         cart.changeQuantity("1", numOfQuantityNeeded);
+
         test.pass("Item quantity changed");
     }
 
-     @Test (dependsOnMethods = "addItemsToCart")
+     @Test (dependsOnMethods = "changeQuantityOfItem")
     public void checkout() throws IOException {
         test.info("Performing checkout");
         cart.moveToCart();

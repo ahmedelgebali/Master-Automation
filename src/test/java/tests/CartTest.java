@@ -1,5 +1,6 @@
 package tests;
 
+import pages.ProductsLocators;
 import utils.PropReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,14 +15,13 @@ public class CartTest extends BaseTest {
     private String numOfQuantityNeeded = "10";
     private Cart cart;
     private Products product;
-    private Login login;
 
     @BeforeMethod
     public void initializeCart() throws IOException {
         driver.get(PropReader.getProp("baseURL"));
         cart = new Cart(driver);
         product = new Products(driver);
-        login = new Login(driver);
+//        Login login = new Login(driver);
         startTest("Cart Test");
     }
 
@@ -30,11 +30,11 @@ public class CartTest extends BaseTest {
         test.info("Navigating to product details");
         product.navigateToProductsPage();
         product.viewItemDetails(new By[] {
-                product.itemDetails1, product.itemDetails2, product.itemDetails3, product.itemDetails4,
-                product.itemDetails5, product.itemDetails6, product.itemDetails7, product.itemDetails8, product.itemDetails9,
-                product.itemDetails10, product.itemDetails11, product.itemDetails12, product.itemDetails13, product.itemDetails14,
-                product.itemDetails15, product.itemDetails16, product.itemDetails17, product.itemDetails18, product.itemDetails19,
-                product.itemDetails20, product.itemDetails21
+                ProductsLocators.itemDetails1, ProductsLocators.itemDetails2, ProductsLocators.itemDetails3, ProductsLocators.itemDetails4,
+                ProductsLocators.itemDetails5, ProductsLocators.itemDetails6, ProductsLocators.itemDetails7, ProductsLocators.itemDetails8, ProductsLocators.itemDetails9,
+                ProductsLocators.itemDetails10, ProductsLocators.itemDetails11, ProductsLocators.itemDetails12, ProductsLocators.itemDetails13, ProductsLocators.itemDetails14,
+                ProductsLocators.itemDetails15, ProductsLocators.itemDetails16, ProductsLocators.itemDetails17, ProductsLocators.itemDetails18, ProductsLocators.itemDetails19,
+                ProductsLocators.itemDetails20, ProductsLocators.itemDetails21
         });
         test.pass("Product details viewed");
     }
@@ -43,7 +43,7 @@ public class CartTest extends BaseTest {
     public void addItemsToCart() {
         test.info("Adding items to cart");
         product.navigateToProductsPage();
-        product.addItemsToCart(new By[] {product.itemPath1, product.itemPath2});
+        product.addItemsToCart(new By[] {ProductsLocators.itemPath1, ProductsLocators.itemPath2});
         test.pass("Items added to cart");
     }
 

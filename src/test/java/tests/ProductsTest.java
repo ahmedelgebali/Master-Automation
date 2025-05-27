@@ -1,5 +1,6 @@
 package tests;
 
+import pages.ProductsLocators;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,7 +10,6 @@ import java.io.IOException;
 
 public class ProductsTest extends BaseTest {
     private Products product;
-
     @BeforeMethod
     public void initializeProduct() throws IOException {
         product = new Products(driver);
@@ -30,8 +30,8 @@ public class ProductsTest extends BaseTest {
         test.info("Adding some items to cart");
 
         product.addItemsToCart(new By[] {
-                product.itemPath1, product.itemPath2, product.itemPath3, product.itemPath4,
-                product.itemPath5, product.itemPath6, product.itemPath7
+                ProductsLocators.itemPath1, ProductsLocators.itemPath2, ProductsLocators.itemPath3, ProductsLocators.itemPath4,
+                ProductsLocators.itemPath5, ProductsLocators.itemPath6, ProductsLocators.itemPath7
         });
         test.pass("Some items added to the cart successfully");
     }

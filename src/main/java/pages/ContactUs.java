@@ -10,12 +10,12 @@ public class ContactUs extends Base{
 
 
 // <--------------------------> locators <-------------------------->
-    private By name = By.xpath("//input[@placeholder='Name']");
-    private By mail = By.xpath("//input[@placeholder='Email']");
-    private By subject = By.xpath("//input[@placeholder='Subject']");
-    private By enterYourMessageBox = By.xpath("//textarea[@id='message']");
-    private By attacheFile = By.xpath("//input[@name='upload_file']");
-    private By submitBtn = By.xpath("//input[@name='submit']");
+    private final By name = By.xpath("//input[@placeholder='Name']");
+    private final By mail = By.xpath("//input[@placeholder='Email']");
+    private final By subject = By.xpath("//input[@placeholder='Subject']");
+    private final By enterYourMessageBox = By.xpath("//textarea[@id='message']");
+    private final By attacheFile = By.xpath("//input[@name='upload_file']");
+    private final By submitBtn = By.xpath("//input[@name='submit']");
 
 
 // <--------------------------> Action methods <-------------------------->

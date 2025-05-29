@@ -14,7 +14,7 @@ public class Base {
     protected JavascriptExecutor js;
     WebDriverWait wait;
 
-    //constructors with driver
+    //constructors with a driver
     public Base(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);

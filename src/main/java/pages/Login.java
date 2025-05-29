@@ -11,8 +11,8 @@ public class Login extends Base{
     private final By mailInput = By.xpath("//input[@data-qa='login-email']");
     private final By passInput = By.xpath("//input[@placeholder='Password']");
     private final By loginBtn = By.xpath("//button[normalize-space()='Login']");
-    private final By loggedInAsText = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
-    private final By logout = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
+    private final By loggedInAsText = By.xpath("//li[10]//a[1]");
+    private final By logout = By.xpath("//a[normalize-space()='Logout']");
 
 
 

@@ -18,34 +18,34 @@ public class Signup extends Base{
 
 // <--------------------------> Locators  <-------------------------->
     // sign up
-    private By loginPagePath = By.xpath( "//a[normalize-space()='Signup / Login']");
-    private By nameInput = By.xpath("//input[@placeholder='Name']");
-    private By mailInput = By.xpath("//input[@data-qa='signup-email']");
-    private By signupBtn = By.xpath("//button[normalize-space()='Signup']");
+    private final By loginPagePath = By.xpath( "//a[normalize-space()='Signup / Login']");
+    private final By nameInput = By.xpath("//input[@placeholder='Name']");
+    private final By mailInput = By.xpath("//input[@data-qa='signup-email']");
+    private final By signupBtn = By.xpath("//button[normalize-space()='Signup']");
 
     // account info page
-    private By titleInput = By.xpath("//input[@id='id_gender1']"); //Mr
-    private By passInput = By.xpath("//input[@id='password']");
-    private By dayDropdown = By.id("days");
-    private By monthDropdown = By.id("months");
-    private By yearDropdown = By.id("years");
-    private By newsletterCheckbox = By.id("newsletter");
-    private By receiveOffersCheckbox = By.id("optin");
+    private final By titleInput = By.xpath("//input[@id='id_gender1']"); //Mr
+    private final By passInput = By.xpath("//input[@id='password']");
+    private final By dayDropdown = By.id("days");
+    private final By monthDropdown = By.id("months");
+    private final By yearDropdown = By.id("years");
+    private final By newsletterCheckbox = By.id("newsletter");
+    private final By receiveOffersCheckbox = By.id("optin");
 
     //Address Information
-    private By firstNameInput = By.xpath("//input[@id='first_name']");
-    private By lastNameInput = By.xpath("//input[@id='last_name']");
-    private By companyInput = By.xpath("//input[@id='company']");
-    private By addressStreetInput = By.xpath("//input[@id='address1']");
-    private By address2Input = By.xpath("//input[@id='address2']");
-    private By countryDropdown = By.xpath("//select[@id='country']");
-    private By stateInput = By.xpath("//input[@id='state']");
-    private By cityInput = By.xpath("//input[@id='city']");
-    private By zipcodeInput = By.xpath("//input[@id='zipcode']");
-    private By mobileNumInput = By.xpath("//input[@id='mobile_number']");
-    private By createAccountBtn = By.xpath("//button[normalize-space()='Create Account']");
-    private By confirmMessage = By.xpath("//b[normalize-space()='Account Created!']");
-    private By continueBtn = By.xpath("//a[@class='btn btn-primary']");
+    private final By firstNameInput = By.xpath("//input[@id='first_name']");
+    private final By lastNameInput = By.xpath("//input[@id='last_name']");
+    private final By companyInput = By.xpath("//input[@id='company']");
+    private final By addressStreetInput = By.xpath("//input[@id='address1']");
+    private final By address2Input = By.xpath("//input[@id='address2']");
+    private final By countryDropdown = By.xpath("//select[@id='country']");
+    private final By stateInput = By.xpath("//input[@id='state']");
+    private final By cityInput = By.xpath("//input[@id='city']");
+    private final By zipcodeInput = By.xpath("//input[@id='zipcode']");
+    private final By mobileNumInput = By.xpath("//input[@id='mobile_number']");
+    private final By createAccountBtn = By.xpath("//button[normalize-space()='Create Account']");
+    private final By confirmMessage = By.xpath("//b[normalize-space()='Account Created!']");
+    private final By continueBtn = By.xpath("//a[@class='btn btn-primary']");
 
 
 

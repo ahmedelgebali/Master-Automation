@@ -12,7 +12,7 @@ public class Home extends Base {
     }
 
 
-    // <--------------------------> Actions Methods <-------------------------->
+// <--------------------------> Actions Methods <-------------------------->
 
     public void headerSliderAction() {
         for (By sliderControl : HomeLocators.HEADER_SLIDER_ARRAY) {
@@ -20,6 +20,7 @@ public class Home extends Base {
             pause(500);
         }
     }
+    //handle the popping banner add
     public void collapseBanner() {
         //collapse banner ad when it appears
         try {
@@ -27,7 +28,7 @@ public class Home extends Base {
             if (collapseBtn.isDisplayed()) {
                 collapseBtn.click();
             }
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException _) {
         }
     }
 
@@ -45,8 +46,7 @@ public class Home extends Base {
     }
 
 
-
-        public void scrollToViewItems() {
+    public void scrollToViewItems() {
         for (int i = 0; i<15; i++){
             scrollBy(0,500);
             pause(200);
@@ -102,11 +102,11 @@ public class Home extends Base {
 }
 
 
-// the next methods to be refactored
+// the next methods for testing the Hovering Over the items action by the mouse pointer --> TB refactored
    /*
     public void hoverOverallItems() {
         int counter = 0;
-        for (By itemLocator : HomeLocators.ITEMS_PATHS_ARRAY) {
+        for (By itemLocator: HomeLocators.ITEMS_PATHS_ARRAY) {
             WebElement item = safeFindElement(itemLocator);
             if (item == null) continue;
 

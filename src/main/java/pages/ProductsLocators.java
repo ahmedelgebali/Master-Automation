@@ -20,8 +20,6 @@ public class ProductsLocators {
 
     // continue shopping btn
     public static final By continueBtn = By.xpath("//button[@class='btn btn-success close-modal btn-block']");
-    //view cart btn
-    public static final By viewCartBtn = By.xpath("//u[normalize-space()='View Cart']");
 
     // view product details
     public static final By itemDetails1 = By.cssSelector("a[href='/product_details/1']");

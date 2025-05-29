@@ -46,21 +46,14 @@ public class Cart extends Base {
         driver.findElement(cartPagePath).click();
     }
 
-    public By getItemPathBasedOnItsOrderInCart(String itemOrder){
-        String itemsLocator = "a[href='/product_details/X']";
-        return By.cssSelector(itemsLocator.replace("X", String.valueOf(itemOrder)));
-    }
-
+    //view item details
     public void clickOnItemToViewAndBack(By itemLocator){
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
         driver.navigate().back();
     }
-    public void clickOnItemToView(By itemLocator) {
-        waitForElementToBeClickable(itemLocator);
-        driver.findElement(itemLocator).click();
-    }
-    // change quantity of a particular item
+
+    // change the quantity of a particular item
     public void changeQuantity(String itemOrder, String quantity) {
         By itemLocator = getItemPathBasedOnItsOrderInCart(itemOrder);
         clickOnItemToView(itemLocator);
@@ -70,19 +63,23 @@ public class Cart extends Base {
         driver.findElement(quantityFieldPath).sendKeys(quantity);
         product.addItemsToCart(new By[]{addToCartBtnInViewItem});
         driver.navigate().back();
-
     }
 
+
+    //printing the precises of items in the Cart
     public void printItemPrice(String itemNumber){
         String itemPrice = driver.findElement(getItemPriceLocator(itemNumber)).getText();
         System.out.println(itemPrice);
     }
-    public void goLoginToCheckout(){
+
+    // login to check out the order
+    public void loginToCheckout(){
         driver.findElement(processToCheckout).click();
         driver.findElement(loginPath).click();
-        //login to be performed through the Test class
-
+        //The login to be performed through the Test class
     }
+
+    //follow to check out the order
     public void processAndPlaceOrder(){
         driver.findElement(processToCheckout).click();
         scrollBy(0,1000);
@@ -90,10 +87,8 @@ public class Cart extends Base {
         driver.findElement(placeOrderBtn).click();
     }
 
-    public void payment(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
-
-
-
+    //check out the order
+    public void checkout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
         driver.findElement(nameOnCart).sendKeys(NameOnCart);
         driver.findElement(cartNum).sendKeys(CartNumber);
         driver.findElement(cvc).sendKeys(CVC);
@@ -105,7 +100,15 @@ public class Cart extends Base {
         driver.findElement(continueBtn).click();
     }
 
+
+
+
+
 // <--------------------------> Helper methods <-------------------------->
+    public void clickOnItemToView(By itemLocator) {
+        waitForElementToBeClickable(itemLocator);
+        driver.findElement(itemLocator).click();
+    }
 
     // dynamic locators
     private By getDynamicLocator(String baseLocator, String itemNum) {
@@ -116,19 +119,9 @@ public class Cart extends Base {
         return getDynamicLocator("tr[id='product-X'] td[class='cart_price'] p", itemNum);
     }
 
-    /*
-
-    public By getItemTotalPriceLocator(String itemNum) {
-        return getDynamicLocator("//tr[@id='product-x']//td[@class='cart_total']", itemNum);
+    public By getItemPathBasedOnItsOrderInCart(String itemOrder){
+        String itemsLocator = "a[href='/product_details/X']";
+        return By.cssSelector(itemsLocator.replace("X", String.valueOf(itemOrder)));
     }
 
-    public By getItemDeleteButtonLocator(String itemNum) {
-        return getDynamicLocator("(//td[@class='cart_delete'])[x]", itemNum);
-    }
-
-    public By getItemQuantityLocator(String itemNum) {
-        return getDynamicLocator("(//td[@class='cart_quantity'])[x]", itemNum);
-    }
-
-     */
 }

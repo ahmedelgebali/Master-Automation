@@ -15,7 +15,7 @@ public class Products extends Base {
         super(actions, js);
     }
 
-    // Navigate to products page
+    // Navigate to Products page
     public void navigateToProductsPage() {
         driver.findElement(By.xpath("//a[@href='/products']")).click();
         waitForElementToBeClickable(By.xpath("//a[@href='/products']"));

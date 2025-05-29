@@ -85,7 +85,7 @@ public class CartTest extends BaseTest {
      @Test (priority = 6, dependsOnMethods = "changeQuantityOfItem")
      public void processToCheckout () throws IOException {
          cart.moveToCart();
-         cart.goLoginToCheckout();
+         cart.loginToCheckout();
          performLogin();
          cart.moveToCart();
          cart.processAndPlaceOrder();
@@ -101,7 +101,7 @@ public class CartTest extends BaseTest {
         String expYear = PropReader.getProp("expirationYear");
 
 
-        cart.payment(name, cartNum, cvc, expMonth, expYear);
+        cart.checkout(name, cartNum, cvc, expMonth, expYear);
         test.pass("Checkout processed successfully");
     }
 

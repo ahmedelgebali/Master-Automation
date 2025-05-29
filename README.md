@@ -1,4 +1,4 @@
-## Master Automation Practical Project
+##  Practical Automation Project
 I made this personal project to practice and apply web automation using Selenium and Java. the goal here isn’t to build something huge, but rather to get more hands-on experience with writing automated tests, structuring a clean framework, and trying out different and new features step by step.
 
 ### Project Overview    

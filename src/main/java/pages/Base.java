@@ -1,10 +1,12 @@
 package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 
@@ -28,13 +30,13 @@ public class Base {
         this.js = js;
     }
 
-    public void waitForElementToBeClickable(By locator){
+    public void waitForElementToBeClickable(By locator) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public void scrollBy(int x, int y){
-        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x,y);
+    public void scrollBy(int x, int y) {
+        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x, y);
 
     }
 

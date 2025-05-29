@@ -1,9 +1,10 @@
 package tests;
 
 import org.testng.annotations.BeforeClass;
-import utils.PropReader;
 import org.testng.annotations.Test;
 import pages.Login;
+import utils.PropReader;
+
 import java.io.IOException;
 
 public class LoginTest extends BaseTest {

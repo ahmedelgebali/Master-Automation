@@ -1,20 +1,21 @@
 package tests;
 
-import pages.ProductsLocators;
-import utils.PropReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.Cart;
 import pages.Login;
 import pages.Products;
+import pages.ProductsLocators;
+import utils.PropReader;
+
 import java.io.IOException;
 
 public class CartTest extends BaseTest {
+    Login login;
     private Cart cart;
     private Products product;
-    Login login;
-
 
     @BeforeClass
     public void initializeCart() {
@@ -32,7 +33,7 @@ public class CartTest extends BaseTest {
         product.navigateToProductsPage();
         test.pass("moved toProducts page successfully");
 
-        product.viewItemDetails(new By[] {
+        product.viewItemDetails(new By[]{
                 ProductsLocators.itemDetails1, ProductsLocators.itemDetails2, ProductsLocators.itemDetails3, ProductsLocators.itemDetails4,
                 ProductsLocators.itemDetails5, ProductsLocators.itemDetails6, ProductsLocators.itemDetails7, ProductsLocators.itemDetails8, ProductsLocators.itemDetails9,
                 ProductsLocators.itemDetails10, ProductsLocators.itemDetails11, ProductsLocators.itemDetails12, ProductsLocators.itemDetails13, ProductsLocators.itemDetails14,
@@ -47,7 +48,7 @@ public class CartTest extends BaseTest {
     public void addItemsToCart() {
         test.info("Adding items to cart");
 
-        product.addItemsToCart(new By[] {ProductsLocators.itemPath1, ProductsLocators.itemPath2, ProductsLocators.itemPath3, ProductsLocators.itemPath4,
+        product.addItemsToCart(new By[]{ProductsLocators.itemPath1, ProductsLocators.itemPath2, ProductsLocators.itemPath3, ProductsLocators.itemPath4,
                 ProductsLocators.itemPath5, ProductsLocators.itemPath6, ProductsLocators.itemPath7, ProductsLocators.itemPath9, ProductsLocators.itemPath10,
                 ProductsLocators.itemPath15, ProductsLocators.itemPath16, ProductsLocators.lastItemPath
         });
@@ -67,7 +68,7 @@ public class CartTest extends BaseTest {
     }
 
 
-    @Test(priority = 4, dependsOnMethods = "printOutItemPrices" )
+    @Test(priority = 4, dependsOnMethods = "printOutItemPrices")
     public void clickOnItemsToView() {
         test.info("Clicking on item to view");
 
@@ -88,23 +89,23 @@ public class CartTest extends BaseTest {
     }
 
 
-     @Test (priority = 6, dependsOnMethods = "changeQuantityOfItem")
-     public void processToFillTheCartInfoAndCheckout() throws IOException {
+    @Test(priority = 6, dependsOnMethods = "changeQuantityOfItem")
+    public void processToFillTheCartInfoAndCheckout() throws IOException {
         test.info("Processing to check out ");
 
-         cart.moveToCart();
-         test.pass("Moved to cart ");
+        cart.moveToCart();
+        test.pass("Moved to cart ");
 
-         cart.loginToCheckout();
-         performLogin();
-         test.pass("logged in in order to complete the checkout process ");
+        cart.loginToCheckout();
+        performLogin();
+        test.pass("logged in in order to complete the checkout process ");
 
-         cart.moveToCart();
-         test.pass("Moved to Cart again");
+        cart.moveToCart();
+        test.pass("Moved to Cart again");
 
-         cart.processAndPlaceOrder();
-         test.pass("Processed and placed the order ");
-     }
+        cart.processAndPlaceOrder();
+        test.pass("Processed and placed the order ");
+    }
 
 
     @Test(priority = 7, dependsOnMethods = "processToFillTheCartInfoAndCheckout")

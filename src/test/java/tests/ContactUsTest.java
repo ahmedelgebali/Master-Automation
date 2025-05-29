@@ -2,10 +2,11 @@ package tests;
 
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.PropReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ContactUs;
+import utils.PropReader;
+
 import java.io.IOException;
 import java.util.Objects;
 

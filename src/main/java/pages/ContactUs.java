@@ -5,11 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 
-public class ContactUs extends Base{
-    public ContactUs(WebDriver driver){super(driver);}
-
-
-// <--------------------------> locators <-------------------------->
+public class ContactUs extends Base {
+    // <--------------------------> locators <-------------------------->
     private final By name = By.xpath("//input[@placeholder='Name']");
     private final By mail = By.xpath("//input[@placeholder='Email']");
     private final By subject = By.xpath("//input[@placeholder='Subject']");
@@ -17,21 +14,24 @@ public class ContactUs extends Base{
     private final By attacheFile = By.xpath("//input[@name='upload_file']");
     private final By submitBtn = By.xpath("//input[@name='submit']");
 
+    public ContactUs(WebDriver driver) {
+        super(driver);
+    }
 
-// <--------------------------> Action methods <-------------------------->
-    public void  setName(String enterName){
+    // <--------------------------> Action methods <-------------------------->
+    public void setName(String enterName) {
         driver.findElement(name).sendKeys(enterName);
     }
 
-    public void setMail(String enterMail){
+    public void setMail(String enterMail) {
         driver.findElement(mail).sendKeys(enterMail);
     }
 
-    public void setSubject(String enterSubject){
+    public void setSubject(String enterSubject) {
         driver.findElement(subject).sendKeys(enterSubject);
     }
 
-    public void setYourMessage(String yourMessage){
+    public void setYourMessage(String yourMessage) {
         driver.findElement(enterYourMessageBox).sendKeys(yourMessage);
     }
 
@@ -46,8 +46,8 @@ public class ContactUs extends Base{
         System.out.println("File upload attempted: " + filePath);
     }
 
-    public void clickSubmit() throws Exception{
-        scrollBy(0,500);
+    public void clickSubmit() throws Exception {
+        scrollBy(0, 500);
         waitForElementToBeClickable(submitBtn);
         driver.findElement(submitBtn).click();
     }

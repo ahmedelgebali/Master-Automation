@@ -1,11 +1,12 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
-import pages.ProductsLocators;
-import utils.PropReader;
 import org.testng.annotations.Test;
 import pages.Products;
-import org.openqa.selenium.By;
+import pages.ProductsLocators;
+import utils.PropReader;
+
 import java.io.IOException;
 
 public class ProductsTest extends BaseTest {
@@ -32,7 +33,7 @@ public class ProductsTest extends BaseTest {
     public void addItemsToCart() {
         test.info("Adding some items to cart");
 
-        product.addItemsToCart(new By[] {ProductsLocators.itemPath1, ProductsLocators.itemPath2, ProductsLocators.itemPath3, ProductsLocators.itemPath4,
+        product.addItemsToCart(new By[]{ProductsLocators.itemPath1, ProductsLocators.itemPath2, ProductsLocators.itemPath3, ProductsLocators.itemPath4,
                 ProductsLocators.itemPath5, ProductsLocators.itemPath6, ProductsLocators.itemPath7, ProductsLocators.itemPath9, ProductsLocators.itemPath10,
                 ProductsLocators.itemPath15, ProductsLocators.itemPath16, ProductsLocators.lastItemPath
         });

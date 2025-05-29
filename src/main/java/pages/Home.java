@@ -20,6 +20,7 @@ public class Home extends Base {
             pause(500);
         }
     }
+
     //handle the popping banner add
     public void collapseBanner() {
         //collapse banner ad when it appears
@@ -47,8 +48,8 @@ public class Home extends Base {
 
 
     public void scrollToViewItems() {
-        for (int i = 0; i<15; i++){
-            scrollBy(0,500);
+        for (int i = 0; i < 15; i++) {
+            scrollBy(0, 500);
             pause(200);
         }
     }
@@ -87,10 +88,12 @@ public class Home extends Base {
             System.out.println("Pause interrupted: " + e.getMessage());
         }
     }
+
     private void clickWithPause(By locator) {
         safeClick(locator);
         pause(200);
     }
+
     private void addItemToCart(By itemLocator) {
         safeClick(itemLocator);
         waitForVisibility(HomeLocators.POPUP_CONTINUE_BTN);

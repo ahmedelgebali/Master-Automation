@@ -1,9 +1,10 @@
 package tests;
 
 import org.testng.annotations.BeforeClass;
-import utils.PropReader;
 import org.testng.annotations.Test;
 import pages.Home;
+import utils.PropReader;
+
 import java.io.IOException;
 
 public class HomeTest extends BaseTest {
@@ -29,13 +30,12 @@ public class HomeTest extends BaseTest {
     }
 
     @Test(priority = 2, dependsOnMethods = "testHeaderSlider")
-    public void viewAllHomeItems(){
+    public void viewAllHomeItems() {
         test.info("Viewing all items in Home page");
 
         home.scrollToViewItems();
         test.pass("all Home items found ");
     }
-
 
 
     @Test(priority = 3, dependsOnMethods = "viewAllHomeItems")

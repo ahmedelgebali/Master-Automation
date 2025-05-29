@@ -2,9 +2,10 @@ package tests;
 
 import com.aventstack.extentreports.Status;
 import org.testng.annotations.BeforeClass;
-import utils.PropReader;
 import org.testng.annotations.Test;
 import pages.Signup;
+import utils.PropReader;
+
 import java.io.IOException;
 
 public class SignupTest extends BaseTest {

@@ -8,21 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 public class Cart extends Base {
     private final Products product;
     private final Login login;
-
-    public Cart(WebDriver driver) {
-        super(driver);
-        this.product = new Products(driver);
-        this.login = new Login(driver);
-    }
-    public Cart(Actions action, JavascriptExecutor js) {
-        super(action, js);
-        this.product = new Products(driver);
-        this.login = new Login(driver);
-    }
-
-
-
-// <--------------------------> Locators <-------------------------->
+    // <--------------------------> Locators <-------------------------->
     private final By cartPagePath = By.xpath("//div//ul//li//a[@href='/view_cart']");
     private final By quantityFieldPath = By.xpath("//input[@id='quantity']");
     private final By processToCheckout = By.xpath("//a[normalize-space()='Proceed To Checkout']");
@@ -35,11 +21,21 @@ public class Cart extends Base {
     private final By payAndConfirm = By.xpath("//button[@id='submit']");
     private final By addToCartBtnInViewItem = By.xpath("//button[@type='button']");
     private final By continueBtn = By.xpath("//a[normalize-space()='Continue']");
-    private final By loginPath  = By.xpath("//u[normalize-space()='Register / Login']");
+    private final By loginPath = By.xpath("//u[normalize-space()='Register / Login']");
 
+    public Cart(WebDriver driver) {
+        super(driver);
+        this.product = new Products(driver);
+        this.login = new Login(driver);
+    }
 
+    public Cart(Actions action, JavascriptExecutor js) {
+        super(action, js);
+        this.product = new Products(driver);
+        this.login = new Login(driver);
+    }
 
-// <--------------------------> Action methods <-------------------------->
+    // <--------------------------> Action methods <-------------------------->
     // navigate to Cart
     public void moveToCart() {
         waitForElementToBeClickable(cartPagePath);
@@ -47,7 +43,7 @@ public class Cart extends Base {
     }
 
     //view item details
-    public void clickOnItemToViewAndBack(By itemLocator){
+    public void clickOnItemToViewAndBack(By itemLocator) {
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
         driver.navigate().back();
@@ -67,22 +63,22 @@ public class Cart extends Base {
 
 
     //printing the precises of items in the Cart
-    public void printItemPrice(String itemNumber){
+    public void printItemPrice(String itemNumber) {
         String itemPrice = driver.findElement(getItemPriceLocator(itemNumber)).getText();
         System.out.println(itemPrice);
     }
 
     // login to check out the order
-    public void loginToCheckout(){
+    public void loginToCheckout() {
         driver.findElement(processToCheckout).click();
         driver.findElement(loginPath).click();
         //The login to be performed through the Test class
     }
 
     //follow to check out the order
-    public void processAndPlaceOrder(){
+    public void processAndPlaceOrder() {
         driver.findElement(processToCheckout).click();
-        scrollBy(0,1000);
+        scrollBy(0, 1000);
         waitForVisibility(placeOrderBtn);
         driver.findElement(placeOrderBtn).click();
     }
@@ -101,10 +97,7 @@ public class Cart extends Base {
     }
 
 
-
-
-
-// <--------------------------> Helper methods <-------------------------->
+    // <--------------------------> Helper methods <-------------------------->
     public void clickOnItemToView(By itemLocator) {
         waitForElementToBeClickable(itemLocator);
         driver.findElement(itemLocator).click();
@@ -119,7 +112,7 @@ public class Cart extends Base {
         return getDynamicLocator("tr[id='product-X'] td[class='cart_price'] p", itemNum);
     }
 
-    public By getItemPathBasedOnItsOrderInCart(String itemOrder){
+    public By getItemPathBasedOnItsOrderInCart(String itemOrder) {
         String itemsLocator = "a[href='/product_details/X']";
         return By.cssSelector(itemsLocator.replace("X", String.valueOf(itemOrder)));
     }

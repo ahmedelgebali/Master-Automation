@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.BeforeClass;
 import pages.ProductsLocators;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
@@ -10,12 +11,13 @@ import java.io.IOException;
 
 public class ProductsTest extends BaseTest {
     private Products product;
-    @BeforeMethod
+
+    @BeforeClass
     public void initializeProduct() throws IOException {
         product = new Products(driver);
         driver.get(PropReader.getProp("baseURL"));
-        startTest("Products Page Test");
     }
+
 
     @Test(priority = 1)
     public void navigateToPage() {

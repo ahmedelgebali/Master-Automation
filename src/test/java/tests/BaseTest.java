@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.ExtentManager;
 
@@ -22,14 +23,20 @@ public class BaseTest {
     protected static ExtentReports extent;
     protected static ExtentTest test;
 
+    @BeforeMethod(alwaysRun = true)
+    public void prepareReportBase(ITestResult result) {
+        String testName = result.getMethod().getMethodName();
+        startTest(testName);
+    }
+    protected void startTest(String name) {
+        test = extent.createTest(name);
+    }
+
     @BeforeSuite
     public void setupExtent() {
         extent = ExtentManager.getInstance();
     }
 
-    protected void startTest(String testName) {
-        test = extent.createTest(testName);
-    }
 
     @AfterSuite
     public void tearDownExtent() {
@@ -42,7 +49,7 @@ public class BaseTest {
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
         initializingBrowser(browser);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
 

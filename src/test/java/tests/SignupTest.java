@@ -1,6 +1,7 @@
 package tests;
 
 import com.aventstack.extentreports.Status;
+import org.testng.annotations.BeforeClass;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,10 +12,9 @@ public class SignupTest extends BaseTest {
 
     Signup signup;
 
-    @BeforeMethod
+    @BeforeClass
     public void initializeSignup() {
         signup = new Signup(driver);
-        startTest("Signup Test, opening Home page ");  // Start the test for each method
     }
 
     @Test(priority = 1)

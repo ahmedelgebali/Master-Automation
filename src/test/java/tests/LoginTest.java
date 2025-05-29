@@ -1,5 +1,7 @@
 package tests;
 
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,11 +12,12 @@ public class LoginTest extends BaseTest {
 
     Login login;
 
-    @BeforeMethod
+
+    @BeforeClass
     public void initializeLogin() {
         login = new Login(driver);
-        startTest("Login Test");
     }
+
 
     @Test(priority = 1)
     public void testLogin() throws IOException, InterruptedException {

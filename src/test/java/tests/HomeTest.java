@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.BeforeClass;
 import utils.PropReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,16 +11,19 @@ public class HomeTest extends BaseTest {
 
     private Home home;
 
-    @BeforeMethod
-    public void initializeHome() {
+    @BeforeClass
+    public void initializeHome() throws IOException {
         home = new Home(driver);
         startTest("Home Page Test");
+        driver.get(PropReader.getProp("baseURL"));
     }
 
+
+
     @Test(priority = 1)
-    public void testHeaderSlider() throws IOException {
+    public void testHeaderSlider() {
         test.info("Testing header slider");
-        driver.get(PropReader.getProp("baseURL"));
+
 
         home.headerSliderAction();
         test.pass("Header slider action works");

@@ -1,11 +1,14 @@
 package tests;
 
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.BeforeMethod;
 import utils.PropReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ContactUs;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ContactUsTest extends BaseTest {
     ContactUs contact;
@@ -13,14 +16,14 @@ public class ContactUsTest extends BaseTest {
     @BeforeClass
     public void initializeContact() throws IOException {
         driver.get(PropReader.getProp("contactUs"));
-        startTest("Contact Us Test");
     }
+
 
     @Test
     public void contactUsPageLoads() throws IOException {
         test.log(Status.INFO, "Opening Contact Us page");
 
-        if (driver.getCurrentUrl().equals(PropReader.getProp("contactUs"))) {
+        if (Objects.equals(driver.getCurrentUrl(), PropReader.getProp("contactUs"))) {
             test.pass("Page loaded successfully");
         } else {
             test.fail("Page failed to load");
@@ -45,6 +48,10 @@ public class ContactUsTest extends BaseTest {
         contact.setYourMessage(message);
         contact.uploadFile(imagePath);
         contact.clickSubmit();
+
+        //skip the pop-up
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
 
         test.pass("Form submitted successfully");
     }

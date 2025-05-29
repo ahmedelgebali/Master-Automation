@@ -25,8 +25,8 @@ public class Cart extends Base {
 // <--------------------------> Locators <-------------------------->
     private final By cartPagePath = By.xpath("//div//ul//li//a[@href='/view_cart']");
     private final By quantityFieldPath = By.xpath("//input[@id='quantity']");
-    private final By processedBtn = By.xpath("//a[@class='btn btn-default check_out']");
-    private final By placeOrderBtn = By.xpath("//a[@class='btn btn-default check_out']");
+    private final By processToCheckout = By.xpath("//a[normalize-space()='Proceed To Checkout']");
+    private final By placeOrderBtn = By.xpath("//a[normalize-space()='Place Order']");
     private final By nameOnCart = By.xpath("//input[@name='name_on_card']");
     private final By cartNum = By.xpath("//input[@name='card_number']");
     private final By cvc = By.xpath("//input[@placeholder='ex. 311']");
@@ -77,17 +77,22 @@ public class Cart extends Base {
         String itemPrice = driver.findElement(getItemPriceLocator(itemNumber)).getText();
         System.out.println(itemPrice);
     }
-    public void goLogin(){
-        driver.findElement(processedBtn).click();
+    public void goLoginToCheckout(){
+        driver.findElement(processToCheckout).click();
         driver.findElement(loginPath).click();
+        //login to be performed through the Test class
 
     }
-
-    public void processedCheckout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
-
+    public void processAndPlaceOrder(){
+        driver.findElement(processToCheckout).click();
         scrollBy(0,1000);
         waitForVisibility(placeOrderBtn);
         driver.findElement(placeOrderBtn).click();
+    }
+
+    public void payment(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
+
+
 
         driver.findElement(nameOnCart).sendKeys(NameOnCart);
         driver.findElement(cartNum).sendKeys(CartNumber);

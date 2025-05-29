@@ -64,7 +64,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(priority = 4, dependsOnMethods = "printOutItemPrices" )
-    public void clickOnItemToView() {
+    public void clickOnItemsToView() {
         test.info("Clicking on item to view");
 
         By itemLocator = cart.getItemPathBasedOnItsOrderInCart("2");
@@ -82,24 +82,30 @@ public class CartTest extends BaseTest {
         test.pass("Item quantity changed");
     }
 
-     @Test (dependsOnMethods = "changeQuantityOfItem")
-    public void checkout() throws IOException {
-        test.info("Performing checkout");
-
+     @Test (priority = 6, dependsOnMethods = "changeQuantityOfItem")
+     public void processToCheckout () throws IOException {
          cart.moveToCart();
-         cart.goLogin();
+         cart.goLoginToCheckout();
          performLogin();
          cart.moveToCart();
+         cart.processAndPlaceOrder();
+     }
 
+
+    @Test(priority = 7, dependsOnMethods = "processToCheckout")
+    public void checkoutTheOrder() throws IOException {
         String name = PropReader.getProp("nameOnCart");
         String cartNum = PropReader.getProp("cartNum");
         String cvc = PropReader.getProp("CVC");
         String expMonth = PropReader.getProp("expirationMonth");
         String expYear = PropReader.getProp("expirationYear");
 
-        cart.processedCheckout(name, cartNum, cvc, expMonth, expYear);
+
+        cart.payment(name, cartNum, cvc, expMonth, expYear);
         test.pass("Checkout processed successfully");
     }
+
+
 
 
     public void performLogin() throws IOException {

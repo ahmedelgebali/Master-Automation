@@ -8,9 +8,9 @@
 <!--        <class name="tests.SignupTest" />       &lt;!&ndash; refactor done&ndash;&gt;-->
         <class name="tests.LoginTest" />        <!-- refactor done-->
         <class name="tests.HomeTest" />         <!-- refactor done-->
-<!--        <class name="tests.ContactUsTest" />    &lt;!&ndash; refactor done&ndash;&gt;-->
-<!--        <class name="tests.ProductsTest" />     &lt;!&ndash; refactor done&ndash;&gt;-->
-<!--        <class name="tests.CartTest" />         &lt;!&ndash; refactor done&ndash;&gt;-->
+        <class name="tests.ContactUsTest" />    <!-- refactor done-->
+        <class name="tests.ProductsTest" />     <!-- refactor done-->
+        <class name="tests.CartTest" />         <!-- refactor done-->
     </classes>
 </test>
 </suite>

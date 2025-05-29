@@ -19,9 +19,9 @@ public class BaseTest {
 
     protected static WebDriver driver;
     protected static WebDriverWait wait;
-
     protected static ExtentReports extent;
     protected static ExtentTest test;
+
 
     @BeforeMethod(alwaysRun = true)
     public void prepareReportBase(ITestResult result) {
@@ -31,17 +31,15 @@ public class BaseTest {
     protected void startTest(String name) {
         test = extent.createTest(name);
     }
-
     @BeforeSuite
     public void setupExtent() {
         extent = ExtentManager.getInstance();
     }
-
-
     @AfterSuite
     public void tearDownExtent() {
         extent.flush();
     }
+
 
 
 
@@ -54,8 +52,7 @@ public class BaseTest {
     }
 
 
-
-//    @AfterClass(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -63,14 +60,8 @@ public class BaseTest {
     }
 
 
-
-
-
     private void initializingBrowser(String browser) {
         switch (browser.toLowerCase(Locale.ROOT)) {
-            case "chrome":
-                driver = new ChromeDriver();
-                break;
             case "edge":
                 driver = new EdgeDriver();
                 break;
@@ -80,10 +71,6 @@ public class BaseTest {
             default:
                 driver = new ChromeDriver();
         }
-    }
-
-    public void waitForVisibility(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
 

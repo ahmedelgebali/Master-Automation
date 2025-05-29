@@ -2,7 +2,6 @@ package tests;
 
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.annotations.BeforeMethod;
 import utils.PropReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,13 +12,14 @@ import java.util.Objects;
 public class ContactUsTest extends BaseTest {
     ContactUs contact;
 
+
     @BeforeClass
     public void initializeContact() throws IOException {
         driver.get(PropReader.getProp("contactUs"));
     }
 
 
-    @Test
+    @Test(priority = 1)
     public void contactUsPageLoads() throws IOException {
         test.log(Status.INFO, "Opening Contact Us page");
 
@@ -30,7 +30,7 @@ public class ContactUsTest extends BaseTest {
         }
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void testContactUs() throws Exception {
         test.info("Filling out the Contact Us form");
 
@@ -49,7 +49,7 @@ public class ContactUsTest extends BaseTest {
         contact.uploadFile(imagePath);
         contact.clickSubmit();
 
-        //skip the pop-up
+        //skip the popping pop-up
         wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
 

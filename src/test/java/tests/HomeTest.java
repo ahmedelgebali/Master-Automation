@@ -2,28 +2,24 @@ package tests;
 
 import org.testng.annotations.BeforeClass;
 import utils.PropReader;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Home;
 import java.io.IOException;
 
 public class HomeTest extends BaseTest {
-
     private Home home;
+
 
     @BeforeClass
     public void initializeHome() throws IOException {
         home = new Home(driver);
-        startTest("Home Page Test");
         driver.get(PropReader.getProp("baseURL"));
     }
-
 
 
     @Test(priority = 1)
     public void testHeaderSlider() {
         test.info("Testing header slider");
-
 
         home.headerSliderAction();
         test.pass("Header slider action works");

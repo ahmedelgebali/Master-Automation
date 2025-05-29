@@ -3,7 +3,6 @@ package tests;
 import com.aventstack.extentreports.Status;
 import org.testng.annotations.BeforeClass;
 import utils.PropReader;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.Signup;
 import java.io.IOException;
@@ -12,10 +11,12 @@ public class SignupTest extends BaseTest {
 
     Signup signup;
 
+
     @BeforeClass
     public void initializeSignup() {
         signup = new Signup(driver);
     }
+
 
     @Test(priority = 1)
     public void signupInitialPage() throws IOException {
@@ -26,17 +27,20 @@ public class SignupTest extends BaseTest {
         String mail = PropReader.getProp("mail");
 
         driver.get(url);
+        test.pass("Opened the Home page successfully");
+
         signup.openLoginAndSignupPage();
+        test.pass("Opened the login & signup page successfully");
+
         signup.enterName(name);
         signup.enterMail(mail);
         signup.clickSignupBtn();
-
-        test.pass("Signup initial Signup page loaded successfully");
+        test.pass("Entered the initial Signup info successfully");
     }
 
     @Test(priority = 2, dependsOnMethods = "signupInitialPage")
     public void signupInfoPage() throws IOException {
-        test.log(Status.INFO, "Filing the Signup info..");
+        test.log(Status.INFO, "Filing the extension Signup info..");
 
         String pass = PropReader.getProp("pass");
         String day = PropReader.getProp("day");
@@ -69,6 +73,6 @@ public class SignupTest extends BaseTest {
         signup.printSignupConfirmationMessage();
         signup.clickContinueBtn();
 
-        test.pass("Signup info completed and created a new user successfully");
+        test.pass("Extension Signup info entered and created a new user successfully");
     }
 }

@@ -88,7 +88,7 @@ public class Cart extends Base {
     }
 
     //check out the order
-    public void checkout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
+    public void fillTheCartInfoAndCheckout(String NameOnCart, String CartNumber, String CVC, String ExpirationMonth, String ExpirationYear) {
         driver.findElement(nameOnCart).sendKeys(NameOnCart);
         driver.findElement(cartNum).sendKeys(CartNumber);
         driver.findElement(cvc).sendKeys(CVC);

@@ -59,7 +59,6 @@ public class BaseTest {
         }
     }
 
-
     private void initializingBrowser(String browser) {
         switch (browser.toLowerCase(Locale.ROOT)) {
             case "edge":

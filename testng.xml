@@ -5,7 +5,7 @@
 <suite name="FullSuite" parallel="false">
     <test name="FullAppFlow">
         <classes>
-            <!--        <class name="tests.SignupTest" />       &lt;!&ndash; refactor done&ndash;&gt;-->
+            <class name="tests.SignupTest" />      <!-- refactor done-->
             <class name="tests.LoginTest"/>        <!-- refactor done-->
             <class name="tests.HomeTest"/>         <!-- refactor done-->
             <class name="tests.ContactUsTest"/>    <!-- refactor done-->

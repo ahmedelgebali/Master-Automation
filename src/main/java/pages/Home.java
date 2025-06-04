@@ -22,14 +22,11 @@ public class Home extends Base {
     }
 
     //handle the popping banner add
-    public void collapseBanner() {
+    public void collapseBanner() throws NoSuchElementException {
         //collapse banner ad when it appears
-        try {
-            WebElement collapseBtn = driver.findElement(By.xpath("//div[@class='grippy-host']"));
-            if (collapseBtn.isDisplayed()) {
-                collapseBtn.click();
-            }
-        } catch (NoSuchElementException _) {
+        WebElement collapseBtn = driver.findElement(By.xpath("//div[@class='grippy-host']"));
+        if (collapseBtn.isDisplayed()) {
+            collapseBtn.click();
         }
     }
 

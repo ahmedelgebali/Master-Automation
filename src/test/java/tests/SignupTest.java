@@ -76,4 +76,65 @@ public class SignupTest extends BaseTest {
 
         test.pass("Extension Signup info entered and created a new user successfully");
     }
+
+
+    @Test(priority = 3)
+    public void signupNewUserWithDynamicData() throws IOException {
+        test.log(Status.INFO, "Signing up a new user with dynamically generated data");
+
+        String url = PropReader.getProp("baseURL");
+
+        // Generate unique name and email
+        long timestamp = System.currentTimeMillis();
+        String name = "TestUser" + timestamp;
+        String mail = "testuser" + timestamp + "@example.com";
+
+        // Load the rest of the data from prop file
+        String pass = PropReader.getProp("pass");
+        String day = PropReader.getProp("day");
+        String month = PropReader.getProp("month");
+        String year = PropReader.getProp("year");
+        String firstName = PropReader.getProp("firstName");
+        String lastName = PropReader.getProp("lastName");
+        String companyName = PropReader.getProp("companyName");
+        String addressStreet = PropReader.getProp("addressStreet");
+        String address2 = PropReader.getProp("address2");
+        String zip = PropReader.getProp("zip");
+        String country = PropReader.getProp("country");
+        String state = PropReader.getProp("state");
+        String city = PropReader.getProp("city");
+        String mobileNumber = PropReader.getProp("mobileNumber");
+
+        // Start the test
+        driver.get(url);
+        test.pass("Opened the Home page successfully");
+
+        signup.openLoginAndSignupPage();
+        test.pass("Opened the login & signup page successfully");
+
+        signup.enterName(name);
+        signup.enterMail(mail);
+        signup.clickSignupBtn();
+        test.pass("Entered the initial Signup info successfully");
+
+        // Fill the extended signup info
+        signup.selectTitle();
+        signup.enterPass(pass);
+        signup.selectDay(day);
+        signup.selectMonth(month);
+        signup.selectYear(year);
+        signup.markNewsCheckbox();
+        signup.receiveOfferCheckbox();
+        signup.nameAndAddresses(firstName, lastName, companyName, addressStreet, address2);
+        signup.setCountryDropdown(country);
+        signup.stateAndCity(state, city);
+        signup.zipCode(zip);
+        signup.mobileNumber(mobileNumber);
+        signup.createAccountBtn();
+        signup.printSignupConfirmationMessage();
+        signup.clickContinueBtn();
+
+        test.pass("Successfully signed up a new user with dynamic data");
+    }
+
 }
